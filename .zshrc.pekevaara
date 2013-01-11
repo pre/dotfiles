@@ -1,0 +1,57 @@
+export ARCHFLAGS="-arch x86_64"
+#export DYLD_LIBRARY_PATH="/usr/local/oracle/instantclient_10_2"
+export SQLPATH="/usr/local/oracle/instantclient_10_2"
+#export TNS_ADMIN="/usr/local/oracle/network/admin"
+export NLS_LANG="AMERICAN_AMERICA.UTF8"
+#export PATH=$PATH:$DYLD_LIBRARY_PATH
+export PATH=/usr/local/bin:/usr/local/play-1.2.5:$PATH
+
+export NODE_PATH=/usr/local/lib/node_modules
+
+export _JAVA_OPTIONS="-Xms192m -Xmx192m -XX:PermSize=64m -XX:MaxPermSize=128m"
+export JPDA_ADDRESS=8000
+export JPDA_TRANSPORT=dt_socket
+export MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n"
+
+setopt auto_cd
+cdpath=($HOME/Development $HOME/Documents)
+
+alias e='subl'
+alias i='imgur2' # gem install imgur2 
+alias dug="du -sch * | grep '^[\ 0-9,\.]*G'"
+alias less='less -R'
+alias mkdir='mkdir -pv'
+
+alias lsd='ls -ld *(-/DN)'
+alias lsa='ls -ld .*'
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias ......='cd ../../../../../'
+
+alias -g L='|less'
+alias -g H='|head'
+alias -g T='|tail'
+alias -g G='|grep'
+
+alias my-start='mysql.server start'
+alias my-stop='mysql.server stop'
+alias pg-start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pg-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+alias redis-start='redis-server /usr/local/etc/redis.conf'
+
+alias mysql-start='cd /usr/local/Cellar/mysql/5.5.25a ; /usr/local/Cellar/mysql/5.5.25a/bin/mysqld_safe &'
+alias mysql-stop='mysql.server stop'
+
+alias web-server='python -m SimpleHTTPServer 8888'
+
+alias diff-inline='wdiff -w "$(tput bold;tput setaf 1)" -x "$(tput sgr0)" -y "$(tput bold;tput setaf 2)" -z "$(tput sgr0)"'
+
+# If you're using zsh (possibly with oh-my-zsh) and your prompt displays the
+# current directory as "~rvm_rvmrc_cwd", the fix to add the following to your
+# shell file before sourcing rvm:
+unsetopt auto_name_dirs
+
+# This loads RVM into a shell session.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"

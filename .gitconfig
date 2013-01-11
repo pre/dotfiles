@@ -1,0 +1,99 @@
+## Mislav Git tricks
+## http://mislav.uniqpath.com/2010/07/git-tips/
+##
+# Find out if a change is part of a release
+#   $ git name-rev --name-only 50f3754
+#      "tags/v2.3.8~6"
+#
+#   $ pbpaste | git name-rev --stdin
+#
+#   "This bug was introduced in e6cadd422b72ba9818cc2f3b22243a6aa754c9f8 (tags/v2.3.6~215)
+#   but fixed in 50f3754525c61e3ea84a407eb571617f2f39d6fe (tags/v2.3.8~6), if I recall
+#   correctly."
+##
+# Find out which branch contains a change
+#   $ git branch --contains 50f3754
+#
+##
+# See which changes from a branch are already present upstream:
+#
+#   # while on "feature" branch:
+#   $ git cherry -v master
+#
+#    + 497034f2 Listener.new now accepts a hash of options
+#    - 2d0333ff cache the absolute images path for growl messages
+#    + e4406858 rename Listener#run to #start
+##
+# Show the last commit which message matches a regex
+#   $ git show :/fix
+#   # shows the last commit which has the word "fix" in its message
+#
+#   $ git show :/^Merge
+#   # shows the last merge commit
+#
+##
+[core]
+    excludesfile = /Users/pre/.gitignore
+    editor = subl -w
+[user]
+    name = Petrus Repo
+    email = petrus.repo@iki.fi
+[alias]
+    st = status -sb
+    ci = commit
+    co = checkout
+    br = branch
+    lbr = branch -a
+    lbrv = branch -lvvv
+    gren = grep -n
+    lg = log -p --decorate
+    staged = diff --cached
+    cached = diff --cached
+    unstaged = diff
+    both = diff HEAD
+    oneline = log --pretty=oneline
+    amend = commit --amend
+    cp = cherry-pick -x
+    ch = cherry -v
+    wdiff = diff --color-words
+    # Because branch merges in git are recorded with a merge commit,
+    # they are supposed to be meaningful—for example, to indicate when a feature
+    # has been merged to a release branch. However, during a regular daily
+    # workflow where several team members sync a single branch often, the
+    # timeline gets polluted with unnecessary micro-merges on regular git pull.
+    # Rebasing ensures that the commits are always re-applied so that the history stays linear.
+    #
+    # You can configure certain branches to always do this without the --rebase flag:
+    # % git config branch.master.rebase true
+    rull = pull --rebase
+[color]
+    ui = true
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+# git push will by default push all branches that have the same name
+# on the remote. To limit this behavior to just the current branch and
+# to prevent accidental pushes to branches which you’re not ready to push yet:
+[push]
+  default = tracking
+[rebase]
+  stat = true
+[interactive]
+  singlekey = true
+
+# ENABLE IF YOU HAVE P4MERGE, REMEMBER PATH
+ [merge]
+     tool = lolmerge # This will be the default merge tool invoked by git mergetool.
+ [mergetool]
+   keepBackup = false
+   keepTemporaries = false
+ [mergetool "lolmerge"]
+   # I put p4merge and DiffMerge in /Applications/Utilities, but you might have them in /Applications.
+   cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \
+       "$PWD/$BASE" \
+       "$PWD/$REMOTE" \
+       "$PWD/$LOCAL" \
+       "$PWD/$MERGED"
+   keepBackup = false
+   trustExitCode = false

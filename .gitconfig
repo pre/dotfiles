@@ -56,6 +56,10 @@
     cp = cherry-pick -x
     ch = cherry -v
     wdiff = diff --color-words
+    datetag = !git tag `date \"+%Y%m%d%H%M\"`  # create a new tag from HEAD with the current timestamp
+    #
+    # Pull & Rebase
+    #
     # Because branch merges in git are recorded with a merge commit,
     # they are supposed to be meaningful—for example, to indicate when a feature
     # has been merged to a release branch. However, during a regular daily

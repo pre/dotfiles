@@ -47,6 +47,7 @@
     lbrv = branch -lvvv
     gren = grep -n
     lg = log -p --decorate
+    count   = !git shortlog -sn
     staged = diff --cached
     cached = diff --cached
     unstaged = diff
@@ -56,7 +57,10 @@
     cp = cherry-pick -x
     ch = cherry -v
     wdiff = diff --color-words
-    datetag = !git tag `date \"+%Y%m%d%H%M\"`  # create a new tag from HEAD with the current timestamp
+    wtf               = !$HOME/bin/git-wtf
+    show-merges       = !$HOME/bin/git-show-merges
+    rank-contributors = !$HOME/bin/git-rank-contributors
+    datetag           = !git tag `date \"+%Y%m%d%H%M\"`  # create a new tag from HEAD with the current timestamp
     #
     # Pull & Rebase
     #

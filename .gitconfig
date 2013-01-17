@@ -57,9 +57,6 @@
     cp = cherry-pick -x
     ch = cherry -v
     wdiff = diff --color-words
-    wtf               = !$HOME/bin/git-wtf
-    show-merges       = !$HOME/bin/git-show-merges
-    rank-contributors = !$HOME/bin/git-rank-contributors
     datetag           = !git tag `date \"+%Y%m%d%H%M\"`  # create a new tag from HEAD with the current timestamp
     #
     # Pull & Rebase
@@ -74,6 +71,12 @@
     # You can configure certain branches to always do this without the --rebase flag:
     # % git config branch.master.rebase true
     rull = pull --rebase
+    #
+    # Git-wtf & pals from
+    #    http://git-wt-commit.rubyforge.org/#git-wtf
+    wtf               = !$HOME/bin/git-wtf
+    show-merges       = !$HOME/bin/git-show-merges
+    rank-contributors = !$HOME/bin/git-rank-contributors
 [color]
     ui = true
     branch = auto

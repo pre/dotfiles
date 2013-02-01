@@ -48,6 +48,7 @@
     gren = grep -n
     lg = log -p --decorate
     count   = !git shortlog -sn
+    checkpoint = !git stash && git stash apply
     staged = diff --cached
     cached = diff --cached
     unstaged = diff
@@ -61,17 +62,25 @@
     #
     # Pull & Rebase
     #
-    # Because branch merges in git are recorded with a merge commit,
-    # they are supposed to be meaningful—for example, to indicate when a feature
-    # has been merged to a release branch. However, during a regular daily
-    # workflow where several team members sync a single branch often, the
-    # timeline gets polluted with unnecessary micro-merges on regular git pull.
-    # Rebasing ensures that the commits are always re-applied so that the history stays linear.
+    # Because branch merges in git are recorded with a merge commit, they are
+    # supposed to be meaningful—for example, to indicate when a feature has
+    # been merged to a release branch. However, during a regular daily workflow
+    # where several team members sync a single branch often, the timeline gets
+    # polluted with unnecessary micro-merges on regular git pull.  Rebasing
+    # ensures that the commits are always re-applied so that the history stays
+    # linear.
     #
     # You can configure certain branches to always do this without the --rebase flag:
     # % git config branch.master.rebase true
     rull = pull --rebase
-    #
+
+    # If you want to execute a git pull or use git merge in order to explicitly
+    # fast-forward, and you want to bail out if it can't fast-forward, then you
+    # can use the --ff-only flag. This way you can regularly do something like
+    # git pull --ff-only without thinking, and then if it errors out you can go
+    # back and decide if you want to merge or rebase.
+    full = pull --ff-only
+    
     # Git-wtf & pals from
     #    http://git-wt-commit.rubyforge.org/#git-wtf
     wtf               = !$HOME/bin/git-wtf

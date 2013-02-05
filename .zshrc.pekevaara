@@ -45,7 +45,8 @@ alias redis-start='redis-server /usr/local/etc/redis.conf'
 alias mysql-start='cd /usr/local/Cellar/mysql/5.5.25a ; /usr/local/Cellar/mysql/5.5.25a/bin/mysqld_safe &'
 alias mysql-stop='mysql.server stop'
 
-alias web-server='python -m SimpleHTTPServer 8888'
+alias web-server='python -m SimpleHTTPServer 8888'  # allows local access
+alias web-server-global='localtunnel 8888'          # allows global access, install: "gem install localtunnel"
 
 alias diff-inline='wdiff -w "$(tput bold;tput setaf 1)" -x "$(tput sgr0)" -y "$(tput bold;tput setaf 2)" -z "$(tput sgr0)"'
 

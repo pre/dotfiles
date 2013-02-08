@@ -27,8 +27,10 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 source ${HOME}/.zshrc.pekevaara
+source ${HOME}/.zshrc.private
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+

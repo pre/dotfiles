@@ -102,14 +102,12 @@
 [interactive]
   singlekey = true
 
-# ENABLE IF YOU HAVE P4MERGE, REMEMBER PATH
- [merge]
-     tool = lolmerge # This will be the default merge tool invoked by git mergetool.
- [mergetool]
+[merge]
+   tool = lolmerge # This will be the default merge tool invoked by git mergetool.
+[mergetool]
    keepBackup = false
    keepTemporaries = false
- [mergetool "lolmerge"]
-   # I put p4merge and DiffMerge in /Applications/Utilities, but you might have them in /Applications.
+[mergetool "lolmerge"]
    cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \
        "$PWD/$BASE" \
        "$PWD/$REMOTE" \

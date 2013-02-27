@@ -58,7 +58,9 @@
     cp = cherry-pick -x
     ch = cherry -v
     wdiff = diff --color-words
-    datetag           = !git tag `date \"+%Y%m%d%H%M\"`  # create a new tag from HEAD with the current timestamp
+    tag-date            = !git tag `date \"+%Y-%m-%d\"`  # create a new tag from HEAD with the current timestamp
+    tag-prod            = !git tag "Production-`date \"+%Y-%m-%d\"`"
+    tag-prod-migrate    = !git tag "ProductionMigration-`date \"+%Y-%m-%d\"`"
     #
     # Pull & Rebase
     #

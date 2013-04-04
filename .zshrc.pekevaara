@@ -20,6 +20,7 @@ cdpath=($HOME/Development $HOME/Documents)
 alias gg='git grep -n'
 alias e='subl'
 alias i='imgur2' # gem install imgur2 
+alias t='traceroute -d 195.74.0.47' # is network down?
 alias dug="du -sch * | grep '^[\ 0-9,\.]*G'"
 alias less='less -R'
 alias mkdir='mkdir -pv'

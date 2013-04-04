@@ -46,7 +46,7 @@
     lbr = branch -a
     lbrv = branch -lvvv
     gren = grep -n
-    lg = log -p --decorate
+    lg = log --all --graph --decorate --oneline --simplify-by-decoration
     count   = !git shortlog -sn
     checkpoint = !git stash && git stash apply
     staged = diff --cached

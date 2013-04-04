@@ -1,5 +1,8 @@
 .DS_Store
-.idea/
 .tags
 
-km-erp.iml
+# IDEA project files
+/.idea/
+/*.iml
+/*.ipr
+/*.iws

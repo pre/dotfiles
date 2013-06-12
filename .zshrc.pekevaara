@@ -64,6 +64,8 @@ alias diff-inline='wdiff -w "$(tput bold;tput setaf 1)" -x "$(tput sgr0)" -y "$(
 unsetopt auto_name_dirs
 
 source $HOME/zsh-functions/gifify.zsh
+source $HOME/zsh-functions/man-preview.zsh
+source $HOME/zsh-functions/quick-look.zsh
 
 # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"

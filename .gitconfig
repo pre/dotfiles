@@ -47,6 +47,7 @@
     lbrv = branch -lvvv
     gren = grep -n
     lg = log --all --graph --decorate --oneline --simplify-by-decoration
+    my-commits = log --branches --author petrus.repo@iki.fi
     count   = !git shortlog -sn
     checkpoint = !git stash && git stash apply
     staged = diff --cached

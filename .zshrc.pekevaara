@@ -44,6 +44,8 @@ alias pg-start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/ser
 alias pg-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias redis-start='redis-server /usr/local/etc/redis.conf'
 
+alias es-start='cd /usr/local/elasticsearch-0.19.9 && bin/elasticsearch -f'
+
 alias mysql-start='cd /usr/local/Cellar/mysql/5.5.25a ; /usr/local/Cellar/mysql/5.5.25a/bin/mysqld_safe &'
 alias mysql-stop='mysql.server stop'
 

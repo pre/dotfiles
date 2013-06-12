@@ -25,6 +25,8 @@ alias dug="du -sch * | grep '^[\ 0-9,\.]*G'"
 alias less='less -R'
 alias mkdir='mkdir -pv'
 
+export PLAYPID_CMD="ps xau | grep '/usr/bin/java -javaagent:/usr/local/play-1.2.5/framework/play-1.2.5.jar' |grep -v grep |awk '{print \$2}'"
+
 alias lsd='ls -ld *(-/DN)'
 alias lsa='ls -ld .*'
 alias ..='cd ../'

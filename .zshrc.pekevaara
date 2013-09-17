@@ -69,3 +69,10 @@ source $HOME/zsh-functions/quick-look.zsh
 
 # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+# This loads NVM
+[[ -s /Users/pre/.nvm/nvm.sh ]] && . /Users/pre/.nvm/nvm.sh 
+
+# NVM Defaults
+nvm use 0.10
+nvm alias default 0.10

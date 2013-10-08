@@ -4,7 +4,7 @@ export SQLPATH="/usr/local/oracle/instantclient_10_2"
 #export TNS_ADMIN="/usr/local/oracle/network/admin"
 export NLS_LANG="AMERICAN_AMERICA.UTF8"
 #export PATH=$PATH:$DYLD_LIBRARY_PATH
-export PATH=/usr/local/bin:/usr/local/play-1.2.5:$PATH
+export PATH=/usr/local/bin:$HOME/tizen-sdk/tools/ide/bin:$PATH
 
 export NODE_PATH=/usr/local/lib/node_modules
 
@@ -25,8 +25,6 @@ alias dug="du -sch * | grep '^[\ 0-9,\.]*G'"
 alias less='less -R'
 alias mkdir='mkdir -pv'
 
-export PLAYPID_CMD="ps xau | grep '/usr/bin/java -javaagent:/usr/local/play-1.2.5/framework/play-1.2.5.jar' |grep -v grep |awk '{print \$2}'"
-
 alias lsd='ls -ld *(-/DN)'
 alias lsa='ls -ld .*'
 alias ..='cd ../'
@@ -45,6 +43,7 @@ alias my-stop='mysql.server stop'
 alias pg-start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pg-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias redis-start='redis-server /usr/local/etc/redis.conf'
+alias mongo-start='mongod'
 
 alias es-start='cd /usr/local/elasticsearch-0.19.9 && bin/elasticsearch -f'
 

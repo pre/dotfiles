@@ -4,12 +4,12 @@ export SQLPATH="/usr/local/oracle/instantclient_10_2"
 #export TNS_ADMIN="/usr/local/oracle/network/admin"
 export NLS_LANG="AMERICAN_AMERICA.UTF8"
 #export PATH=$PATH:$DYLD_LIBRARY_PATH
-export PATH=/usr/local/bin:$HOME/tizen-sdk/tools/ide/bin:$PATH
+export PATH=/usr/local/bin:$HOME/tizen-sdk/tools/ide/bin:$HOME/android-sdk/platform-tools:$PATH
 
+export ANDROID_HOME=$HOME/android-sdk
 export NODE_PATH=/usr/local/lib/node_modules
 
-#export _JAVA_OPTIONS="-Xms192m -Xmx192m -XX:PermSize=64m -XX:MaxPermSize=128m"
-export _JAVA_OPTIONS="-Xms256m -Xmx512m -XX:PermSize=64m -XX:MaxPermSize=256m"
+#export _JAVA_OPTIONS="-Xms256m -Xmx512m -XX:PermSize=64m -XX:MaxPermSize=256m"
 export JPDA_ADDRESS=8000
 export JPDA_TRANSPORT=dt_socket
 export MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n"
@@ -49,6 +49,10 @@ alias es-start='cd /usr/local/elasticsearch-0.19.9 && bin/elasticsearch -f'
 
 alias mysql-start='cd /usr/local/Cellar/mysql/5.5.25a ; /usr/local/Cellar/mysql/5.5.25a/bin/mysqld_safe &'
 alias mysql-stop='mysql.server stop'
+
+alias tizen-sign-webapp='webtizen -s -p richard:~/tizen-sdk-data/lulz_profiles.xml'
+alias tizen-package-webapp='webtizen -p application.wgt .'
+alias tizen-install-webapp='webtizen -i -w application.wgt'
 
 ## check also xip.io for local dns fiddling
 alias web-server='python -m SimpleHTTPServer 8888'  # allows local access

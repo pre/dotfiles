@@ -1,3 +1,8 @@
+# to access the online help:
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/helpfiles
+
 export ARCHFLAGS="-arch x86_64"
 #export DYLD_LIBRARY_PATH="/usr/local/oracle/instantclient_10_2"
 export SQLPATH="/usr/local/oracle/instantclient_10_2"

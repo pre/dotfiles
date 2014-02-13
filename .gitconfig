@@ -104,6 +104,12 @@
   stat = true
 [interactive]
   singlekey = true
+[grep]
+  lineNumber = true
+
+# Delete remote-tracking local branches that have been removed from remote
+[fetch]
+  prune = true
 
 [merge]
    tool = lolmerge # This will be the default merge tool invoked by git mergetool.

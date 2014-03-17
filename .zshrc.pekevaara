@@ -10,10 +10,12 @@ export SQLPATH="/usr/local/oracle/instantclient_10_2"
 export NLS_LANG="AMERICAN_AMERICA.UTF8"
 
 export PATH=/usr/local/bin:$PATH
-export PATH=$PATH:$HOME/Android/sdk/platform-tools:$HOME/Android/sdk/tools  # Android
 export PATH=$PATH:$HOME/.rvm/bin # RVM 
 
+# ANDROID
+export PATH=$PATH:$HOME/Android/sdk/platform-tools:$HOME/Android/sdk/tools
 export ANDROID_HOME=$HOME/Android/sdk
+
 export NODE_PATH=/usr/local/lib/node_modules
 
 #export _JAVA_OPTIONS="-Xms256m -Xmx512m -XX:PermSize=64m -XX:MaxPermSize=256m"

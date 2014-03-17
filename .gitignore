@@ -3,6 +3,6 @@
 
 # IDEA project files
 /.idea/
-/*.iml
+*.iml
 /*.ipr
 /*.iws

@@ -80,7 +80,8 @@ source $HOME/zsh-functions/quick-look.zsh
 # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-# This loads NVM
+# NVM
+export NODE_PATH=$NODE_PATH:/Users/pre/.nvm/v0.10.25/lib/node_modules
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh
 
 # NVM Defaults

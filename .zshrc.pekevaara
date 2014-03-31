@@ -15,6 +15,7 @@ export PATH=$PATH:$HOME/.rvm/bin # RVM
 # ANDROID
 export PATH=$PATH:$HOME/Android/sdk/platform-tools:$HOME/Android/sdk/tools
 export ANDROID_HOME=$HOME/Android/sdk
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 export NODE_PATH=/usr/local/lib/node_modules
 

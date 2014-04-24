@@ -24,6 +24,16 @@ export JPDA_ADDRESS=8000
 export JPDA_TRANSPORT=dt_socket
 export MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n"
 
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+setopt PUSHD_IGNORE_DUPS
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+setopt INTERACTIVE_COMMENTS # allow # character in interactive mode too
+
+setopt COMPLETE_IN_WORD # not just at the end
+
 setopt auto_cd
 cdpath=($HOME/Development $HOME/Documents $HOME/Development/Appgyver)
 

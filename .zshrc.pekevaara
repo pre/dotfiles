@@ -10,7 +10,7 @@ export SQLPATH="/usr/local/oracle/instantclient_10_2"
 export NLS_LANG="AMERICAN_AMERICA.UTF8"
 
 export PATH=/usr/local/bin:$PATH
-export PATH=$PATH:$HOME/.rvm/bin # RVM 
+export PATH=$PATH:$HOME/.rvm/bin # RVM
 
 # ANDROID
 export PATH=$PATH:$HOME/Android/sdk/platform-tools:$HOME/Android/sdk/tools
@@ -29,7 +29,7 @@ cdpath=($HOME/Development $HOME/Documents $HOME/Development/Appgyver)
 
 alias gg='git grep -n'
 alias e='subl'
-alias i='imgur2' # gem install imgur2 
+alias i='imgur2' # gem install imgur2
 alias t='traceroute -d 195.74.0.47' # is network down?
 alias dug="du -sch * | grep '^[\ 0-9,\.]*G'"
 alias less='less -R'

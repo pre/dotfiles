@@ -46,6 +46,8 @@
     lbr = branch -a
     lbrv = branch -lvvv
     gren = grep -n
+    todo = grep --heading --break --ignore-case -e 'TODO:'
+    fixme  = grep --heading --break --ignore-case -e 'FIX:' -e 'FIXME:'
     lg = log --all --graph --decorate --oneline --simplify-by-decoration
     my-commits = log --branches --author petrus.repo@iki.fi
     count   = !git shortlog -sn
@@ -60,8 +62,6 @@
     ch = cherry -v
     wdiff = diff --color-words
     tag-date            = !git tag `date \"+%Y-%m-%d\"`  # create a new tag from HEAD with the current timestamp
-    tag-prod            = !git tag "Production-`date \"+%Y-%m-%d\"`"
-    tag-prod-migrate    = !git tag "ProductionMigration-`date \"+%Y-%m-%d\"`"
     #
     # Pull & Rebase
     #

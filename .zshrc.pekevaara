@@ -19,7 +19,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 
 export NODE_PATH=/usr/local/lib/node_modules
 
-#export _JAVA_OPTIONS="-Xms256m -Xmx512m -XX:PermSize=64m -XX:MaxPermSize=256m"
+export _JAVA_OPTIONS="-Xms256m -Xmx512m -XX:PermSize=64m -XX:MaxPermSize=256m"
 export JPDA_ADDRESS=8000
 export JPDA_TRANSPORT=dt_socket
 export MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n"
@@ -37,7 +37,7 @@ setopt COMPLETE_IN_WORD # not just at the end
 setopt auto_cd
 cdpath=($HOME/Development $HOME/Documents $HOME/Development/Appgyver)
 
-alias gg='git grep -n'
+alias gg='git grep --break --heading --line-number'
 alias e='subl'
 alias i='imgur2' # gem install imgur2
 alias t='traceroute -d 195.74.0.47' # is network down?

@@ -37,8 +37,29 @@ setopt COMPLETE_IN_WORD # not just at the end
 setopt auto_cd
 cdpath=($HOME/Development $HOME/Documents $HOME/Development/Appgyver)
 
+# STEROIDS
+alias sc='steroids connect'
+
+# GIT
+alias g='git'
 alias gg='git grep --break --heading --line-number'
-alias e='subl'
+alias gd='git diff'
+alias gs='git staged'
+alias gl='git log'
+alias st='git st'
+alias ap='git add -p'
+alias gap='git add -p'
+alias co='git co'
+alias cop='git co -p'
+alias ci='git ci'
+alias rull='git rull'
+alias glo='git log --oneline --decorate --color'
+alias glg='git log --stat --max-count=10'
+alias glgg='git log --graph --max-count=10'
+alias glgga='git log --graph --decorate --all'
+alias sup='git submodule update --init'
+
+alias e='atom'
 alias i='imgur2' # gem install imgur2
 alias t='traceroute -d 195.74.0.47' # is network down?
 alias dug="du -sch * | grep '^[\ 0-9,\.]*G'"

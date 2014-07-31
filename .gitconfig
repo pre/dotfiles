@@ -34,7 +34,7 @@
 ##
 [core]
     excludesfile = /Users/pre/.gitignore
-    editor = subl -w
+    editor = atom -w
     autocrlf = input
 [user]
     name = Petrus Repo

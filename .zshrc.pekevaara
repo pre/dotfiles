@@ -40,6 +40,17 @@ cdpath=($HOME/Development $HOME/Documents $HOME/Development/Appgyver)
 # STEROIDS
 alias sc='steroids connect'
 
+# GRADLE
+alias gr='./gradlew'
+alias grc='./gradlew clean'
+alias grb='./gradlew build'
+alias gri='./gradlew installDebug'
+
+alias grr='../../gradlew'
+alias grrc='../../gradlew clean'
+alias grrb='../../gradlew build'
+alias grri='../../gradlew installDebug'
+
 # GIT
 alias g='git'
 alias gg='git grep --break --heading --line-number'
@@ -58,6 +69,10 @@ alias glg='git log --stat --max-count=10'
 alias glgg='git log --graph --max-count=10'
 alias glgga='git log --graph --decorate --all'
 alias sup='git submodule update --init'
+alias gm='git mergetool'
+alias gcon='git rebase --continue'
+alias gabo='git rebase --abort'
+alias gski='git rebase --skip'
 
 alias e='atom'
 alias i='imgur2' # gem install imgur2

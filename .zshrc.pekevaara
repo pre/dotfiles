@@ -13,9 +13,10 @@ export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:$HOME/.rvm/bin # RVM
 
 # ANDROID
-export PATH=$PATH:$HOME/Android/sdk/platform-tools:$HOME/Android/sdk/tools
+export PATH=$PATH:$HOME/Android/sdk/platform-tools:$HOME/Android/sdk/tools:$HOME/Android/sdk/build-tools/current
 export ANDROID_HOME=$HOME/Android/sdk
 export JAVA_HOME=$(/usr/libexec/java_home)
+alias ainfo='aapt dump badging' # application.apk as param
 
 export NODE_PATH=/usr/local/lib/node_modules
 

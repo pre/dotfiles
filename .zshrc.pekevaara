@@ -40,6 +40,8 @@ cdpath=($HOME/Development $HOME/Documents $HOME/Development/Appgyver)
 
 # STEROIDS
 alias sc='steroids connect'
+alias testgyver-deploy='steroids deploy --noSettingsJson --ankaURL=https://anka.testgyver.com --shareURL=http://share.testgyver.com'
+alias testgyver-login='steroids login --authURL=https://accounts.testgyver.com'
 
 # GRADLE
 alias gr='./gradlew'

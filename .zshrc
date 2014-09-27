@@ -48,3 +48,6 @@ source $ZSH/oh-my-zsh.sh
 source ${HOME}/.zshrc.pekevaara
 source ${HOME}/.zshrc.private
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

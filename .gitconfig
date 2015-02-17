@@ -51,6 +51,9 @@
     fixme  = grep --heading --break --ignore-case -e 'FIX:' -e 'FIXME:'
     lg = log --all --graph --decorate --oneline --simplify-by-decoration
     my-commits = log --branches --author petrus.repo@iki.fi
+    log-since = !git log $1 HEAD --pretty=format:%s
+    log-feat-since = !git log $1 HEAD --pretty=format:%s --grep ^feat
+    log-feat-since-long = !git log $1 HEAD --grep ^feat
     count   = !git shortlog -sn
     checkpoint = !git stash && git stash apply
     staged = diff --cached

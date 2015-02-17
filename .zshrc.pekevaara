@@ -40,19 +40,24 @@ cdpath=($HOME/Development $HOME/Documents $HOME/Development/Appgyver)
 
 # STEROIDS
 alias sc='steroids connect'
+alias dc='devroids connect'
 alias testgyver-deploy='steroids deploy --noSettingsJson --ankaURL=https://anka.testgyver.com --shareURL=http://share.testgyver.com'
 alias testgyver-login='steroids login --authURL=https://accounts.testgyver.com'
 
 # GRADLE
 alias gr='./gradlew'
+alias grt='./gradlew test'
 alias grc='./gradlew clean'
 alias grb='./gradlew build'
 alias gri='./gradlew installDebug'
 
 alias grr='../../gradlew'
+alias grrt='../../gradlew test'
 alias grrc='../../gradlew clean'
 alias grrb='../../gradlew build'
 alias grri='../../gradlew installDebug'
+
+alias fap='find . -name "*.apk"'
 
 # GIT
 alias g='git'

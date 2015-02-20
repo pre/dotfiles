@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 
-source default.sh
+./sudo -v || (echo "Failed sudo" ; exit 1)
 
-if false;then
+set -e
 
-xcode-select --install
-hitEnter
-
-echo "Install XCode"
+echo "Install XCode from App Store"
 open "/Applications/App Store.app"
-hitEnter
+echo "Press enter when XCode has been installed"
+read okay 
+
+echo "Install XCode command line tools"
+xcode-select --install
+echo "There should be a window opened, install it and then click enter"
+read okay
 
 echo "oh-my-zsh"
 curl -L http://install.ohmyz.sh | sh
@@ -31,5 +34,4 @@ echo "scm_breeze"
 git clone git://github.com/ndbroadbent/scm_breeze.git ~/.scm_breeze
 ~/.scm_breeze/install.sh
 
-fi
 

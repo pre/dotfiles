@@ -38,6 +38,10 @@ setopt COMPLETE_IN_WORD # not just at the end
 setopt auto_cd
 cdpath=($HOME/Development $HOME/Documents $HOME/Development/Appgyver)
 
+# GO
+export PATH="$PATH:$GOROOT/bin"
+
+
 # STEROIDS
 alias sc='steroids connect'
 alias dc='devroids connect'

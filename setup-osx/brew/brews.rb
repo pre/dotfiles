@@ -87,3 +87,5 @@ brew "htop-osx"
 puts "Setting suid for htop"
 system_verbose "sudo chown root:wheel /usr/local/bin/htop"
 system_verbose "sudo chmod u+s /usr/local/bin/htop"
+
+brew "tree"

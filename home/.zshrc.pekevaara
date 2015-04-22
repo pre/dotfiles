@@ -151,3 +151,7 @@ export NODE_PATH=$NODE_PATH:/Users/pre/.nvm/v0.10.25/lib/node_modules
 # NVM Defaults
 nvm use 0.10
 nvm alias default 0.10
+
+# SCM Breeze
+# https://github.com/ndbroadbent/scm_breeze
+[ -s "/Users/pre/.scm_breeze/scm_breeze.sh" ] && source "/Users/pre/.scm_breeze/scm_breeze.sh"

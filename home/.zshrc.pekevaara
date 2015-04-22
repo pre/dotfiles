@@ -43,10 +43,12 @@ export PATH="$PATH:$GOROOT/bin"
 
 
 # STEROIDS
-alias sc='steroids connect'
-alias dc='devroids connect'
-alias testgyver-deploy='steroids deploy --noSettingsJson --ankaURL=https://anka.testgyver.com --shareURL=http://share.testgyver.com'
+alias sc='steroids connect --no-watch'
+alias dc='devroids connect --no-watch'
+alias testgyver-deploy='steroids deploy --noSettingsJson --cloudUrl=https://anka.testgyver.com --shareURL=http://share.testgyver.com'
 alias testgyver-login='steroids login --authURL=https://accounts.testgyver.com'
+alias devgyver-deploy='devroids deploy --noSettingsJson --cloudUrl=https://anka.devgyver.com --shareURL=http://share.devgyver.com'
+alias devgyver-login='devroids login --authURL=https://accounts.devgyver.com'
 
 # GRADLE
 alias gr='./gradlew'
@@ -89,6 +91,7 @@ alias gski='git rebase --skip'
 alias e='atom'
 alias i='imgur2' # gem install imgur2
 alias t='traceroute -d 195.74.0.47' # is network down?
+alias p='ping www.sci.fi'
 alias dug="du -sch * | grep '^[\ 0-9,\.]*G'"
 alias less='less -R'
 alias mkdir='mkdir -pv'

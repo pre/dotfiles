@@ -18,13 +18,13 @@ export git_setup_aliases="yes"
 # Git Index Config
 # ----------------------------------------------
 # Repos will be automatically added from this directory.
-export GIT_REPO_DIR="$HOME/code"
+#export GIT_REPO_DIR="$HOME/code"
 # Add the full paths of any extra repos to GIT_REPOS, separated with ':'
 # e.g. "/opt/rails/project:/opt/rails/another project:$HOME/other/repo"
-export GIT_REPOS=""
-export git_status_command="git_status_shortcuts"
+#export GIT_REPOS=""
+#export git_status_command="git_status_shortcuts"
 # Alias
-git_index_alias="c"    # Switch to a repo in the (c)ode directory
+#git_index_alias="c"    # Switch to a repo in the (c)ode directory
 
 
 # Git Aliases
@@ -32,16 +32,16 @@ git_index_alias="c"    # Switch to a repo in the (c)ode directory
 git_alias="g"
 
 # 1. 'SCM Breeze' functions
-git_status_shortcuts_alias="gs"
+git_status_shortcuts_alias="gst"
 git_add_shortcuts_alias="ga"
 git_add_patch_alias="gap"
 git_add_updated_alias="gau"
 git_show_files_alias="gsf"
 exec_scmb_expand_args_alias="ge"
 # 2. Commands that handle paths (with shortcut args expanded)
-git_checkout_alias="gco"
+git_checkout_alias="co"
 git_checkout_branch_alias="gcb"
-git_commit_alias="gc"
+git_commit_alias="ci"
 git_commit_verbose_alias="gcv"
 git_reset_alias="grs"
 git_reset_hard_alias="grsh"

@@ -66,17 +66,12 @@ alias grri='../../gradlew installDebug'
 alias fap='find . -name "*.apk"'
 
 # GIT
-alias g='git'
+#alias g='git'
 alias gg='git grep --break --heading --line-number'
 alias gd='git diff'
 alias gs='git staged'
 alias gl='git log'
-alias st='git st'
-alias ap='git add -p'
-alias gap='git add -p'
-alias co='git co'
 alias cop='git co -p'
-alias ci='git ci'
 alias rull='git rull'
 alias glo='git log --oneline --decorate --color'
 alias glg='git log --stat --max-count=10'
@@ -87,7 +82,13 @@ alias gm='git mergetool'
 alias gcon='git rebase --continue'
 alias gabo='git rebase --abort'
 alias gski='git rebase --skip'
+alias st='git st'
+#alias gap='git add -p'
+#alias co='git co'
+#alias ci='git ci'
 
+
+alias c='j'
 alias e='atom'
 alias i='imgur2' # gem install imgur2
 alias t='traceroute -d 195.74.0.47' # is network down?

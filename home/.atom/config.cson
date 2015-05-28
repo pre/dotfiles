@@ -1,0 +1,32 @@
+"*":
+  editor:
+    invisibles:
+      {}
+    showIndentGuide: true
+    fontSize: 14
+  "exception-reporting":
+    userId: "6eec5a77-152e-0b87-10c3-83f36bd6e557"
+  welcome:
+    showOnStartup: false
+  metrics:
+    userId: "e0d9d1dd23e24dc8540a32e1407baf412c5711aa"
+  autosave:
+    enabled: true
+  linter:
+    {}
+  "autocomplete-plus":
+    {}
+  "go-plus":
+    {}
+  core:
+    disabledPackages: [
+      "go-plus"
+    ]
+    themes: [
+      "atom-dark-ui"
+      "atom-dark-syntax"
+    ]
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+  "one-dark-ui":
+    {}

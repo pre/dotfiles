@@ -36,6 +36,7 @@
     excludesfile = /Users/pre/.gitignore
     editor = subl -w
     autocrlf = input
+    whitespace = fix,space-before-tab,tab-in-indent,trailing-space
 [user]
     name = Petrus Repo
     email = petrus.repo@iki.fi
@@ -49,12 +50,6 @@
     gren = grep -n
     todo = grep --heading --break --ignore-case -e 'TODO:'
     fixme  = grep --heading --break --ignore-case -e 'FIX:' -e 'FIXME:'
-    lg = log --all --graph --decorate --oneline --simplify-by-decoration
-    my-commits = log --branches --author petrus.repo@iki.fi
-    log-since = !git log $1 HEAD --pretty=format:%s
-    log-feat-since = !git log $1 HEAD --pretty=format:%s --grep ^feat
-    log-feat-since-long = !git log $1 HEAD --grep ^feat
-    count   = !git shortlog -sn
     checkpoint = !git stash && git stash apply
     staged = diff --cached
     cached = diff --cached
@@ -65,7 +60,26 @@
     cp = cherry-pick -x
     ch = cherry -v
     wdiff = diff --color-words
-    tag-date            = !git tag `date \"+%Y-%m-%d\"`  # create a new tag from HEAD with the current timestamp
+    tag-date = !git tag `date \"+%Y-%m-%d\"`  # create a new tag from HEAD with the current timestamp
+
+    #
+    # Log
+    #
+    l  = log --pretty=oneline --abbrev-commit --decorate
+    lg = log --all --graph --decorate --oneline --simplify-by-decoration
+    my-commits = log --branches --author petrus.repo@iki.fi
+    log-since = !git log $1 HEAD --pretty=format:%s
+    log-feat-since = !git log $1 HEAD --pretty=format:%s --grep ^feat
+    log-feat-since-long = !git log $1 HEAD --grep ^feat
+    count   = !git shortlog -sn
+
+    ; Same as l, but don't show merges
+    lm  = log --pretty=oneline --abbrev-commit --decorate --no-merges
+    ; Same as l, but show status (files changed, +/- for each)
+    ls  = log --pretty=oneline --abbrev-commit --decorate --stat
+    ; Mostly the same as l with addition of author and date (custom formats don't show color)
+    le  = log --pretty=format:"%h%x09%an%x09%ar%x09%s%x09%d"
+
     #
     # Pull & Rebase
     #
@@ -87,7 +101,7 @@
     # git pull --ff-only without thinking, and then if it errors out you can go
     # back and decide if you want to merge or rebase.
     full = pull --ff-only
-    
+
     # Git-wtf & pals from
     #    http://git-wt-commit.rubyforge.org/#git-wtf
     wtf               = !$HOME/bin/git-wtf

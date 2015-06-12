@@ -16,7 +16,7 @@ echo "Continue?"
 read ok
 
 
-for dotfile in `ls $PATTERN`; do 
+for dotfile in `ls -d $PATTERN`; do
   acual=`basename "$dotfile"`
   symlink_file="$HOME/$acual" 
 

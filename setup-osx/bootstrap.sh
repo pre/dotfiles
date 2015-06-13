@@ -12,5 +12,3 @@ echo "Install ssh private key with access to github and hit enter"
 read
 
 mkdir -p $HOME/dev
-cd $HOME/dev
-git clone git@github.com:pre/dotfiles

@@ -43,7 +43,7 @@ setopt INTERACTIVE_COMMENTS # allow # character in interactive mode too
 setopt COMPLETE_IN_WORD # not just at the end
 
 setopt auto_cd
-cdpath=($HOME/Development $HOME/Documents $HOME/Development/Appgyver)
+cdpath=($HOME/dev $HOME/Documents $HOME/dev/ag)
 
 # GO
 export PATH="$PATH:$GOROOT/bin"
@@ -122,7 +122,7 @@ alias my-stop='mysql.server stop'
 alias pg-start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pg-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias redis-start='redis-server /usr/local/etc/redis.conf'
-alias mongo-start='mongod'
+alias mongo-start='mongod --config /usr/local/etc/mongod.conf'
 
 alias es-start='cd /usr/local/elasticsearch-0.19.9 && bin/elasticsearch -f'
 
@@ -145,15 +145,10 @@ alias diff-inline='wdiff -w "$(tput bold;tput setaf 1)" -x "$(tput sgr0)" -y "$(
 # shell file before sourcing rvm:
 unsetopt auto_name_dirs
 
-source $HOME/zsh-functions/gifify.zsh
-source $HOME/zsh-functions/man-preview.zsh
-source $HOME/zsh-functions/quick-look.zsh
-
 # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # NVM
-export NODE_PATH=$NODE_PATH:/Users/pre/.nvm/v0.10.25/lib/node_modules
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh
 
 # NVM Defaults

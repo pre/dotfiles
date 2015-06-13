@@ -3,7 +3,6 @@
 packages = [
   "texpad",
   "skitch",
-  "telegram",
   "p4merge",
   "google-chrome",
   "alfred",
@@ -18,8 +17,16 @@ packages = [
   "spotify",
   "cinch",
   "caffeine",
-  "evernote",
-  "carbon-copy-cloner"
+  "carbon-copy-cloner",
+  "iterm2",
+  "sublime-text",
+  "intellij-idea",
+  "caskroom/homebrew-versions/java6",
+  "moom",
+  "witch",
+  "android-studio",
+  "rowanj-gitx",
+  "logitech-control-center"
 ]
 
 for package in packages do

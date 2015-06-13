@@ -62,8 +62,8 @@ system_verbose "sudo -v"
 
 brew "git"
 
-brew ["postgresql", "redis"], loads: true
-brew "mongodb", loads: true
+brew ["postgresql", "redis"], loads: false
+brew "mongodb", loads: false
 
 brew "imagemagick"
 
@@ -89,3 +89,4 @@ system_verbose "sudo chown root:wheel /usr/local/bin/htop"
 system_verbose "sudo chmod u+s /usr/local/bin/htop"
 
 brew "tree"
+brew "autojump"

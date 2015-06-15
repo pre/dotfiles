@@ -1,21 +1,28 @@
-/*
- * Your Stylesheet
- *
- * This stylesheet is loaded when Atom starts up and is reloaded automatically
- * when it is changed.
- *
- * If you are unfamiliar with LESS, you can read more about it here:
- * http://www.lesscss.org
- */
-
-.tree-view {
-
+// find results
+atom-text-editor::shadow .highlight.find-result .region {
+  background: rgb(163,163,0);
+  transition: background-color 0.2s, border-color 0.2s;
+}
+atom-text-editor::shadow .highlight.current-result .region,
+atom-text-editor::shadow .highlight.current-result ~ .highlight.selection .region {
+  background: orange;
+  border-color: red;
 }
 
-.atom-text-editor {
-
+// git gutter
+atom-text-editor::shadow .gutter .line-number.git-line-added {
+    border-left-width: 1px;
+    border-left-color: lime;
+    padding-left: calc(~"0.5em - 1px");
 }
-
-.atom-text-editor .cursor {
-
+atom-text-editor::shadow .gutter .line-number.git-line-modified {
+    border-left-width: 1px;
+    border-left-color: yellow;
+    padding-left: calc(~"0.5em - 1px");
+}
+atom-text-editor::shadow .gutter .line-number.git-line-removed:before {
+    bottom: -5px;
+    margin-top: -5px;
+    border-width: 5px;
+    border-left-color: red;
 }

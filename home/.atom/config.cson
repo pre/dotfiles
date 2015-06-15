@@ -1,7 +1,6 @@
 "*":
   editor:
-    invisibles:
-      {}
+    invisibles: {}
     showIndentGuide: true
     fontSize: 14
   "exception-reporting":
@@ -12,12 +11,9 @@
     userId: "e0d9d1dd23e24dc8540a32e1407baf412c5711aa"
   autosave:
     enabled: true
-  linter:
-    {}
-  "autocomplete-plus":
-    {}
-  "go-plus":
-    {}
+  linter: {}
+  "autocomplete-plus": {}
+  "go-plus": {}
   core:
     disabledPackages: [
       "go-plus"
@@ -28,5 +24,5 @@
     ]
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
-  "one-dark-ui":
-    {}
+  "one-dark-ui": {}
+  "atom-typescript": {}

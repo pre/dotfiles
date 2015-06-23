@@ -90,3 +90,4 @@ system_verbose "sudo chmod u+s /usr/local/bin/htop"
 
 brew "tree"
 brew "autojump"
+brew "shellcheck"

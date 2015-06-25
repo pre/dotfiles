@@ -135,7 +135,7 @@
    keepBackup = false
    keepTemporaries = false
 [mergetool "lolmerge"]
-   cmd = /opt/homebrew-cask/Caskroom/p4merge/2014.3-1007540/p4merge.app/Contents/Resources/launchp4merge \
+   cmd = /Users/pre/Applications/p4merge.app/Contents/Resources/launchp4merge \
        "$PWD/$BASE" \
        "$PWD/$REMOTE" \
        "$PWD/$LOCAL" \
@@ -146,5 +146,5 @@
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =
 [mergetool "sourcetree"]
-  cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.5.2/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  cmd = /Users/pre/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true

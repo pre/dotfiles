@@ -27,7 +27,8 @@ packages = [
   "android-studio",
   "rowanj-gitx",
   "logitech-control-center",
-  "java7"
+  "java7",
+  "insync"
 ]
 
 for package in packages do

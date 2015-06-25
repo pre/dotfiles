@@ -26,7 +26,8 @@ packages = [
   "witch",
   "android-studio",
   "rowanj-gitx",
-  "logitech-control-center"
+  "logitech-control-center",
+  "java7"
 ]
 
 for package in packages do

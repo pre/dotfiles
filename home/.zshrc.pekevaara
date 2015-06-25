@@ -68,7 +68,7 @@ alias grr='../../gradlew'
 alias grrt='../../gradlew test'
 alias grrc='../../gradlew clean'
 alias grrb='../../gradlew build -x lint'
-alias grri='../../gradlew installDebug'
+alias grri='../../gradlew installArmDebug'
 
 alias fap='find . -name "*.apk"'
 

@@ -18,8 +18,6 @@ export ANDROID_HOME=$HOME/Android/sdk
 export JAVA_HOME=$(/usr/libexec/java_home)
 alias ainfo='aapt dump badging' # application.apk as param
 
-export NODE_PATH=/usr/local/lib/node_modules
-
 export _JAVA_OPTIONS="-Xms256m -Xmx512m -XX:PermSize=64m -XX:MaxPermSize=256m"
 export JPDA_ADDRESS=8000
 export JPDA_TRANSPORT=dt_socket

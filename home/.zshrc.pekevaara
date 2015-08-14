@@ -135,8 +135,8 @@ alias tizen-package-webapp='webtizen -p application.wgt .'
 alias tizen-install-webapp='webtizen -i -w application.wgt'
 
 ## check also xip.io for local dns fiddling
-alias web-server='python -m SimpleHTTPServer 8888'  # allows local access
-alias web-server-global='localtunnel 8888'          # allows global access, install: "gem install localtunnel"
+alias web-server='echo http://localhost:8888 ; python -m SimpleHTTPServer 8888'
+alias web-server-global='localtunnel 8888' # `gem install localtunnel`
 
 
 alias diff-inline='wdiff -w "$(tput bold;tput setaf 1)" -x "$(tput sgr0)" -y "$(tput bold;tput setaf 2)" -z "$(tput sgr0)"'

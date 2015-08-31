@@ -49,7 +49,7 @@ export PATH="$PATH:$GOROOT/bin"
 
 # STEROIDS
 alias sc='steroids connect --no-watch --no-qrcode'
-alias dc='devroids connect --no-watch'
+alias dc='devroids connect --no-watch --no-qrcode'
 alias testgyver-deploy='steroids deploy --noSettingsJson --cloudUrl=https://anka.testgyver.com --shareURL=http://share.testgyver.com'
 alias testgyver-login='steroids login --authURL=https://accounts.testgyver.com'
 alias devgyver-deploy='devroids deploy --noSettingsJson --cloudUrl=https://anka.devgyver.com --shareURL=http://share.devgyver.com'
@@ -112,6 +112,8 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
 alias ......='cd ../../../../../'
+
+alias locate='mdfind'
 
 alias -g L='|less'
 alias -g H='|head'

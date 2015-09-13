@@ -28,7 +28,8 @@ packages = [
   "rowanj-gitx",
   "logitech-control-center",
   "java7",
-  "insync"
+  "insync",
+  "imageoptim"
 ]
 
 for package in packages do

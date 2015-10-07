@@ -26,3 +26,10 @@
 
 'atom-workspace atom-text-editor:not([mini])':
   'cmd-.': 'editor:toggle-line-comments'
+
+'atom-text-editor':
+  'cmd-i': 'editor:auto-indent'
+
+'atom-text-editor':
+  'ctrl-left': 'last-cursor-position:previous'
+  'ctrl-right': 'last-cursor-position:next'

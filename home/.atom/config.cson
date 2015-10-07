@@ -2,6 +2,7 @@
   editor:
     invisibles: {}
     showIndentGuide: true
+    fontSize: 15
   "exception-reporting":
     userId: "6eec5a77-152e-0b87-10c3-83f36bd6e557"
   welcome:
@@ -19,11 +20,12 @@
       "go-plus"
     ]
     themes: [
-      "atom-dark-ui"
-      "atom-dark-syntax"
+      "one-dark-ui"
+      "base16-tomorrow-dark-theme"
     ]
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
   "one-dark-ui": {}
   "atom-typescript": {}
   "toggle-quotes": {}
+  jumpy: {}

@@ -48,6 +48,9 @@ cdpath=($HOME/dev $HOME/Documents $HOME/dev/ag)
 # GO
 export PATH="$PATH:$GOROOT/bin"
 
+# RAILS
+alias rc='rails c'
+alias hrc='heroku run rails c'
 
 # STEROIDS
 alias sc='steroids connect --no-watch --no-qrcode'
@@ -91,6 +94,7 @@ alias gcon='git rebase --continue'
 alias gabo='git rebase --abort'
 alias gski='git rebase --skip'
 alias st='git st'
+alias gc='git clone'
 ## from SCM Breeze
 #alias g='git'
 #alias gap='git add -p'

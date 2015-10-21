@@ -17,10 +17,6 @@
 #   'ctrl-p': 'core:move-down'
 #
 
-'atom-text-editor':
-  'alt-up': 'expand-region:expand'
-  'alt-down': 'expand-region:shrink'
-
 '.atom-workspace':
   'cmd-alt-w': 'pane:close-other-items'
 
@@ -29,7 +25,7 @@
 
 'atom-text-editor':
   'cmd-i': 'editor:auto-indent'
-
-'atom-text-editor':
   'ctrl-left': 'last-cursor-position:previous'
   'ctrl-right': 'last-cursor-position:next'
+  'ctrl-up': 'expand-region:expand'
+  'ctrl-down': 'expand-region:shrink'

@@ -20,8 +20,8 @@
       "go-plus"
     ]
     themes: [
-      "one-dark-ui"
-      "base16-tomorrow-dark-theme"
+      "atom-dark-ui"
+      "atom-dark-syntax"
     ]
   whitespace:
     ignoreWhitespaceOnCurrentLine: false

@@ -1,12 +1,14 @@
 // find results
 atom-text-editor::shadow .highlight.find-result .region {
-  background: rgb(163,163,0);
+  background-color: rgb(0, 126, 122);
+  z-index: -1;
   transition: background-color 0.2s, border-color 0.2s;
 }
 atom-text-editor::shadow .highlight.current-result .region,
 atom-text-editor::shadow .highlight.current-result ~ .highlight.selection .region {
-  background: orange;
+  background: rgb(0, 89, 223);
   border-color: red;
+  z-index: -1;
 }
 
 // git gutter

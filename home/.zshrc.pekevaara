@@ -167,3 +167,6 @@ nvm alias default 0.12
 # SCM Breeze
 # https://github.com/ndbroadbent/scm_breeze
 [ -s "/Users/pre/.scm_breeze/scm_breeze.sh" ] && source "/Users/pre/.scm_breeze/scm_breeze.sh"
+
+# Docker
+# eval "$(boot2docker shellinit)"

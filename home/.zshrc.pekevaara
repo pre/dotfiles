@@ -104,6 +104,7 @@ alias gc='git clone'
 
 alias c='j'
 alias e='atom'
+alias ee='atom .'
 alias i='imgur2' # gem install imgur2
 alias t='traceroute -d 195.74.0.47' # is network down?
 alias p='ping www.sci.fi'

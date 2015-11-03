@@ -60,6 +60,8 @@ alias testgyver-login='steroids login --authURL=https://accounts.testgyver.com'
 alias devgyver-deploy='devroids deploy --noSettingsJson --cloudUrl=https://anka.devgyver.com --shareURL=http://share.devgyver.com'
 alias devgyver-login='devroids login --authURL=https://accounts.devgyver.com'
 
+alias lnss='ln -s ~/dev/ag/supersonic/dist supersonic'
+
 # GRADLE
 alias gr='./gradlew'
 alias grt='./gradlew test'

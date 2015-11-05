@@ -78,18 +78,21 @@ alias grri='../../gradlew installArmDebug'
 alias fap='find . -name "*.apk"'
 
 # GIT
+alias gbw='git blame -w'  # ignores white space
+alias gb='git blame -M'   # ignores moving text
+alias gbb='git blame -C'  # ignores moving text into other files
+
 alias gg='git grep --break --heading --line-number'
 alias gd='git diff'
 alias gs='git diff --cached'
-alias gl='git log'
 alias cop='git checkout -p'
 alias rull='git pull --rebase'
 alias glp='git log -p'
 alias glp1='git log -p -1'
 alias glo='git log --oneline --decorate --color'
-alias glg='git log --stat --max-count=10'
-alias glgg='git log --graph --max-count=10'
-alias glgga='git log --graph --decorate --all'
+alias glg='git log --stat' # --max-count=100
+alias glgg='git log --graph'
+alias gl='git log --graph --decorate --all'
 alias sup='git submodule update --init'
 alias gm='git mergetool'
 alias gcon='git rebase --continue'

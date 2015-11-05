@@ -73,12 +73,21 @@
     log-feat-since-long = !git log $1 HEAD --grep ^feat
     count   = !git shortlog -sn
 
+    ls = log --pretty=format:'%C(yellow)%h %C(cyan)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
+
     ; Same as l, but don't show merges
     lm  = log --pretty=oneline --abbrev-commit --decorate --no-merges
     ; Same as l, but show status (files changed, +/- for each)
-    ls  = log --pretty=oneline --abbrev-commit --decorate --stat
+    ll  = log --pretty=oneline --abbrev-commit --decorate --stat
     ; Mostly the same as l with addition of author and date (custom formats don't show color)
     le  = log --pretty=format:"%h%x09%an%x09%ar%x09%s%x09%d"
+
+    # List branches from newest to oldest
+    latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
+
+    daily = log --since '1 day ago' --oneline --author 'petrus.repo@iki.fi'
+
+    tree = log --graph --pretty=format':%C(yellow)%h%C(cyan)%d%Creset %s %C(white) %an, %ar%Creset'
 
     #
     # Pull & Rebase
@@ -107,6 +116,7 @@
     wtf               = !$HOME/bin/git-wtf
     show-merges       = !$HOME/bin/git-show-merges
     rank-contributors = !$HOME/bin/git-rank-contributors
+
 [color]
     ui = true
     branch = auto

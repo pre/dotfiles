@@ -176,5 +176,9 @@ nvm alias default 0.12
 # https://github.com/ndbroadbent/scm_breeze
 [ -s "/Users/pre/.scm_breeze/scm_breeze.sh" ] && source "/Users/pre/.scm_breeze/scm_breeze.sh"
 
+# Dokku
+alias dokku='$HOME/.dokku/contrib/dokku_client.sh'
+export DOKKU_HOST=sverige.appgyver.com
+
 # Docker
 # eval "$(boot2docker shellinit)"

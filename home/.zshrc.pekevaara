@@ -87,12 +87,14 @@ alias gd='git diff'
 alias gs='git diff --cached'
 alias cop='git checkout -p'
 alias rull='git pull --rebase'
+
+alias gl='git log'
 alias glp='git log -p'
 alias glp1='git log -p -1'
 alias glo='git log --oneline --decorate --color'
-alias glg='git log --stat' # --max-count=100
-alias glgg='git log --graph'
-alias gl='git log --graph --decorate --all'
+alias gll='git log --stat' # --max-count=100
+alias glg='git log --graph'
+alias glgg='git log --graph --decorate --all'
 alias sup='git submodule update --init'
 alias gm='git mergetool'
 alias gcon='git rebase --continue'

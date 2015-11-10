@@ -16,13 +16,17 @@ export PATH=$PATH:$HOME/.rvm/bin # RVM
 export PATH=$PATH:$HOME/Android/sdk/platform-tools:$HOME/Android/sdk/tools:$HOME/Android/sdk/build-tools/current
 export ANDROID_HOME=$HOME/Android/sdk
 export JAVA_HOME=$(/usr/libexec/java_home)
-alias ainfo='aapt dump badging' # application.apk as param
 
 export _JAVA_OPTIONS="-Xms256m -Xmx4096m -XX:PermSize=64m -XX:MaxPermSize=256m"
 export JPDA_ADDRESS=8000
 export JPDA_TRANSPORT=dt_socket
 export MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n"
 
+alias ainfo='aapt dump badging' # application.apk as param
+alias adbcpu='adb shell getprop ro.product.cpu.abi'
+alias -g N6='-s ZX1G42BXTP'
+alias -g N3='-s 0146882E02019018'
+alias -g S6='-s 02157df21037ac1f'
 
 # HISTORY SETTINGS
 

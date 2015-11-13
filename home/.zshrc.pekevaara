@@ -82,6 +82,7 @@ alias grri='../../gradlew installArmDebug'
 alias fap='find . -name "*.apk"'
 
 # GIT
+alias s='stree'
 alias gbw='git blame -w'  # ignores white space
 alias gb='git blame -M'   # ignores moving text
 alias gbb='git blame -C'  # ignores moving text into other files

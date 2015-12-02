@@ -19,6 +19,7 @@
 
 '.atom-workspace':
   'cmd-alt-w': 'pane:close-other-items'
+  'ctrl-b': 'blame:toggle'
 
 'atom-workspace atom-text-editor:not([mini])':
   'cmd-.': 'editor:toggle-line-comments'

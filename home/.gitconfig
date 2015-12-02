@@ -77,10 +77,6 @@
 
     ; Same as l, but don't show merges
     lm  = log --pretty=oneline --abbrev-commit --decorate --no-merges
-    ; Same as l, but show status (files changed, +/- for each)
-    ll  = log --pretty=oneline --abbrev-commit --decorate --stat
-    ; Mostly the same as l with addition of author and date (custom formats don't show color)
-    le  = log --pretty=format:"%h%x09%an%x09%ar%x09%s%x09%d"
 
     # List branches from newest to oldest
     latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'

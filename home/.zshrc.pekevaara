@@ -103,6 +103,7 @@ alias glo='git log --oneline --decorate --color'
 alias gll='git log --stat' # --max-count=100
 alias glg='git log --graph'
 alias glgg='git log --graph --decorate --all'
+alias gls='git ls'
 alias sup='git submodule update --init'
 alias gm='git mergetool'
 alias gcon='git rebase --continue'

@@ -28,5 +28,11 @@ defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder NewWindowTarget -string "PfHm"
 
 defaults write com.apple.Safari ShowStatusBar -bool true
+
+# change tab: cmd-alt left/right
+defaults write com.apple.Safari NSUserKeyEquivalents -dict
+defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Show Previous Tab" "@~\\U2190"
+defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Show Next Tab" "@~\\U2192"
+
 CFPreferencesAppSynchronize "com.apple.Safari"
 

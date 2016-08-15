@@ -131,6 +131,11 @@
 [grep]
   lineNumber = true
 
+[diff]
+  # Shifts the hunk boundary in an attempt to make the resulting
+  # patch easier to read. Requires git 2.9+
+  compactionHeuristic = true
+
 # Delete remote-tracking local branches that have been removed from remote
 [fetch]
   prune = true

@@ -1,20 +1,8 @@
 "*":
-  editor:
-    invisibles: {}
-    showIndentGuide: true
-    fontSize: 15
-  "exception-reporting":
-    userId: "6eec5a77-152e-0b87-10c3-83f36bd6e557"
-  welcome:
-    showOnStartup: false
-  metrics:
-    userId: "e0d9d1dd23e24dc8540a32e1407baf412c5711aa"
+  "atom-typescript": {}
+  "autocomplete-plus": {}
   autosave:
     enabled: true
-  linter:
-    showErrorPanel: false
-  "autocomplete-plus": {}
-  "go-plus": {}
   core:
     disabledPackages: [
       "go-plus"
@@ -23,11 +11,23 @@
       "atom-dark-ui"
       "atom-dark-syntax"
     ]
-  whitespace:
-    ignoreWhitespaceOnCurrentLine: false
-  "one-dark-ui": {}
-  "atom-typescript": {}
-  "toggle-quotes": {}
+  editor:
+    fontSize: 15
+    invisibles: {}
+    showIndentGuide: true
+  "exception-reporting":
+    userId: "6eec5a77-152e-0b87-10c3-83f36bd6e557"
+  "go-plus": {}
   jumpy: {}
+  linter:
+    showErrorPanel: false
+  metrics:
+    userId: "e0d9d1dd23e24dc8540a32e1407baf412c5711aa"
+  "one-dark-ui": {}
+  "toggle-quotes": {}
   "tree-view":
     hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false

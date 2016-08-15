@@ -70,8 +70,8 @@ brew "imagemagick"
 brew ["youtube-dl", "ffmpeg"]
 
 unless mode == "reinstall"
-  system_verbose("sudo chmod u+s /usr/bin/easy_install")
-  system_verbose("sudo chown root:wheel /usr/bin/easy_install")
+#  system_verbose("sudo chmod u+s /usr/bin/easy_install")
+#  system_verbose("sudo chown root:wheel /usr/bin/easy_install")
   system_verbose("sudo easy_install pip")
   system_verbose("sudo pip install pycrypto")
   system_verbose("ln -sf /usr/bin/python2.7 /usr/local/bin/python2")

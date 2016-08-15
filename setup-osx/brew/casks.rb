@@ -21,7 +21,7 @@ packages = [
   "iterm2",
   "sublime-text",
   "intellij-idea",
-  "caskroom/homebrew-versions/java6",
+  "caskroom/homebrew-versions/java7",
   "moom",
   "witch",
   "android-studio",

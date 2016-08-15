@@ -2,8 +2,6 @@
 
 ./sudo -v || (echo "Failed sudo" ; exit 1)
 
-set -e
-
 echo "Install XCode from App Store"
 open "/Applications/App Store.app"
 echo "Press enter when XCode has been installed"

@@ -1,38 +1,57 @@
 #!/usr/bin/env bash
 
+function hitEnter() {
+  echo "Hit enter"
+  read okay
+}
+
 open "$HOME/Applications/Alfred 2.app"
-echo "register"
-echo "clipboard viewer hotkey, persist"
-hitEnter
-
-
-open "https://facebook.com"
+echo "Alfred: sync settings from dropbox"
 hitEnter
 
 open "/System/Library/PreferencePanes/Expose.prefPane/"
+echo "Expose:"
 echo "Disable automatic rearrange"
-echo "double-click a window's title bar to minimize"
-echo "create few desktops"
+echo "hotcorner: upper-left screensaver"
+hitEnter
+
+open "/System/Library/PreferencePanes/UniversalAccessPref.prefPane/"
+echo "Accessibility:"
+echo "Use scroll gesture to zoom"
 hitEnter
 
 open "/System/Library/PreferencePanes/Dock.prefPane/"
+echo "Dock:"
 echo "set sizes"
 echo "double-click a window's title bar to minimize"
 hitEnter
 
 open "/System/Library/PreferencePanes/Sound.prefPane/"
+echo "Sound:"
 echo "disable user interface sounds"
-echo "set alert volume to minimum"
+echo "set alert volume to ~half"
 echo "enable show volume in menubar"
 hitEnter
 
-
 open "/System/Library/PreferencePanes/Displays.prefPane/"
+echo "Displays:"
 echo "more space"
 hitEnter
 
+open "/System/Library/PreferencePanes/Keyboard.prefPane"
+echo "Keyboard:"
+echo "Key Repeat: Fast"
+echo "Delay until repeat: short"
+echo "Keyboard access: all controls"
+hitEnter
+
+
+echo "Sign in to Facebook"
+open "https://facebook.com"
+hitEnter
 
 open "$HOME/Applications/Google Chrome.app"
+echo "Chrome:"
 echo "chrome://flags/ -- Enable the new avatar menu"
 
 echo "For every profile:"
@@ -47,15 +66,6 @@ open "$HOME/Applications/Skype.app"
 hitEnter
 
 open "$HOME/Applications/SourceTree.app"
-hitEnter
-
-open "/System/Library/PreferencePanes/Keyboard.prefPane"
-echo "Keyboard -> move focus to next window - cmd+§"
-echo "Keyboard access: all controls"
-hitEnter
-
-open "/System/Library/PreferencePanes/Accessibility.prefPane"
-echo "Zoom -> Use scroll gesture with modifier keys"
 hitEnter
 
 open "$HOME/Applications/VLC.app"

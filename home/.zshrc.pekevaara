@@ -98,6 +98,7 @@ alias gs='git diff --cached'
 alias cop='git checkout -p'
 alias rull='git pull --rebase'
 
+alias cim='git ci -m'
 alias gl='git log'
 alias glp='git log -p'
 alias glp1='git log -p -1'

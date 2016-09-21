@@ -25,12 +25,6 @@ export MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,s
 alias ainfo='aapt dump badging' # application.apk as param
 alias adbcpu='adb shell getprop ro.product.cpu.abi'
 alias adbshot='adb shell screencap -p /sdcard/screencap.png && adb pull /sdcard/screencap.png'
-alias -g N6='-s ZX1G42BXTP'
-alias -g N4='-s 01b6303bcb61e463'
-alias -g N3='-s 0146882E02019018'
-alias -g S6='-s 02157df21037ac1f'
-alias -g S3='-s 4df77d6c668bcf29'
-alias -g HUA='-s 55I7EQFQFQDYEEHY'
 
 # HISTORY SETTINGS
 
@@ -59,6 +53,8 @@ export PATH="$PATH:$GOROOT/bin"
 # RAILS
 alias rc='rails c'
 alias hrc='heroku run rails c'
+alias hk='heroku'
+alias hr='heroku run'
 
 # STEROIDS
 alias sc='steroids connect --no-watch --no-qrcode'

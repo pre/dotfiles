@@ -24,6 +24,7 @@
   metrics:
     userId: "e0d9d1dd23e24dc8540a32e1407baf412c5711aa"
   "one-dark-ui": {}
+  "spell-check": {}
   "toggle-quotes": {}
   "tree-view":
     hideVcsIgnoredFiles: true
@@ -31,3 +32,9 @@
     showOnStartup: false
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
+".erb.html.text":
+  editor:
+    autoIndentOnPaste: true
+".ruby.source":
+  editor:
+    autoIndentOnPaste: true

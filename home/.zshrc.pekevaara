@@ -4,10 +4,6 @@ autoload run-help
 HELPDIR=/usr/local/share/zsh/helpfiles
 
 export ARCHFLAGS="-arch x86_64"
-#export DYLD_LIBRARY_PATH="/usr/local/oracle/instantclient_10_2"
-export SQLPATH="/usr/local/oracle/instantclient_10_2"
-#export TNS_ADMIN="/usr/local/oracle/network/admin"
-export NLS_LANG="AMERICAN_AMERICA.UTF8"
 
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:$HOME/.rvm/bin # RVM
@@ -120,7 +116,6 @@ alias gc='git clone'
 alias c='j'
 alias e='atom'
 alias ee='atom .'
-alias i='imgur2' # gem install imgur2
 alias t='traceroute -d 195.74.0.47' # is network down?
 alias p='ping www.sci.fi'
 alias dug="du -sch * | grep '^[\ 0-9,\.]*G'"
@@ -149,19 +144,9 @@ alias pg-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias redis-start='redis-server /usr/local/etc/redis.conf'
 alias mongo-start='mongod --config /usr/local/etc/mongod.conf'
 
-alias es-start='cd /usr/local/elasticsearch-0.19.9 && bin/elasticsearch -f'
-
-alias mysql-start='cd /usr/local/Cellar/mysql/5.5.25a ; /usr/local/Cellar/mysql/5.5.25a/bin/mysqld_safe &'
-alias mysql-stop='mysql.server stop'
-
-alias tizen-sign-webapp='webtizen -s -p richard:~/tizen-sdk-data/lulz_profiles.xml'
-alias tizen-package-webapp='webtizen -p application.wgt .'
-alias tizen-install-webapp='webtizen -i -w application.wgt'
-
 ## check also xip.io for local dns fiddling
 alias web-server='echo http://localhost:8888 ; python -m SimpleHTTPServer 8888'
 alias web-server-global='localtunnel 8888' # `gem install localtunnel`
-
 
 alias diff-inline='wdiff -w "$(tput bold;tput setaf 1)" -x "$(tput sgr0)" -y "$(tput bold;tput setaf 2)" -z "$(tput sgr0)"'
 
@@ -184,9 +169,3 @@ nvm alias default 0.12
 # https://github.com/ndbroadbent/scm_breeze
 [ -s "/Users/pre/.scm_breeze/scm_breeze.sh" ] && source "/Users/pre/.scm_breeze/scm_breeze.sh"
 
-# Dokku
-alias dokku='$HOME/.dokku/contrib/dokku_client.sh'
-export DOKKU_HOST=sverige.appgyver.com
-
-# Docker
-# eval "$(boot2docker shellinit)"

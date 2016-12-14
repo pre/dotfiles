@@ -169,3 +169,5 @@ nvm alias default 6.5.0
 # https://github.com/ndbroadbent/scm_breeze
 [ -s "/Users/pre/.scm_breeze/scm_breeze.sh" ] && source "/Users/pre/.scm_breeze/scm_breeze.sh"
 
+# brew install thefuck
+eval "$(thefuck --alias f)"

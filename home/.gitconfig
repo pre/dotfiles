@@ -147,7 +147,7 @@
    keepBackup = false
    keepTemporaries = false
 [mergetool "lolmerge"]
-   cmd = /Users/pre/Applications/p4merge.app/Contents/Resources/launchp4merge \
+   cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \
        "$PWD/$BASE" \
        "$PWD/$REMOTE" \
        "$PWD/$LOCAL" \

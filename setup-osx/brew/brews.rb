@@ -64,22 +64,10 @@ brew "git"
 
 brew ["postgresql", "redis"], loads: false
 brew "mongodb", loads: false
-
 brew "imagemagick"
-
 brew ["youtube-dl", "ffmpeg"]
-
-unless mode == "reinstall"
-#  system_verbose("sudo chmod u+s /usr/bin/easy_install")
-#  system_verbose("sudo chown root:wheel /usr/bin/easy_install")
-  system_verbose("sudo easy_install pip")
-  system_verbose("sudo pip install pycrypto")
-  system_verbose("ln -sf /usr/bin/python2.7 /usr/local/bin/python2")
-end
 brew "yle-dl"
-
 brew "homebrew/dupes/rsync"
-
 brew "wget"
 brew "heroku-toolbelt"
 
@@ -92,3 +80,5 @@ brew "tree"
 brew "autojump"
 brew "shellcheck"
 brew "thefuck"
+brew "p7zip"
+brew "flow"

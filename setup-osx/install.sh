@@ -26,7 +26,10 @@ echo "rvm"
 curl -sSL https://get.rvm.io | bash -s stable
 
 echo "nvm"
-curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash
+echo "run install command from https://github.com/creationix/nvm"
+open "https://github.com/creationix/nvm"
+echo "hit enter when done"
+read okay
 
 echo "scm_breeze"
 git clone git://github.com/ndbroadbent/scm_breeze.git ~/.scm_breeze

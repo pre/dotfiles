@@ -94,6 +94,7 @@ alias cim='git ci -m'
 alias gl='git log'
 alias glp='git log -p'
 alias glp1='git log -p -1'
+alias gld='git log --left-right --graph --cherry-mark --oneline' # "gld master.." list commits not in master
 alias glo='git log --oneline --decorate --color'
 alias gll='git log --stat' # --max-count=100
 alias glg='git log --graph'

@@ -1,28 +1,28 @@
 // find results
-atom-text-editor::shadow .highlight.find-result .region {
+atom-text-editor .highlight.find-result .region {
   background-color: rgb(0, 126, 122);
   z-index: -1;
   transition: background-color 0.2s, border-color 0.2s;
 }
-atom-text-editor::shadow .highlight.current-result .region,
-atom-text-editor::shadow .highlight.current-result ~ .highlight.selection .region {
+atom-text-editor .highlight.current-result .region,
+atom-text-editor .highlight.current-result ~ .highlight.selection .region {
   background: rgb(0, 89, 223);
   border-color: red;
   z-index: -1;
 }
 
 // git gutter
-atom-text-editor::shadow .gutter .line-number.git-line-added {
+atom-text-editor .gutter .line-number.git-line-added {
     border-left-width: 1px;
     border-left-color: lime;
     padding-left: calc(~"0.5em - 1px");
 }
-atom-text-editor::shadow .gutter .line-number.git-line-modified {
+atom-text-editor .gutter .line-number.git-line-modified {
     border-left-width: 1px;
     border-left-color: yellow;
     padding-left: calc(~"0.5em - 1px");
 }
-atom-text-editor::shadow .gutter .line-number.git-line-removed:before {
+atom-text-editor .gutter .line-number.git-line-removed:before {
     bottom: -5px;
     margin-top: -5px;
     border-width: 5px;

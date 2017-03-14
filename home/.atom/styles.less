@@ -28,3 +28,33 @@ atom-text-editor .gutter .line-number.git-line-removed:before {
     border-width: 5px;
     border-left-color: red;
 }
+
+// Ligatures with Fira Code, script with Operator Mono
+atom-workspace,
+atom-text-editor {
+    font-family: "Fira Code";
+    text-rendering: optimizeLegibility;
+    // font-weight: 500;
+}
+atom-text-editor {
+    .string.quoted,
+    .string.regexp {
+      -webkit-font-feature-settings: "liga" off, "calt" off;
+    }
+}
+
+atom-text-editor.editor {
+  .syntax--variable.syntax--language,
+  .syntax--keyword.syntax--operator:not(.syntax--comparison):not(.syntax--assignment):not(.syntax--relational):not(.syntax--logical),
+  .entity.other.attribute-name,
+  .syntax--entity.syntax--other.syntax--attribute-name {
+    font-family: "Operator Mono";
+    font-style: italic;
+  }
+}
+
+.editor .comment,
+atom-text-editor.editor .syntax--comment {
+    font-family: "Operator Mono";
+    font-style: italic;
+}

@@ -10,7 +10,7 @@
     telemetryConsent: "limited"
     themes: [
       "atom-dark-ui"
-      "atom-dark-syntax"
+      "one-dark-syntax"
     ]
   editor:
     fontSize: 15

@@ -13,34 +13,34 @@ atom-text-editor .highlight.current-result ~ .highlight.selection .region {
 
 // git gutter
 atom-text-editor .gutter .line-number.git-line-added {
-    border-left-width: 1px;
-    border-left-color: lime;
-    padding-left: calc(~"0.5em - 1px");
+  border-left-width: 1px;
+  border-left-color: lime;
+  padding-left: calc(~"0.5em - 1px");
 }
 atom-text-editor .gutter .line-number.git-line-modified {
-    border-left-width: 1px;
-    border-left-color: yellow;
-    padding-left: calc(~"0.5em - 1px");
+  border-left-width: 1px;
+  border-left-color: yellow;
+  padding-left: calc(~"0.5em - 1px");
 }
 atom-text-editor .gutter .line-number.git-line-removed:before {
-    bottom: -5px;
-    margin-top: -5px;
-    border-width: 5px;
-    border-left-color: red;
+  bottom: -5px;
+  margin-top: -5px;
+  border-width: 5px;
+  border-left-color: red;
 }
 
 // Ligatures with Fira Code, script with Operator Mono
 atom-workspace,
 atom-text-editor {
-    font-family: "Fira Code";
-    text-rendering: optimizeLegibility;
-    // font-weight: 500;
+  font-family: "Fira Code";
+  text-rendering: optimizeLegibility;
+  // font-weight: 500;
 }
 atom-text-editor {
-    .string.quoted,
-    .string.regexp {
-      -webkit-font-feature-settings: "liga" off, "calt" off;
-    }
+  .string.quoted,
+  .string.regexp {
+    -webkit-font-feature-settings: "liga" off, "calt" off;
+  }
 }
 
 atom-text-editor.editor {
@@ -55,6 +55,6 @@ atom-text-editor.editor {
 
 .editor .comment,
 atom-text-editor.editor .syntax--comment {
-    font-family: "Operator Mono";
-    font-style: italic;
+  font-family: "Operator Mono";
+  font-style: italic;
 }

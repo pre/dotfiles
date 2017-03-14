@@ -36,6 +36,7 @@ atom-text-editor {
   text-rendering: optimizeLegibility;
   // font-weight: 500;
 }
+
 atom-text-editor {
   .string.quoted,
   .string.regexp {
@@ -50,6 +51,12 @@ atom-text-editor.editor {
   .syntax--entity.syntax--other.syntax--attribute-name {
     font-family: "Operator Mono";
     font-style: italic;
+  }
+
+  .syntax--punctuation,
+  .syntax--brace {
+    font-style: normal;
+    font-family: "Operator Mono";
   }
 }
 

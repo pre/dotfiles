@@ -29,8 +29,11 @@ atom-text-editor .gutter .line-number.git-line-removed:before {
   border-left-color: red;
 }
 
-// Ligatures with Fira Code, script with Operator Mono
-atom-workspace,
+atom-workspace {
+  font-family: "Operator Mono";
+}
+
+// Ligatures with Fira Code
 atom-text-editor {
   font-family: "Fira Code";
   text-rendering: optimizeLegibility;
@@ -44,6 +47,7 @@ atom-text-editor {
   }
 }
 
+// Script with Operator Mono
 atom-text-editor.editor {
   .syntax--variable.syntax--language,
   .syntax--keyword.syntax--operator:not(.syntax--comparison):not(.syntax--assignment):not(.syntax--relational):not(.syntax--logical),

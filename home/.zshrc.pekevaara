@@ -163,8 +163,8 @@ unsetopt auto_name_dirs
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh
 
 # NVM Defaults
-nvm use 6.10.0
-nvm alias default 6.10.0
+nvm use 6.10.1
+nvm alias default 6.10.1
 
 # SCM Breeze
 # https://github.com/ndbroadbent/scm_breeze

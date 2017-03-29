@@ -20,8 +20,7 @@
     userId: "6eec5a77-152e-0b87-10c3-83f36bd6e557"
   "go-plus": {}
   jumpy: {}
-  linter:
-    showErrorPanel: false
+  linter: {}
   "linter-ui-default": {}
   metrics:
     userId: "e0d9d1dd23e24dc8540a32e1407baf412c5711aa"

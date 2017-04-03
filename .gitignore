@@ -6,3 +6,6 @@ home/.atom/recovery/
 home/.atom/.apm/
 home/.atom/.node-gyp/
 home/.atom/blob-store/
+
+# Bundler
+/home/.bundle/cache

@@ -67,16 +67,17 @@ alias glp='git log -p'
 alias glp1='git log -p -1'
 alias g1='git log -p -1'
 alias gld='git log --left-right --graph --cherry-mark --oneline' # "gld master.." list commits not in master
-alias glo='git log --oneline --decorate --color'
 alias gll='git log --stat' # --max-count=100
 alias glg='git log --graph'
 alias glgg='git log --graph --decorate --all'
 alias gls='git ls'
 alias sup='git submodule update --init'
 alias gm='git mergetool'
-alias gcon='git rebase --continue'
-alias gabo='git rebase --abort'
-alias gski='git rebase --skip'
+alias gr='git rebase'
+grih() { git rebase -i HEAD~"$@"; }
+alias grc='git rebase --continue'
+alias gra='git rebase --abort'
+alias grs='git rebase --skip'
 alias st='git st'
 alias gc='git clone'
 ## from SCM Breeze

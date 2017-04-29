@@ -41,42 +41,13 @@ setopt INTERACTIVE_COMMENTS # allow # character in interactive mode too
 setopt COMPLETE_IN_WORD # not just at the end
 
 setopt auto_cd
-cdpath=($HOME/dev $HOME/Documents $HOME/dev/ag)
-
-# GO
-export PATH="$PATH:$GOROOT/bin"
+cdpath=($HOME/dev $HOME/Documents)
 
 # RAILS
 alias rc='rails c'
 alias hrc='heroku run rails c'
 alias hk='heroku'
 alias hr='heroku run'
-
-# STEROIDS
-alias sc='steroids connect --no-watch --no-qrcode'
-alias dc='devroids connect --no-watch --no-qrcode'
-alias testgyver-deploy='steroids deploy --noSettingsJson --cloudUrl=https://anka.testgyver.com --shareURL=http://share.testgyver.com'
-alias testgyver-login='steroids login --authURL=https://accounts.testgyver.com'
-alias devgyver-deploy='devroids deploy --noSettingsJson --cloudUrl=https://anka.devgyver.com --shareURL=http://share.devgyver.com'
-alias devgyver-login='devroids login --authURL=https://accounts.devgyver.com'
-
-alias lnss='ln -s ~/dev/ag/supersonic/dist supersonic'
-
-# GRADLE
-alias gr='./gradlew'
-alias grt='./gradlew test'
-alias grc='./gradlew clean'
-alias grb='./gradlew build -x lint'
-alias gri='./gradlew installDebug'
-
-alias grr='../../gradlew'
-alias grrt='../../gradlew test'
-alias grrc='../../gradlew clean'
-alias grrb-slow='../../gradlew build'
-alias grrb='../../gradlew build -x lint -x lintVitalArm64Release -x lintVitalArmRelease -x lintVitalArm_and_x86Release -x lintVitalX86Release'
-alias grri='../../gradlew installArmDebug'
-
-alias fap='find . -name "*.apk"'
 
 # GIT
 alias s='stree'

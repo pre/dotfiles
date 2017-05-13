@@ -67,10 +67,12 @@ alias glp='git log -p'
 alias glp1='git log -p -1'
 alias g1='git log -p -1'
 alias gld='git log --left-right --graph --cherry-mark --oneline' # "gld master.." list commits not in master
-alias gll='git log --stat' # --max-count=100
+alias gll='git log --stat --graph --decorate' # --max-count=100
+alias glll='git log --stat --graph --decorate --all'
 alias glg='git log --graph'
 alias glgg='git log --graph --decorate --all'
 alias gls='git ls'
+alias glsa='git ls --all' # where was i
 alias sup='git submodule update --init'
 alias gm='git mergetool'
 alias gr='git rebase'

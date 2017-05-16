@@ -47,6 +47,8 @@
     br = branch
     lbr = branch -a
     lbrv = branch -lvvv
+    # List branches by date and author by the last commit, sort oldest last
+    lbra = "! for branch in `git branch -r | grep -v HEAD`; do echo `git show --pretty=format:\"%ai %Cred %cn %Cgreen %ar %Creset\" $branch | head -n 1` $branch; done | sort -r"
     gren = grep -n
     todo = grep --heading --break --ignore-case -e 'TODO:'
     fixme  = grep --heading --break --ignore-case -e 'FIX:' -e 'FIXME:'

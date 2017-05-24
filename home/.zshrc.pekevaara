@@ -61,6 +61,11 @@ alias gs='git diff --cached'
 alias cop='git checkout -p'
 alias rull='git pull --rebase'
 
+# Kill process PID by process name
+# Useful when "killall" cannot find the process, eg. Sidekiq started by Foreman
+k() { kill $(pgrep "$@") }
+k9() { kill -9 $(pgrep "$@") }
+
 alias cim='git ci -m'
 alias gl='git log'
 alias glp='git log -p'

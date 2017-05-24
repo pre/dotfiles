@@ -18,6 +18,9 @@
     showIndentGuide: true
   "exception-reporting":
     userId: "6eec5a77-152e-0b87-10c3-83f36bd6e557"
+  "git-blame":
+    columnWidth: 300
+    showOnlyLastNames: true
   "go-plus": {}
   jumpy: {}
   linter: {}

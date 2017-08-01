@@ -53,7 +53,3 @@ source ${HOME}/.zshrc.private
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# added by travis gem
-[ -f /Users/pre/.travis/travis.sh ] && source /Users/pre/.travis/travis.sh
-alias dokku='/Users/pre/.dokku/contrib/dokku_client.sh'
-export DOKKU_HOST=sverige.appgyver.com

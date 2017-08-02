@@ -5,7 +5,7 @@
 echo "Install XCode from App Store"
 open "/Applications/App Store.app"
 echo "Press enter when XCode has been installed"
-read okay 
+read okay
 
 echo "Install XCode command line tools"
 xcode-select --install

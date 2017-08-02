@@ -1,12 +1,6 @@
-# to access the online help:
-unalias run-help
-autoload run-help
-HELPDIR=/usr/local/share/zsh/helpfiles
-
 export ARCHFLAGS="-arch x86_64"
 
-export PATH=/usr/local/bin:$PATH
-export PATH=$PATH:$HOME/.rvm/bin # RVM
+export PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin
 
 # ANDROID
 export PATH=$PATH:$HOME/Android/sdk/platform-tools:$HOME/Android/sdk/tools:$HOME/Android/sdk/build-tools/current
@@ -23,6 +17,7 @@ alias adbcpu='adb shell getprop ro.product.cpu.abi'
 alias adbshot='adb shell screencap -p /sdcard/screencap.png && adb pull /sdcard/screencap.png'
 
 # HISTORY SETTINGS
+# Print keycode: ctrl-v KEY
 
 # Requires Plugin: history-substring-search
 bindkey "^[[A" history-substring-search-up # Arrow UP
@@ -93,7 +88,6 @@ alias gc='git clone'
 #alias co='git co'
 #alias ci='git ci'
 
-
 alias c='j'
 alias e='atom'
 alias ee='atom .'
@@ -140,15 +134,10 @@ unsetopt auto_name_dirs
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # NVM
+# Set the default once: 
+# 	nvm alias default 6.11.2
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh
-
-# NVM Defaults
-nvm use 6.11.2
-nvm alias default 6.11.2
 
 # SCM Breeze
 # https://github.com/ndbroadbent/scm_breeze
 [ -s "/Users/pre/.scm_breeze/scm_breeze.sh" ] && source "/Users/pre/.scm_breeze/scm_breeze.sh"
-
-# brew install thefuck
-eval "$(thefuck --alias f)"

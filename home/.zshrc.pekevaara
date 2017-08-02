@@ -1,3 +1,26 @@
+### Display execution time if command took longer than REPORTTIME_TOTAL
+#
+# https://superuser.com/a/847411/376927
+#
+REPORTTIME_TOTAL=60 # seconds
+cmd_execution_time() {
+  local stop=$((`date "+%s"`))
+  let local "elapsed = ${stop} - ${cmd_start_time}"
+  let local "minutes = ${elapsed} / 60"
+  (( $elapsed > $REPORTTIME_TOTAL )) && print -P "%F{yellow}${minutes} minutes%f"
+}
+
+preexec() {
+  cmd_start_time=$((`date "+%s"`))
+}
+
+precmd() {
+  if (($+cmd_start_time)); then
+    cmd_execution_time
+  fi
+}
+###
+
 export ARCHFLAGS="-arch x86_64"
 
 export PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin

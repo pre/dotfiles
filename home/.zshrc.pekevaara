@@ -5,9 +5,10 @@
 REPORTTIME_TOTAL=60 # seconds
 cmd_execution_time() {
   local stop=$((`date "+%s"`))
-  let local "elapsed = ${stop} - ${cmd_start_time}"
-  let local "minutes = ${elapsed} / 60"
-  (( $elapsed > $REPORTTIME_TOTAL )) && print -P "%F{yellow}${minutes} minutes%f"
+  let local "cmd_elapsed = ${stop} - ${cmd_start_time}"
+  let local "cmd_minutes = ${cmd_elapsed} / 60"
+  let local "cmd_seconds = ${cmd_elapsed} % 60"
+  (( $cmd_elapsed > $REPORTTIME_TOTAL )) && print -P "%F{yellow}${cmd_minutes} min ${cmd_seconds} sec%f"
 }
 
 preexec() {

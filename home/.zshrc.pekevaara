@@ -73,6 +73,9 @@ alias hr='heroku run'
 k() { kill $(pgrep "$@") }
 k9() { kill -9 $(pgrep "$@") }
 
+# DOCKER
+alias docker-rm-dangling='docker rmi $(docker images -qf "dangling=true")'
+
 # GIT
 alias s='stree'
 alias gbw='git blame -w'  # ignores white space

@@ -68,23 +68,21 @@ alias hrc='heroku run rails c'
 alias hk='heroku'
 alias hr='heroku run'
 
-# GIT
-alias s='stree'
-alias gbw='git blame -w'  # ignores white space
-alias gb='git blame -M'   # ignores moving text
-alias gbb='git blame -C'  # ignores moving text into other files
-
-alias gg='git grep --break --heading --line-number'
-alias gd='git diff'
-alias gs='git diff --cached'
-alias cop='git checkout -p'
-alias rull='git pull --rebase'
-
 # Kill process PID by process name
 # Useful when "killall" cannot find the process, eg. Sidekiq started by Foreman
 k() { kill $(pgrep "$@") }
 k9() { kill -9 $(pgrep "$@") }
 
+# GIT
+alias s='stree'
+alias gbw='git blame -w'  # ignores white space
+alias gb='git blame -M'   # ignores moving text
+alias gbb='git blame -C'  # ignores moving text into other files
+alias gg='git grep --break --heading --line-number'
+alias gd='git diff'
+alias gs='git diff --cached'
+alias cop='git checkout -p'
+alias rull='git pull --rebase'
 alias cim='git ci -m'
 alias gl='git log'
 alias glp='git log -p'
@@ -158,7 +156,7 @@ unsetopt auto_name_dirs
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # NVM
-# Set the default once: 
+# Set the default once:
 # 	nvm alias default 6.11.2
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh
 

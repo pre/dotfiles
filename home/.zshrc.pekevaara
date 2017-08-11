@@ -75,6 +75,7 @@ k9() { kill -9 $(pgrep "$@") }
 
 # DOCKER
 alias docker-rm-dangling='docker rmi $(docker images -qf "dangling=true")'
+docker-rm-containers() { docker ps -qa -f name=$@ | xargs docker rm }
 
 # GIT
 alias s='stree'

@@ -108,6 +108,7 @@ alias gra='git rebase --abort'
 alias grs='git rebase --skip'
 alias st='git st'
 alias gc='git clone'
+alias gpf='git pf'
 ## from SCM Breeze
 #alias g='git'
 #alias gap='git add -p'

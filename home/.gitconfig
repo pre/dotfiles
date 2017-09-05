@@ -109,11 +109,8 @@
     # back and decide if you want to merge or rebase.
     full = pull --ff-only
 
-    # Git-wtf & pals from
-    #    http://git-wt-commit.rubyforge.org/#git-wtf
-    wtf               = !$HOME/bin/git-wtf
-    show-merges       = !$HOME/bin/git-show-merges
-    rank-contributors = !$HOME/bin/git-rank-contributors
+    # Force push without rewriting history if remote has new changes
+    pf = push --force-with-lease
 
 [color]
     ui = true

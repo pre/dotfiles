@@ -20,7 +20,7 @@ for dotfile in `ls -d $PATTERN`; do
   acual=`basename "$dotfile"`
   symlink_file="$HOME/$acual" 
 
-  ln -s "$dotfile" "$symlink_file" || ( echo "Errored with: " ; ls -ld "$symlink_file" ; echo "" )
+  ln -is "$dotfile" "$symlink_file" || ( echo "Errored with: " ; ls -ld "$symlink_file" ; echo "" )
   echo ""
 done
 

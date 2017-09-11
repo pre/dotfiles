@@ -5,6 +5,11 @@ function hitEnter() {
   read okay
 }
 
+echo "Check status of installed Atom packages and "
+echo "- run 'apm star --installed' on another machine."
+echo "- run 'apm install --starred' on this machine."
+hitEnter
+
 open "$HOME/Applications/Alfred 2.app"
 echo "Alfred: sync settings from dropbox"
 hitEnter
@@ -18,6 +23,7 @@ hitEnter
 open "/System/Library/PreferencePanes/UniversalAccessPref.prefPane/"
 echo "Accessibility:"
 echo "Use scroll gesture to zoom"
+echo "Mouse & Trackpad: Enable dragging / three finger drag
 hitEnter
 
 open "/System/Library/PreferencePanes/Dock.prefPane/"

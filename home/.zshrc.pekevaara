@@ -79,9 +79,9 @@ docker-rm-containers() { docker ps -qa -f name=$@ | xargs docker rm }
 
 # GIT
 alias s='stree'
-alias gbw='git blame -w'  # ignores white space
-alias gb='git blame -M'   # ignores moving text
-alias gbb='git blame -C'  # ignores moving text into other files
+alias gblw='git blame -w'  # ignores white space
+alias gbl='git blame -M'   # ignores moving text
+alias gbb='git blame -C'   # ignores moving text into other files
 alias gg='git grep --break --heading --line-number'
 alias gd='git diff'
 alias gs='git diff --cached'

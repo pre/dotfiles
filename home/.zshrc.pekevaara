@@ -146,6 +146,8 @@ alias pg-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias redis-start='redis-server /usr/local/etc/redis.conf'
 alias mongo-start='mongod --config /usr/local/etc/mongod.conf'
 
+alias bund='gem install bundler'
+
 ## check also xip.io for local dns fiddling
 alias web-server='echo http://localhost:8888 ; python -m SimpleHTTPServer 8888'
 alias web-server-global='localtunnel 8888' # `gem install localtunnel`

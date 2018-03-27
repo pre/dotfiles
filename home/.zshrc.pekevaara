@@ -74,8 +74,13 @@ k() { kill $(pgrep "$@") }
 k9() { kill -9 $(pgrep "$@") }
 
 # DOCKER
+alias de='docker exec'
+alias deit='docker exec -it'
 alias docker-rm-dangling='docker rmi $(docker images -qf "dangling=true")'
 docker-rm-containers() { docker ps -qa -f name=$@ | xargs docker rm }
+
+alias bund='gem install bundler'
+alias rakedb='rake db:migrate && rake db:test:prepare'
 
 # GIT
 alias s='stree'

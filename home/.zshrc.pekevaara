@@ -167,10 +167,8 @@ unsetopt auto_name_dirs
 # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-# NVM
-# Set the default once:
-# 	nvm alias default 6.11.2
-[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh
+# nodenv
+eval "$(nodenv init -)"
 
 # SCM Breeze
 # https://github.com/ndbroadbent/scm_breeze

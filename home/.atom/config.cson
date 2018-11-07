@@ -6,6 +6,7 @@
   core:
     disabledPackages: [
       "go-plus"
+      "symbols-view"
     ]
     telemetryConsent: "limited"
     themes: [
@@ -13,7 +14,6 @@
       "one-dark-syntax"
     ]
   editor:
-    fontSize: 15
     invisibles: {}
     showIndentGuide: true
   "exception-reporting":
@@ -24,14 +24,15 @@
   "go-plus": {}
   jumpy: {}
   linter: {}
-  "linter-ui-default": {}
+  "linter-eslint": {}
+  "linter-ui-default":
+    showPanel: true
   metrics:
     userId: "e0d9d1dd23e24dc8540a32e1407baf412c5711aa"
   "one-dark-ui": {}
   "spell-check": {}
   "toggle-quotes": {}
-  "tree-view":
-    hideVcsIgnoredFiles: true
+  "tree-view": {}
   welcome:
     showOnStartup: false
   whitespace:

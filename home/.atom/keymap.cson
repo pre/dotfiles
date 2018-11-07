@@ -30,3 +30,7 @@
   'alt-ctrl-right': 'last-cursor-position:next'
   'ctrl-up': 'expand-region:expand'
   'ctrl-down': 'expand-region:shrink'
+  'ctrl-l': 'go-to-line:toggle'
+  'cmd-k r': 'tree-view:reveal-active-file'
+  'cmd-k cmd-r': 'tree-view:reveal-active-file'
+  'cmd-ö': 'linter-rubocop:fix-file'

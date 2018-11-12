@@ -25,8 +25,7 @@
   jumpy: {}
   linter: {}
   "linter-eslint": {}
-  "linter-ui-default":
-    showPanel: true
+  "linter-ui-default": {}
   metrics:
     userId: "e0d9d1dd23e24dc8540a32e1407baf412c5711aa"
   "one-dark-ui": {}
@@ -43,3 +42,5 @@
 ".ruby.source":
   editor:
     autoIndentOnPaste: true
+"file-types":
+  "^Dockerfile\\..*$": "source.dockerfile"

@@ -1,3 +1,6 @@
+## Keybinding resolver:
+#  ctrl-v KEY
+
 ### Display execution time if command took longer than REPORTTIME_TOTAL
 #
 # https://superuser.com/a/847411/376927
@@ -41,14 +44,6 @@ alias adbcpu='adb shell getprop ro.product.cpu.abi'
 alias adbshot='adb shell screencap -p /sdcard/screencap.png && adb pull /sdcard/screencap.png'
 
 # HISTORY SETTINGS
-# Print keycode: ctrl-v KEY
-
-# Requires Plugin: history-substring-search
-bindkey "^[[A" history-substring-search-up # Arrow UP
-bindkey "^[[B" history-substring-search-down # Arrow DOWN
-bindkey "^]" history-substring-search-up # ctrl Swedish-A
-bindkey "^^" history-substring-search-down # ctrl ¨
-
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
 setopt PUSHD_IGNORE_DUPS

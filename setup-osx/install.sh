@@ -15,6 +15,9 @@ read okay
 echo "oh-my-zsh"
 curl -L http://install.ohmyz.sh | sh
 
+echo "zsh plugins"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
 echo "homebrew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew doctor
@@ -34,5 +37,3 @@ read okay
 echo "scm_breeze"
 git clone git://github.com/ndbroadbent/scm_breeze.git ~/.scm_breeze
 ~/.scm_breeze/install.sh
-
-

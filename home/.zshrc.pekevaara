@@ -154,9 +154,17 @@ alias bund='gem install bundler'
 
 ## check also xip.io for local dns fiddling
 alias web-server='echo http://localhost:8888 ; python -m SimpleHTTPServer 8888'
-alias web-server-global='localtunnel 8888' # `gem install localtunnel`
 
 alias diff-inline='wdiff -w "$(tput bold;tput setaf 1)" -x "$(tput sgr0)" -y "$(tput bold;tput setaf 2)" -z "$(tput sgr0)"'
+
+# Kubernetes
+k8-force-deploy() {
+  if [ "$1" = "" ]; then echo "Usage: $0 deployment_name"; return; fi
+
+  echo "kubectl: Force deploy of '$1'";
+  kubectl patch deployment "$1" -p "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}";
+}
+
 
 # If you're using zsh (possibly with oh-my-zsh) and your prompt displays the
 # current directory as "~rvm_rvmrc_cwd", the fix to add the following to your

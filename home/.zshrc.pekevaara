@@ -165,6 +165,10 @@ k8-force-deploy() {
   kubectl patch deployment "$1" -p "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}";
 }
 
+loop() {
+  while `sleep 1`; do "$@" && return; done
+}
+
 
 # If you're using zsh (possibly with oh-my-zsh) and your prompt displays the
 # current directory as "~rvm_rvmrc_cwd", the fix to add the following to your

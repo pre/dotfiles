@@ -181,6 +181,19 @@ unsetopt auto_name_dirs
 # nodenv
 eval "$(nodenv init -)"
 
+
+## Kontena Pharos
+source /usr/local/opt/chpharos/share/chpharos/chpharos.sh
+
+# auto-switching of Pharos versions specified by .pharos-version files
+chpharos auto
+
+
+# Custom bindings
+bindkey "^[[1;2D" backward-word # shift arrow-left
+bindkey "^[[1;2C" forward-word  # shift arrow-right
+
+
 # SCM Breeze
 # https://github.com/ndbroadbent/scm_breeze
 [ -s "/Users/pre/.scm_breeze/scm_breeze.sh" ] && source "/Users/pre/.scm_breeze/scm_breeze.sh"

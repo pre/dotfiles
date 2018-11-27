@@ -37,3 +37,4 @@
   'cmd-k r': 'tree-view:reveal-active-file'
   'cmd-k cmd-r': 'tree-view:reveal-active-file'
   'cmd-ö': 'linter-rubocop:fix-file'
+  'ctrl-s': 'spell-check:toggle'

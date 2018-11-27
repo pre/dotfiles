@@ -176,6 +176,12 @@ klogs () {
   kubectl logs -f $1 -c $2
 }
 
+ke () {
+  if [ "$3" = "" ]; then echo 'Usage: $0 pod container command'; return; fi
+
+  kubectl exec -it "$1" -c "$2" "$3"
+}
+
 # brew install kube-ps1
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 export RPROMPT='$(kube_ps1)'

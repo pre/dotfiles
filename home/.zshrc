@@ -48,7 +48,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 #
 # zsh-syntax-highlighting must be the last (https://github.com/zsh-users/zsh-syntax-highlighting)
-plugins=(gitfast autojump safe-paste zsh-syntax-highlighting)
+plugins=(gitfast history autojump safe-paste zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 

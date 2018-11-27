@@ -47,6 +47,8 @@ alias adbshot='adb shell screencap -p /sdcard/screencap.png && adb pull /sdcard/
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
 setopt PUSHD_IGNORE_DUPS
+setopt inc_append_history # save every command before it is executed
+setopt share_history # retrieve the history file everytime history is called upon
 HISTSIZE=1000000
 SAVEHIST=1000000
 
@@ -65,7 +67,7 @@ alias hr='heroku run'
 
 # Kill process PID by process name
 # Useful when "killall" cannot find the process, eg. Sidekiq started by Foreman
-k() { kill $(pgrep "$@") }
+kil() { kill $(pgrep "$@") }
 k9() { kill -9 $(pgrep "$@") }
 
 # DOCKER
@@ -165,10 +167,31 @@ k8-force-deploy() {
   kubectl patch deployment "$1" -p "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}";
 }
 
-loop() {
-  while `sleep 1`; do "$@" && return; done
+alias k='kubectl'
+alias kg='kubectl get'
+alias kd='kubectl describe'
+klogs () {
+  if [ "$2" = "" ]; then echo 'Usage: $0 pod container'; return; fi
+
+  kubectl logs -f $1 -c $2
 }
 
+# brew install kube-ps1
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+export RPROMPT='$(kube_ps1)'
+
+# source kubeconfig
+function sk {
+  export KUBECONFIG="${KUBECONFIG}:$HOME/.kube/config:$(pwd)/${1:-kubeconfig}"
+}
+
+loop() {
+  while `sleep 1`; do "$@"; done
+}
+
+luup() {
+  while `sleep 1`; do "$@" && return; done
+}
 
 # If you're using zsh (possibly with oh-my-zsh) and your prompt displays the
 # current directory as "~rvm_rvmrc_cwd", the fix to add the following to your
@@ -190,9 +213,17 @@ chpharos auto
 
 
 # Custom bindings
-bindkey "^[[1;2D" backward-word # shift arrow-left
-bindkey "^[[1;2C" forward-word  # shift arrow-right
-
+# http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html
+# quote line: esc-'
+# quote region: esc-"
+# select region: ^Xx
+# match bracket: ^X^B
+# which: esc-?
+bindkey "^D" delete-word
+bindkey "^Xi" select-in-word
+bindkey "^X^i" select-in-word
+bindkey "^Xd" kill-region
+bindkey "^X^d" kill-region
 
 # SCM Breeze
 # https://github.com/ndbroadbent/scm_breeze

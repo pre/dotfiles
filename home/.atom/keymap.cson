@@ -21,6 +21,9 @@
   'cmd-alt-w': 'pane:close-other-items'
   'ctrl-b': 'blame:toggle'
 
+'.editor':
+  'ctrl-i': 'window:toggle-invisibles'
+
 'atom-workspace atom-text-editor:not([mini])':
   'cmd-.': 'editor:toggle-line-comments'
 

@@ -221,11 +221,14 @@ chpharos auto
 # select region: ^Xx
 # match bracket: ^X^B
 # which: esc-?
-bindkey "^D" delete-word
 bindkey "^Xi" select-in-word
 bindkey "^X^i" select-in-word
+bindkey "^Xf" delete-word
+bindkey "^X^f" delete-word
 bindkey "^Xd" kill-region
 bindkey "^X^d" kill-region
+bindkey "^[[1;2D" set-mark-command
+bindkey "^[[1;2C" set-mark-command
 
 # SCM Breeze
 # https://github.com/ndbroadbent/scm_breeze

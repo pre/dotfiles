@@ -22,13 +22,14 @@
   'ctrl-b': 'blame:toggle'
 
 '.editor':
+  'cmd-i': 'editor:auto-indent'
   'ctrl-i': 'window:toggle-invisibles'
+  'ctrl-r': 'editor:toggle-soft-wrap'
 
 'atom-workspace atom-text-editor:not([mini])':
   'cmd-.': 'editor:toggle-line-comments'
 
 'atom-text-editor':
-  'cmd-i': 'editor:auto-indent'
   'alt-ctrl-left': 'last-cursor-position:previous'
   'alt-ctrl-right': 'last-cursor-position:next'
   'ctrl-up': 'expand-region:expand'

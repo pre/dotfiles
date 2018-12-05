@@ -186,10 +186,6 @@ ke () {
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 export RPROMPT='$(kube_ps1)'
 
-# source kubeconfig
-function sk {
-  export KUBECONFIG="${KUBECONFIG}:$HOME/.kube/config:$(pwd)/${1:-kubeconfig}"
-}
 
 loop() {
   while `sleep 1`; do "$@"; done

@@ -233,3 +233,9 @@ bindkey "^[[1;2C" set-mark-command
 # SCM Breeze
 # https://github.com/ndbroadbent/scm_breeze
 [ -s "/Users/pre/.scm_breeze/scm_breeze.sh" ] && source "/Users/pre/.scm_breeze/scm_breeze.sh"
+
+# https://github.com/junegunn/fzf
+# ^T - select from list, use shift to select multiple
+# ^R - fuzzy history
+# cd ** - directory list
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

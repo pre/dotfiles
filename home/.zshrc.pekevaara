@@ -80,7 +80,6 @@ alias bund='gem install bundler'
 alias rakedb='rake db:migrate && rake db:test:prepare'
 
 # GIT
-alias s='stree'
 alias gblw='git blame -w'  # ignores white space
 alias gbl='git blame -M'   # ignores moving text
 alias gbb='git blame -C'   # ignores moving text into other files
@@ -170,10 +169,14 @@ k8-force-deploy() {
 alias k='kubectl'
 alias kg='kubectl get'
 alias kd='kubectl describe'
-klogs () {
-  if [ "$2" = "" ]; then echo 'Usage: $0 pod container'; return; fi
+klog () {
+  if [ "$1" = "" ]; then echo 'Usage: $0 pod container'; return; fi
 
-  kubectl logs -f $1 -c $2
+  if [ "$2" = "" ]; then
+    kubectl logs -f "$1"
+  else
+    kubectl logs -f "$1" -c "$2"
+  fi
 }
 
 ke () {

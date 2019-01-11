@@ -219,19 +219,22 @@ chpharos auto
 
 # Custom bindings
 # http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html
+#
 # quote line: esc-'
 # quote region: esc-"
 # select region: ^Xx
 # match bracket: ^X^B
 # which: esc-?
+# paste: ^y
 bindkey "^Xi" select-in-word
 bindkey "^X^i" select-in-word
-bindkey "^Xf" delete-word
-bindkey "^X^f" delete-word
+bindkey "^Xf" kill-word
+bindkey "^X^f" kill-word
 bindkey "^Xd" kill-region
 bindkey "^X^d" kill-region
 bindkey "^[[1;2D" set-mark-command
 bindkey "^[[1;2C" set-mark-command
+bindkey "^[l" down-case-word
 
 # SCM Breeze
 # https://github.com/ndbroadbent/scm_breeze

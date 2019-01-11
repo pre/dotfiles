@@ -25,6 +25,8 @@
   'cmd-i': 'editor:auto-indent'
   'ctrl-i': 'window:toggle-invisibles'
   'ctrl-r': 'editor:toggle-soft-wrap'
+  'cmd-ä': 'expand-region:expand'
+  'shift-cmd-ä': 'expand-region:shrink'
 
 'atom-workspace atom-text-editor:not([mini])':
   'cmd-.': 'editor:toggle-line-comments'

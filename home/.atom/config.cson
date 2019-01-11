@@ -25,7 +25,10 @@
   jumpy: {}
   linter: {}
   "linter-eslint": {}
-  "linter-ui-default": {}
+  "linter-rubocop":
+    disableWhenNoConfigFile: true
+  "linter-ui-default":
+    panelHeight: 577
   metrics:
     userId: "e0d9d1dd23e24dc8540a32e1407baf412c5711aa"
   "one-dark-ui": {}

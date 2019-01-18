@@ -41,3 +41,5 @@
   'cmd-k cmd-r': 'tree-view:reveal-active-file'
   'cmd-ö': 'linter-rubocop:fix-file'
   'ctrl-s': 'spell-check:toggle'
+  'cmd-k f': 'tree-view:show-current-file-in-file-manager'
+  'cmd-k cmd-f': 'tree-view:show-current-file-in-file-manager'

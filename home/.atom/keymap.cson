@@ -32,8 +32,8 @@
   'cmd-.': 'editor:toggle-line-comments'
 
 'atom-text-editor':
-  'alt-ctrl-left': 'last-cursor-position:previous'
-  'alt-ctrl-right': 'last-cursor-position:next'
+  'ctrl-left': 'last-cursor-position:previous'
+  'ctrl-right': 'last-cursor-position:next'
   'ctrl-up': 'expand-region:expand'
   'ctrl-down': 'expand-region:shrink'
   'ctrl-l': 'go-to-line:toggle'

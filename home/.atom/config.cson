@@ -1,4 +1,5 @@
 "*":
+  "atom-ctags": {}
   "atom-typescript": {}
   "autocomplete-plus": {}
   autosave:

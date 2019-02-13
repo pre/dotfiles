@@ -170,6 +170,10 @@ k8-force-deploy() {
 alias k='kubectl'
 alias kg='kubectl get'
 alias kd='kubectl describe'
+alias -g NSA='--all-namespaces'
+alias -g NSS='-n kube-system'
+alias -g NSD='-n default'
+
 klog () {
   if [ "$1" = "" ]; then echo 'Usage: $0 pod container'; return; fi
 
@@ -186,17 +190,33 @@ ke () {
   kubectl exec -it "$1" -c "$2" "$3"
 }
 
+kconf () {
+  local file='kubeconfig'
+
+  if [ "$1" != "" ]; then file="$1"; fi
+
+  local kubeconfig="$(pwd)/${file}"
+
+  if [ ! -f "${kubeconfig}" ]; then
+    echo "File does not exist: ${kubeconfig}";
+    return 1
+  fi
+
+  export KUBECONFIG=${kubeconfig}
+  echo "KUBECONFIG=${KUBECONFIG}"
+}
+
 # brew install kube-ps1
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 export RPROMPT='$(kube_ps1)'
 
 
 loop() {
-  while `sleep 1`; do "$@"; done
+  while `sleep 1`; do eval $@; done
 }
 
 luup() {
-  while `sleep 1`; do "$@" && return; done
+  while `sleep 1`; do eval $@ && return; done
 }
 
 # If you're using zsh (possibly with oh-my-zsh) and your prompt displays the

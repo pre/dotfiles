@@ -119,9 +119,10 @@ alias gpu='git push -u origin HEAD'
 #alias co='git co'
 #alias ci='git ci'
 
+alias cat='ccat'
 alias c='j'
-alias e='atom'
-alias ee='atom .'
+alias e='code'
+alias ee='code .'
 alias o='open'
 alias oo='open .'
 alias t='traceroute -d 195.74.0.47' # is network down?
@@ -249,7 +250,7 @@ chpharos auto
 # paste: ^y
 bindkey "^Xi" select-in-word
 bindkey "^X^i" select-in-word
-bindkey "^Xf" kill-word
+bindkey "^Xf" kill-word # esc d
 bindkey "^X^f" kill-word
 bindkey "^Xd" kill-region
 bindkey "^X^d" kill-region

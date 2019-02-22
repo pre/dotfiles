@@ -1,5 +1,6 @@
 "*":
-  "atom-ctags": {}
+  "atom-ctags":
+    autoBuildTagsWhenActive: true
   "atom-typescript": {}
   "autocomplete-plus": {}
   autosave:

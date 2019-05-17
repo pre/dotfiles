@@ -127,7 +127,8 @@ alias o='open'
 alias oo='open .'
 alias t='traceroute -d 195.74.0.47' # is network down?
 alias p='ping www.sci.fi'
-alias dug="du -sch * | grep '^[\ 0-9,\.]*G'"
+alias dug="du -sch * | grep '^[\ 0-9,\.]*G'" # show only giga files
+alias dus='du -sh * | gsort -h' # sort files by size
 alias less='less -R'
 alias mkdir='mkdir -pv'
 

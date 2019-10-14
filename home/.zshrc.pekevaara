@@ -27,21 +27,9 @@ precmd() {
 
 export ARCHFLAGS="-arch x86_64"
 
-export PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin
+export PATH=/usr/local/bin:$PATH
 
-# ANDROID
-export PATH=$PATH:$HOME/Android/sdk/platform-tools:$HOME/Android/sdk/tools:$HOME/Android/sdk/build-tools/current
-export ANDROID_HOME=$HOME/Android/sdk
-export JAVA_HOME=$(/usr/libexec/java_home)
-
-export _JAVA_OPTIONS="-Xms256m -Xmx4096m -XX:PermSize=64m -XX:MaxPermSize=256m"
-export JPDA_ADDRESS=8000
-export JPDA_TRANSPORT=dt_socket
-export MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n"
-
-alias ainfo='aapt dump badging' # application.apk as param
-alias adbcpu='adb shell getprop ro.product.cpu.abi'
-alias adbshot='adb shell screencap -p /sdcard/screencap.png && adb pull /sdcard/screencap.png'
+export ASDF_DIR=$(brew --prefix asdf)
 
 # HISTORY SETTINGS
 setopt HIST_IGNORE_ALL_DUPS
@@ -67,14 +55,15 @@ alias hr='heroku run'
 
 # Kill process PID by process name
 # Useful when "killall" cannot find the process, eg. Sidekiq started by Foreman
-kil() { kill $(pgrep "$@") }
-k9() { kill -9 $(pgrep "$@") }
+kil() { kill $(pgrep "$@"); }
+k9() { kill -9 $(pgrep "$@"); }
 
 # DOCKER
 alias de='docker exec'
 alias deit='docker exec -it'
+alias dbash='docker run --entrypoint bash -it'
 alias docker-rm-dangling='docker rmi $(docker images -qf "dangling=true")'
-docker-rm-containers() { docker ps -qa -f name=$@ | xargs docker rm }
+docker-rm-containers() { docker ps -qa -f name="$*" | xargs docker rm; }
 
 alias bund='gem install bundler'
 alias be='bundle exec'
@@ -104,7 +93,7 @@ alias glsa='git ls --all' # where was i
 alias sup='git submodule update --init'
 alias gm='git mergetool'
 alias gr='git rebase'
-grih() { git rebase -i HEAD~"$@"; }
+grih() { git rebase -i HEAD~"$1"; }
 alias gri='git rebase -i'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
@@ -162,27 +151,36 @@ alias web-server='echo http://localhost:8888 ; python -m SimpleHTTPServer 8888'
 alias diff-inline='wdiff -w "$(tput bold;tput setaf 1)" -x "$(tput sgr0)" -y "$(tput bold;tput setaf 2)" -z "$(tput sgr0)"'
 
 # Kubernetes
-k8-force-deploy() {
-  if [ "$1" = "" ]; then echo "Usage: $0 deployment_name"; return; fi
+k8-refresh-workload() {
+  if [ "$1" = "" ]; then echo "Usage: $0 workload_name"; return; fi
 
-  echo "kubectl: Force deploy of '$1'";
-  kubectl patch deployment "$1" -p "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}";
+  echo "kubectl: Refresh Workload '$1'";
+  kubectl patch workload "$1" --type=merge -p "{\"spec\":{\"refreshed_at\":\"$(date +'%s')\"}}";
 }
 
-alias k='kubectl'
+alias kk='kubectl'
+alias kkd='kubectl describe'
+alias kkg='kubectl get'
+alias kkgy='kubectl get -o yaml'
+
+alias k='rex kubectl'
+alias kd='rex kubectl describe'
+alias kg='rex kubectl get'
+alias kgy='rex kubectl get -o yaml'
+
 alias -g NSA='--all-namespaces'
 alias -g NSS='-n kube-system'
 alias -g NSD='-n default'
 
 # brew install kube-fzf
-alias kg='findpod'
-alias kd='describepod'
+alias kgg='findpod'
+alias kdd='describepod'
 alias ke='execpod'
 alias kl='tailpod'
 alias kpf='pfpod'
 
 klog () {
-  if [ "$1" = "" ]; then echo 'Usage: $0 pod container'; return; fi
+  if [ "$1" = "" ]; then echo "Usage: $0 pod container"; return; fi
 
   if [ "$2" = "" ]; then
     kubectl logs -f "$1"
@@ -197,7 +195,7 @@ kconf () {
 
   if [ "$1" != "" ]; then file="$1"; fi
 
-  local kubeconfig="$(pwd)/${file}"
+  local kubeconfig; kubeconfig="$(pwd)/${file}"
 
   if [ ! -f "${kubeconfig}" ]; then
     echo "File does not exist: ${kubeconfig}";
@@ -214,11 +212,11 @@ export RPROMPT='$(kube_ps1)'
 
 
 loop() {
-  while `sleep 1`; do eval $@; done
+  while sleep 1; do eval "$@"; done
 }
 
 luup() {
-  while `sleep 1`; do eval $@ && return; done
+  while sleep 1; do eval "$@" && return; done
 }
 
 # If you're using zsh (possibly with oh-my-zsh) and your prompt displays the
@@ -268,3 +266,13 @@ bindkey "^[l" down-case-word
 # ^R - fuzzy history
 # cd ** - directory list
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# iTerm2 shell integration
+function iterm2_print_user_vars() {
+  iterm2_set_user_var k8s_context "$(kubectl config current-context)"
+  iterm2_set_user_var k8s_namespace "$(kubectl config view --minify --output 'jsonpath={..namespace}')"
+}
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+source /usr/local/opt/asdf/asdf.sh

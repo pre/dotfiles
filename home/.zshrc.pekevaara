@@ -161,15 +161,29 @@ k8-refresh-workload() {
   kubectl patch workload "$1" --type=merge -p "{\"spec\":{\"refreshed_at\":\"$(date +'%s')\"}}";
 }
 
+function _rex() {
+  local current_context; current_context="$(kubectl config current-context)"
+  local expected_context; expected_context="rex"
+
+  if [[ "${current_context}" != "${expected_context}" ]]; then
+    echo "Abort: Live context ${current_context}"
+    return 1
+  fi
+
+  command rex "$@"
+}
+
+# live cluster
 alias kk='kubectl'
 alias kkd='kubectl describe'
 alias kkg='kubectl get'
 alias kkgy='kubectl get -o yaml'
 
-alias k='rex kubectl'
-alias kd='rex kubectl describe'
-alias kg='rex kubectl get'
-alias kgy='rex kubectl get -o yaml'
+# dev cluster
+alias k='_rex kubectl'
+alias kd='_rex kubectl describe'
+alias kg='_rex kubectl get'
+alias kgy='_rex kubectl get -o yaml'
 
 alias -g NSA='--all-namespaces'
 alias -g NSS='-n kube-system'
@@ -232,13 +246,6 @@ unsetopt auto_name_dirs
 
 # nodenv
 eval "$(nodenv init -)"
-
-
-## Kontena Pharos
-source /usr/local/opt/chpharos/share/chpharos/chpharos.sh
-
-# auto-switching of Pharos versions specified by .pharos-version files
-chpharos auto
 
 
 # Custom bindings

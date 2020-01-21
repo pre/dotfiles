@@ -161,7 +161,8 @@ k8-refresh-workload() {
   kubectl patch workload "$1" --type=merge -p "{\"spec\":{\"refreshed_at\":\"$(date +'%s')\"}}";
 }
 
-function _kubectl_safe() {
+compdef _rex _rex_safe
+function _rex_safe() {
   local current_context; current_context="$(kubectl config current-context)"
   local expected_context; expected_context="rex"
 
@@ -170,7 +171,7 @@ function _kubectl_safe() {
     return 1
   fi
 
-  command rex kubectl "$@"
+  command rex "$@"
 }
 
 # live cluster
@@ -180,10 +181,10 @@ alias kkg='kubectl get'
 alias kkgy='kubectl get -o yaml'
 
 # dev cluster
-alias k='_kubectl_safe'
-alias kd='_kubectl_safe describe'
-alias kg='_kubectl_safe get'
-alias kgy='_kubectl_safe get -o yaml'
+alias k='_rex_safe kubectl '
+alias kd='_rex_safe kubectl describe'
+alias kg='_rex_safe kubectl get'
+alias kgy='_rex_safe kubectl get -o yaml'
 
 alias -g NSA='--all-namespaces'
 alias -g NSS='-n kube-system'

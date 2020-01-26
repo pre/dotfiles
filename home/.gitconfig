@@ -38,8 +38,15 @@
     autocrlf = input
     whitespace = fix,space-before-tab,tab-in-indent,trailing-space
 [user]
-    name = Petrus Repo
-    email = petrus.repo@iki.fi
+  name = Petrus Repo
+  email = petrus.repo@iki.fi
+  # Run the following command and get value of "sec" for signing key
+  #   gpg --list-secret-keys
+  signingkey = 4667192E8179A39C1F04151B7AFF74C3680211EC
+[commit]
+  gpgsign = true
+[tag]
+  forceSignAnnotated = true
 [alias]
     st = status -sb
     ci = commit

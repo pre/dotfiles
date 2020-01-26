@@ -2,7 +2,7 @@
 # https://docs.brew.sh/Shell-Completion
 # This must be done before oh-my-zsh loads
 if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+  FPATH=/usr/local/share/zsh/site-functions:$FPATH
 fi
 
 # Path to your oh-my-zsh configuration.

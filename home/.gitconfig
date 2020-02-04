@@ -51,7 +51,6 @@
     st = status -sb
     ci = commit
     co = checkout
-    br = branch
     lbr = branch -a
     lbrv = branch -lvvv
     # List branches by date and author by the last commit, sort oldest last

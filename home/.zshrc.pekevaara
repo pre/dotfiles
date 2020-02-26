@@ -282,8 +282,8 @@ bindkey "^[l" down-case-word
 
 # iTerm2 shell integration
 function iterm2_print_user_vars() {
-  iterm2_set_user_var k8s_context "$(kubectl config current-context)"
-  iterm2_set_user_var k8s_namespace "$(kubectl config view --minify --output 'jsonpath={..namespace}')"
+  iterm2_set_user_var k8s_context "$(kubectl config current-context 2>/dev/null)"
+  iterm2_set_user_var k8s_namespace "$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)"
 }
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

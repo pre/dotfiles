@@ -226,11 +226,6 @@ kconf () {
   echo "KUBECONFIG=${KUBECONFIG}"
 }
 
-# brew install kube-ps1
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-export RPROMPT='$(kube_ps1)'
-
-
 loop() {
   while sleep 1; do eval "$@"; done
 }

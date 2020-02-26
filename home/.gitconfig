@@ -37,6 +37,7 @@
     editor = subl -w
     autocrlf = input
     whitespace = fix,space-before-tab,tab-in-indent,trailing-space
+    ignorecase = false
 [user]
   name = Petrus Repo
   email = petrus.repo@iki.fi

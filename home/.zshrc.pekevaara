@@ -273,6 +273,19 @@ bindkey "^[l" down-case-word
 # https://github.com/ndbroadbent/scm_breeze
 [ -s "/Users/pre/.scm_breeze/scm_breeze.sh" ] && source "/Users/pre/.scm_breeze/scm_breeze.sh"
 
+# esc-N will output the path of corresponding SCM Breeze file in the current line
+# eg. esc-1 outputs "$e1" which corresponds to the last file marked as [1] by SCM Breeze
+_scmkey_esc1() { LBUFFER="${LBUFFER}${e1}"; }; zle -N _scmkey_esc1 _scmkey_esc1; bindkey "^[1" _scmkey_esc1
+_scmkey_esc2() { LBUFFER="${LBUFFER}${e2}"; }; zle -N _scmkey_esc2 _scmkey_esc2; bindkey "^[2" _scmkey_esc2
+_scmkey_esc3() { LBUFFER="${LBUFFER}${e3}"; }; zle -N _scmkey_esc3 _scmkey_esc3; bindkey "^[3" _scmkey_esc3
+_scmkey_esc4() { LBUFFER="${LBUFFER}${e4}"; }; zle -N _scmkey_esc4 _scmkey_esc4; bindkey "^[4" _scmkey_esc4
+_scmkey_esc5() { LBUFFER="${LBUFFER}${e5}"; }; zle -N _scmkey_esc5 _scmkey_esc5; bindkey "^[5" _scmkey_esc5
+_scmkey_esc6() { LBUFFER="${LBUFFER}${e6}"; }; zle -N _scmkey_esc6 _scmkey_esc6; bindkey "^[6" _scmkey_esc6
+_scmkey_esc7() { LBUFFER="${LBUFFER}${e7}"; }; zle -N _scmkey_esc7 _scmkey_esc7; bindkey "^[7" _scmkey_esc7
+_scmkey_esc8() { LBUFFER="${LBUFFER}${e8}"; }; zle -N _scmkey_esc8 _scmkey_esc8; bindkey "^[8" _scmkey_esc8
+_scmkey_esc9() { LBUFFER="${LBUFFER}${e9}"; }; zle -N _scmkey_esc9 _scmkey_esc9; bindkey "^[9" _scmkey_esc9
+
+
 # https://github.com/junegunn/fzf
 # ^T - select from list, use shift to select multiple
 # ^R - fuzzy history

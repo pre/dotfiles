@@ -16,9 +16,7 @@ fi
 # Brew completion
 # https://docs.brew.sh/Shell-Completion
 # This must be done before oh-my-zsh loads
-if type brew &>/dev/null; then
-  FPATH=/usr/local/share/zsh/site-functions:$FPATH
-fi
+FPATH=/usr/local/share/zsh/site-functions:$FPATH
 
 export LANG=en_US.UTF-8
 

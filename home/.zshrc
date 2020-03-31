@@ -41,7 +41,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how often before auto-updates occur? (in days)
-export UPDATE_ZSH_DAYS=20
+# export UPDATE_ZSH_DAYS=20
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"

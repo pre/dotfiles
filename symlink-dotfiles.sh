@@ -21,6 +21,7 @@ for dotfile in `ls -d $PATTERN`; do
   symlink_file="$HOME/$acual" 
 
   ln -is "$dotfile" "$symlink_file" || ( echo "Errored with: " ; ls -ld "$symlink_file" ; echo "" )
-  echo ""
 done
+
+echo "Done."
 

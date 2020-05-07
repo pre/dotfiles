@@ -252,8 +252,7 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # nodenv
-eval "$(nodenv init -)"
-
+# eval "$(nodenv init -)"
 
 # Custom bindings
 # http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html

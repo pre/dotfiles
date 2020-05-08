@@ -150,7 +150,6 @@ alias mongo-start='mongod --config /usr/local/etc/mongod.conf'
 
 alias bund='gem install bundler'
 
-## check also xip.io for local dns fiddling
 alias web-server='echo http://localhost:8888 ; python -m SimpleHTTPServer 8888'
 
 alias diff-inline='wdiff -w "$(tput bold;tput setaf 1)" -x "$(tput sgr0)" -y "$(tput bold;tput setaf 2)" -z "$(tput sgr0)"'
@@ -248,12 +247,6 @@ unsetopt auto_name_dirs
 # brew --prefix openssl@1.1 => /usr/local/opt/openssl@1.1
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
 
-# This loads RVM into a shell session.
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
-# nodenv
-# eval "$(nodenv init -)"
-
 # Custom bindings
 # http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html
 #
@@ -315,3 +308,17 @@ function iterm2_print_user_vars() {
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 source /usr/local/opt/asdf/asdf.sh
+
+# RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+
+# nodenv
+# eval "$(nodenv init -)"
+
+
+# PATH for the Google Cloud SDK.
+if [ -f '/Users/pre/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pre/google-cloud-sdk/path.zsh.inc'; fi
+
+# shell command completion for gcloud.
+if [ -f '/Users/pre/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pre/google-cloud-sdk/completion.zsh.inc'; fi

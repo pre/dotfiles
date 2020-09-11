@@ -151,6 +151,7 @@ alias mongo-start='mongod --config /usr/local/etc/mongod.conf'
 alias bund='gem install bundler'
 
 alias web-server='echo http://localhost:8888 ; python -m SimpleHTTPServer 8888'
+alias web-server-cors='http-server -p 8888 --cors' # npm install -g http-server
 
 alias diff-inline='wdiff -w "$(tput bold;tput setaf 1)" -x "$(tput sgr0)" -y "$(tput bold;tput setaf 2)" -z "$(tput sgr0)"'
 

@@ -314,7 +314,7 @@ source /usr/local/opt/asdf/asdf.sh
 
 
 # nodenv
-# eval "$(nodenv init -)"
+#eval "$(nodenv init -)"
 
 
 # PATH for the Google Cloud SDK.

@@ -176,31 +176,30 @@ function _rex_safe() {
   command rex "$@"
 }
 
+export HELM_EXPERIMENTAL_OCI=1
+
 # live cluster
 alias kk='kubectl'
 alias kkd='kubectl describe'
 alias kkg='kubectl get'
 alias kkgy='kubectl get -o yaml'
+alias kke='kk exec -it'
+alias kkl='kk logs -f'
 
 # dev cluster
 alias k='_rex_safe kubectl '
 alias kd='_rex_safe kubectl describe'
 alias kg='_rex_safe kubectl get'
 alias kgy='_rex_safe kubectl get -o yaml'
+alias ke='k exec -it'
+alias kl='k logs -f'
 
 alias -g NSA='--all-namespaces'
 alias -g NSS='-n kube-system'
 alias -g NSD='-n default'
 alias -g Y='-o yaml'
 
-# brew install kube-fzf
-alias kgg='findpod'
-alias kdd='describepod'
-alias ke='execpod'
-alias kl='tailpod'
-alias kpf='pfpod'
-
-klog () {
+klog() {
   if [ "$1" = "" ]; then echo "Usage: $0 pod container"; return; fi
 
   if [ "$2" = "" ]; then
@@ -211,7 +210,7 @@ klog () {
 }
 
 
-kconf () {
+kconf() {
   local file='kubeconfig'
 
   if [ "$1" != "" ]; then file="$1"; fi

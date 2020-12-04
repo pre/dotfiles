@@ -189,6 +189,9 @@ function _rex_safe() {
 
 export HELM_EXPERIMENTAL_OCI=1
 
+alias tf='terraform'
+alias dnsflush="dscacheutil -flushcache"
+
 # live cluster
 alias kk='kubectl'
 alias kkd='kubectl describe'
@@ -209,6 +212,8 @@ alias -g NSA='--all-namespaces'
 alias -g NSS='-n kube-system'
 alias -g NSD='-n default'
 alias -g Y='-o yaml'
+alias -g AC='--all-containers'
+alias -g MLR='--max-log-requests'
 
 klog() {
   if [ "$1" = "" ]; then echo "Usage: $0 pod container"; return; fi

@@ -66,7 +66,18 @@ alias de='docker exec'
 alias deit='docker exec -it'
 alias dbash='docker run --entrypoint bash -it'
 alias docker-rm-dangling='docker rmi $(docker images -qf "dangling=true")'
-docker-rm-containers() { docker ps -qa -f name="$*" | xargs docker rm; }
+
+docker-rm-containers() {
+  docker ps -qa -f name="$*" | xargs docker rm;
+}
+
+docker-prune() {
+  set -x
+    docker container prune
+    docker volume prune
+    docker image prune
+  set +x
+}
 
 alias bund='gem install bundler'
 alias be='bundle exec'

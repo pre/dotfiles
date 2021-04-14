@@ -26,8 +26,9 @@ precmd() {
 ###
 
 export ARCHFLAGS="-arch x86_64"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
 
-export PATH=/usr/local/bin:$PATH:$HOME/Library/Python/3.7/bin
+export PATH=/usr/local/bin:$PATH:$HOME/Library/Python/3.7/bin:/usr/local/kubebuilder/bin
 
 # Get value with command (it's too slow to run at every start)
 #   $(brew --prefix asdf)
@@ -62,6 +63,7 @@ k9() { kill -9 $(pgrep "$@"); }
 
 # DOCKER
 export LNX_IMAGE="ptrs/lnx"
+alias dup='docker-compose up --build --force-recreate'
 alias de='docker exec'
 alias deit='docker exec -it'
 alias dbash='docker run --entrypoint bash -it'

@@ -63,6 +63,7 @@ k9() { kill -9 $(pgrep "$@"); }
 
 # DOCKER
 export LNX_IMAGE="ptrs/lnx"
+alias doc='docker-compose'
 alias dup='docker-compose up --build --force-recreate'
 alias de='docker exec'
 alias deit='docker exec -it'
@@ -193,6 +194,9 @@ export HELM_EXPERIMENTAL_OCI=1
 
 alias tf='terraform'
 alias dnsflush="dscacheutil -flushcache"
+
+alias debug-efs-provisioner='kkl -n  aws-efs-csi-driver -l "app=efs-csi-controller" -c efs-plugin -c csi-provisioner'
+alias debug-efs-driver='kkl -n  aws-efs-csi-driver -l "app=efs-csi-node" -c efs-plugin -c  csi-driver-registrar'
 
 # live cluster
 alias kk='kubectl'

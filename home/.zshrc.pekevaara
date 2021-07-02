@@ -192,8 +192,18 @@ function _rex_safe() {
 
 export HELM_EXPERIMENTAL_OCI=1
 
+find-files-larger-than() {
+  local size; size="$1"
+
+  if [[ -z "${size}" ]]; then echo "Usage: $0 <size, eg 100M>"; return 1; fi
+
+  command find . -type f -size "+${size}"
+}
+
 alias tf='terraform'
 alias dnsflush="dscacheutil -flushcache"
+
+alias lsof-ports='sudo lsof -i -P | grep LISTEN'
 
 alias debug-efs-provisioner='kkl -n  aws-efs-csi-driver -l "app=efs-csi-controller" -c efs-plugin -c csi-provisioner'
 alias debug-efs-driver='kkl -n  aws-efs-csi-driver -l "app=efs-csi-node" -c efs-plugin -c  csi-driver-registrar'
@@ -230,7 +240,6 @@ klog() {
     kubectl logs -f "$1" -c "$2"
   fi
 }
-
 
 kconf() {
   local file='kubeconfig'
@@ -336,6 +345,7 @@ source /usr/local/opt/asdf/asdf.sh
 
 
 # nodenv
+init-nodenv() { eval "$(nodenv init -)" }
 #eval "$(nodenv init -)"
 
 #export NVM_DIR="$HOME/.nvm"

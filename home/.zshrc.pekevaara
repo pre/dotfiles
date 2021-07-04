@@ -140,8 +140,29 @@ alias dus='du -sh * | gsort -h' # sort files by size
 alias less='less -R'
 alias mkdir='mkdir -pv'
 
-alias lsd='ls -ld *(-/DN)'
-alias lsa='ls -ld .*'
+# List directories in either current or given directory
+lsd() {
+  local dest; dest="${1:-}"
+
+  if [[ -z "${dest:-}" ]]; then
+    command ls -ld *(-/DN)
+  else
+    command ls -ld ${dest}/*(-/DN)
+  fi
+}
+
+# List hidden filenames which start with a dot in current or given directory
+unalias lsa
+lsa() {
+  local dest; dest="${1:-}"
+
+  if [[ -z "${dest:-}" ]]; then
+    command ls -ld .*
+  else
+    command ls -ld ${dest}/.*
+  fi
+}
+
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'

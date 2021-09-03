@@ -80,8 +80,8 @@ plugins=(gitfast history autojump safe-paste zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-source ${HOME}/.zshrc.private
 source ${HOME}/.zshrc.pekevaara
+source ${HOME}/.zshrc.private
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

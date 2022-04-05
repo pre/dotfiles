@@ -38,6 +38,7 @@
     autocrlf = input
     whitespace = fix,space-before-tab,tab-in-indent,trailing-space
     ignorecase = false
+    pager = delta
 [user]
   name = Petrus Repo
   email = petrus.repo@iki.fi
@@ -145,21 +146,31 @@
   stat = true
 [interactive]
   singlekey = true
+  diffFilter = delta --color-only
 [grep]
   lineNumber = true
+
+# brew install git-delta bat-extras
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  line-numbers = true
+  side-by-side = true
 
 [diff]
   # Shifts the hunk boundary in an attempt to make the resulting
   # patch easier to read. Requires git 2.9+
   compactionHeuristic = true
   indentHeuristic = true
+  colorMoved = default
 
 # Delete remote-tracking local branches that have been removed from remote
 [fetch]
   prune = true
 
 [merge]
-   tool = lolmerge # This will be the default merge tool invoked by git mergetool.
+  tool = lolmerge # This will be the default merge tool invoked by git mergetool.
+  conflictstyle = diff3
+
 [mergetool]
    keepBackup = false
    keepTemporaries = false
@@ -173,9 +184,9 @@
    trustExitCode = false
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [filter "lfs"]
   clean = git-lfs clean %f

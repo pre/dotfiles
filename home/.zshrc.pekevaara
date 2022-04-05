@@ -137,8 +137,14 @@ alias t='traceroute -d 195.74.0.47' # is network down?
 alias p='ping www.sci.fi'
 alias dug="du -sch * | grep '^[\ 0-9,\.]*G'" # show only giga files
 alias dus='du -sh * | gsort -h' # sort files by size
-alias less='less -R'
 alias mkdir='mkdir -pv'
+
+alias less='bat' # brew install bat
+
+# -R raw control characters
+# -F quit if content fits on first screen
+# -X Disables sending the termcap initialization and deinitialization strings to the terminal
+export LESS="-RFX"
 
 # List directories in either current or given directory
 lsd() {

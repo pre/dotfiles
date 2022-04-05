@@ -227,6 +227,37 @@ find-files-larger-than() {
   command find . -type f -size "+${size}"
 }
 
+# Print k8s secret value as plain text
+#
+# kubectl get secret sekritname -o json | k8s-secretplain
+k8s-secret2plain() {
+  jq '.data | map_values(@base64d)'
+}
+
+kkg-secret2plain() {
+  local args; args=("${@}")
+
+  if [[ -z "${args[*]}" ]]; then echo "Usage: $0 resource params"; return; fi
+
+  kubectl get -o json secret ${args[@]}  | k8s-secret2plain
+}
+
+k8s-gardenerdomain() {
+  command kubectl get configmap -n kube-system shoot-info -o=jsonpath={.data.domain}
+}
+
+local-fwd() {
+  local from; from=$1
+  local to; to=$2
+
+  if [[ -z "${from}" ]] || [[ -z "${to}" ]]; then
+    echo "Usage: $0 fromPort toPort"
+    return
+  fi
+
+  command socat "tcp-l:${from},fork,reuseaddr" "tcp:127.0.0.1:${to}"
+}
+
 alias tf='terraform'
 alias dnsflush="dscacheutil -flushcache"
 
@@ -236,10 +267,12 @@ alias debug-efs-provisioner='kkl -n  aws-efs-csi-driver -l "app=efs-csi-controll
 alias debug-efs-driver='kkl -n  aws-efs-csi-driver -l "app=efs-csi-node" -c efs-plugin -c  csi-driver-registrar'
 
 # live cluster
+alias kt='kustomize'
 alias kk='kubectl'
 alias kkd='kubectl describe'
 alias kkg='kubectl get'
 alias kkgy='kubectl get -o yaml'
+alias kkgj='kubectl get -o json'
 alias kke='kk exec -it'
 alias kkl='kk logs -f'
 
@@ -248,6 +281,7 @@ alias k='_rex_safe kubectl '
 alias kd='_rex_safe kubectl describe'
 alias kg='_rex_safe kubectl get'
 alias kgy='_rex_safe kubectl get -o yaml'
+alias kgj='_rex_safe kubectl get -o json'
 alias ke='k exec -it'
 alias kl='k logs -f'
 
@@ -255,6 +289,7 @@ alias -g NSA='--all-namespaces'
 alias -g NSS='-n kube-system'
 alias -g NSD='-n default'
 alias -g Y='-o yaml'
+alias -g J='-o json'
 alias -g AC='--all-containers'
 alias -g MLR='--max-log-requests'
 

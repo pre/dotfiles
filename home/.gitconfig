@@ -43,15 +43,31 @@
   #   gpg2 --list-secret-keys
   #   gpg2 -K --keyid-format SHORT
   # signingkey = last 8 characters of the key name
-  signingkey = 680211EC
-# Save passpharse in keychain
-#   brew cask install gpg-suite
+  signingkey = 23A323C5
+# Use gpg2 to sign commits (use gpg2 instead of gpg)
+#   brew install gpg2
+#   gpg --version # >= 2.3
+# Save passpharse in keychain with gpg-suite
+#   brew install gpg-suite
+# Creating a new key:
+#   Open GPG Keychain MacOS app and create a new key (expires in 10+ years)
+#   If there's error "gpg: key generation failed: Inappropriate ioctl for device"
+#     Add "export GPG_TTY=$(tty)" into ~/.zshrc
+#     Start GPG Keychain from shell "/Applications/GPG\ Keychain.app/Contents/MacOS/GPG\ Keychain"
+#     Restart gpg agent "gpgconf --kill all"
+#   Add all email addresses used in git commits into the key metadata.
+#   Save key and select "Upload to keyserver"
+#   Export public key
+#   Store public key in Github > Account > Settings > SSH and GPG keys
+#   Check that each email listed in the key has "Verified" status at Settings > Emails
+#   Ensure ~/.gitconfig has "commit > gpgsign = true" and "tag > forceSignAnnotated = true"
 # If passphrase is not remembered after reboot_
 #   Test signing with
 #     echo "test" | gpg2 --clearsign
 #   Ensure gpg-agent is running
 #   Check "gpg-agent" can be started, eg. no syntax errors in ~/.gnupg/gpg-agent.conf
-# Use gpg2 instead of gpg
+# Commits should appear as "Verified" in Github and locally with
+#   git log --show-signature
 [gpg]
   program = gpg2
 [commit]

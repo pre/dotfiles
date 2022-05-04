@@ -1,6 +1,3 @@
-## Mislav Git tricks
-## http://mislav.uniqpath.com/2010/07/git-tips/
-##
 # Find out if a change is part of a release
 #   $ git name-rev --name-only 50f3754
 #      "tags/v2.3.8~6"
@@ -33,12 +30,12 @@
 #
 ##
 [core]
-    excludesfile = /Users/pre/.gitignore
-    editor = subl -w
-    autocrlf = input
-    whitespace = fix,space-before-tab,tab-in-indent,trailing-space
-    ignorecase = false
-    pager = delta
+  excludesfile = /Users/pre/.gitignore
+  editor = subl -w
+  autocrlf = input
+  whitespace = fix,space-before-tab,tab-in-indent,trailing-space
+  ignorecase = false
+  pager = delta
 [user]
   name = Petrus Repo
   email = petrus.repo@iki.fi
@@ -132,11 +129,11 @@
     pf = push --force-with-lease
 
 [color]
-    ui = true
-    branch = auto
-    diff = auto
-    interactive = auto
-    status = auto
+  ui = true
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
 # git push will by default push all branches that have the same name
 # on the remote. To limit this behavior to just the current branch and
 # to prevent accidental pushes to branches which you’re not ready to push yet:
@@ -175,19 +172,16 @@
    keepBackup = false
    keepTemporaries = false
 [mergetool "lolmerge"]
-   cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \
-       "$PWD/$BASE" \
-       "$PWD/$REMOTE" \
-       "$PWD/$LOCAL" \
-       "$PWD/$MERGED"
+  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \
+    "$PWD/$BASE" \
+    "$PWD/$REMOTE" \
+    "$PWD/$LOCAL" \
+    "$PWD/$MERGED"
    keepBackup = false
    trustExitCode = false
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
 [mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
 [filter "lfs"]
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f

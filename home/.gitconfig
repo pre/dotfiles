@@ -204,3 +204,6 @@
   required = true
 [init]
   defaultBranch = main
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 

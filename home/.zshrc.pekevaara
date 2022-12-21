@@ -27,12 +27,13 @@ precmd() {
 
 export ARCHFLAGS="-arch x86_64"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
+export GPG_TTY=$(tty)
 
-export PATH=/usr/local/bin:$PATH:$HOME/Library/Python/3.7/bin:/usr/local/kubebuilder/bin
+export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH:$HOME/Library/Python/3.7/bin:/usr/local/kubebuilder/bin
 
 # Get value with command (it's too slow to run at every start)
 #   $(brew --prefix asdf)
-export ASDF_DIR="/usr/local/opt/asdf"
+export ASDF_DIR="/opt/homebrew/opt/asdf"
 
 # HISTORY SETTINGS
 setopt HIST_IGNORE_ALL_DUPS
@@ -82,7 +83,7 @@ docker-prune() {
   set +x
 }
 
-alias bund='gem install bundler'
+alias bund='gem install bundler && bundle update --bundler'
 alias be='bundle exec'
 alias rakedb='rake db:migrate && rake db:test:prepare'
 
@@ -138,6 +139,7 @@ alias p='ping www.sci.fi'
 alias dug="du -sch * | grep '^[\ 0-9,\.]*G'" # show only giga files
 alias dus='du -sh * | gsort -h' # sort files by size
 alias mkdir='mkdir -pv'
+alias random-hex-64='openssl rand -hex 64'
 
 alias less='bat' # brew install bat
 
@@ -184,10 +186,10 @@ alias -g G='|grep'
 
 alias my-start='mysql.server start'
 alias my-stop='mysql.server stop'
-alias pg-start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-alias pg-stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-alias redis-start='redis-server /usr/local/etc/redis.conf'
-alias mongo-start='mongod --config /usr/local/etc/mongod.conf'
+alias pg-start='pg_ctl -D /opt/homebrew/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pg-stop='pg_ctl -D /opt/homebrew/var/postgres stop -s -m fast'
+alias redis-start='redis-server /opt/homebrew/etc/redis.conf'
+alias mongo-start='mongod --config /opt/homebrew/etc/mongod.conf'
 
 alias bund='gem install bundler'
 
@@ -259,6 +261,8 @@ local-fwd() {
 }
 
 alias tf='terraform'
+# sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+# sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
 alias dnsflush="dscacheutil -flushcache"
 
 alias lsof-ports='sudo lsof -i -P | grep LISTEN'
@@ -266,24 +270,24 @@ alias lsof-ports='sudo lsof -i -P | grep LISTEN'
 alias debug-efs-provisioner='kkl -n  aws-efs-csi-driver -l "app=efs-csi-controller" -c efs-plugin -c csi-provisioner'
 alias debug-efs-driver='kkl -n  aws-efs-csi-driver -l "app=efs-csi-node" -c efs-plugin -c  csi-driver-registrar'
 
-# live cluster
-alias kt='kustomize'
-alias kk='kubectl'
-alias kkd='kubectl describe'
-alias kkg='kubectl get'
-alias kkgy='kubectl get -o yaml'
-alias kkgj='kubectl get -o json'
-alias kke='kk exec -it'
-alias kkl='kk logs -f'
+alias kt='kustomize --load-restrictor LoadRestrictionsNone'
 
-# dev cluster
-alias k='_rex_safe kubectl '
-alias kd='_rex_safe kubectl describe'
-alias kg='_rex_safe kubectl get'
-alias kgy='_rex_safe kubectl get -o yaml'
-alias kgj='_rex_safe kubectl get -o json'
-alias ke='k exec -it'
-alias kl='k logs -f'
+alias kk='kubectl'
+alias k='kubectl'
+alias kkd='kubectl describe'
+alias kd='kubectl describe'
+alias kkg='kubectl get'
+alias kg='kubectl get'
+alias kkgy='kubectl get -o yaml'
+alias kgy='kubectl get -o yaml'
+alias kkgj='kubectl get -o json'
+alias kgj='kubectl get -o json'
+
+alias kke='kk exec -it'
+alias ke='kk exec -it'
+alias kkl='kk logs -f'
+alias kl='kk logs -f'
+
 
 alias -g NSA='--all-namespaces'
 alias -g NSS='-n kube-system'
@@ -342,7 +346,7 @@ unsetopt auto_name_dirs
 
 # Link Rubies to Homebrew's OpenSSL 1.1 (which is upgraded)
 # brew --prefix openssl@1.1 => /usr/local/opt/openssl@1.1
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
 
 # Custom bindings
 # http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html
@@ -404,7 +408,7 @@ function iterm2_print_user_vars() {
 }
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-source /usr/local/opt/asdf/asdf.sh
+source /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"

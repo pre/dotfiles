@@ -128,6 +128,11 @@ alias gpu='git push -u origin HEAD'
 #alias co='git co'
 #alias ci='git ci'
 
+# brew install forgit
+alias gb="git-forgit checkout_branch"
+alias glo="git-forgit log"
+alias gbd="git-forgit branch_delete"
+
 alias cat='ccat'
 alias c='j'
 alias e='code'

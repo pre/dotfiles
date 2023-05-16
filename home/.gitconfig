@@ -31,7 +31,7 @@
 ##
 [core]
   excludesfile = /Users/pre/.gitignore
-  editor = subl -w
+  editor = code --wait
   autocrlf = input
   whitespace = fix,space-before-tab,tab-in-indent,trailing-space
   ignorecase = false
@@ -72,6 +72,7 @@
   program = gpg2
 [commit]
   gpgsign = true
+  template = /Users/pre/.stCommitMsg
 [tag]
   forceSignAnnotated = true
 [alias]

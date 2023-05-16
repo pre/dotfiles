@@ -293,6 +293,10 @@ alias ke='kk exec -it'
 alias kkl='kk logs -f'
 alias kl='kk logs -f'
 
+alias kg-nonrun='k get pod -A | grep -v Running'
+
+alias pf-alertmanager='kubectl port-forward  -n prometheus service/alertmanager-operated 8443:9093'
+alias pf-prometheus='kubectl port-forward -n prometheus service/prometheus-operated 8444:9090'
 
 alias -g NSA='--all-namespaces'
 alias -g NSS='-n kube-system'

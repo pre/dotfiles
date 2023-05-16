@@ -13,10 +13,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
 # Brew completion
 # https://docs.brew.sh/Shell-Completion
 # This must be done before oh-my-zsh loads
-FPATH=/usr/local/share/zsh/site-functions:$FPATH
+FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
 
 export LANG=en_US.UTF-8
 

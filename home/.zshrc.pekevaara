@@ -29,7 +29,7 @@ export ARCHFLAGS="-arch x86_64"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export GPG_TTY=$(tty)
 
-export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH:$HOME/Library/Python/3.7/bin:/usr/local/kubebuilder/bin
+export PATH="$PATH:${HOME}/.krew/bin"
 
 # Get value with command (it's too slow to run at every start)
 #   $(brew --prefix asdf)

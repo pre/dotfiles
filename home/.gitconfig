@@ -167,8 +167,8 @@
 # brew install git-delta bat-extras
 [delta]
   navigate = true  # use n and N to move between diff sections
-  line-numbers = true
-  side-by-side = true
+  line-numbers = false
+  side-by-side = false
 
 [diff]
   # Shifts the hunk boundary in an attempt to make the resulting
@@ -207,4 +207,4 @@
   defaultBranch = main
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =

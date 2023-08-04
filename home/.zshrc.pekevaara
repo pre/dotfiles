@@ -144,7 +144,9 @@ alias p='ping www.sci.fi'
 alias dug="du -sch * | grep '^[\ 0-9,\.]*G'" # show only giga files
 alias dus='du -sh * | gsort -h' # sort files by size
 alias mkdir='mkdir -pv'
-alias random-hex-64='openssl rand -hex 64'
+
+alias openssl-random-hex-64='openssl rand -hex 64'
+alias openssl-read-certfile='openssl x509 -text -noout -in ' # filename
 
 alias less='bat' # brew install bat
 
@@ -402,6 +404,15 @@ _scmkey_shift_esc6() { local dir; dir="$(dirname "${e6}")" LBUFFER="${LBUFFER}\"
 _scmkey_shift_esc7() { local dir; dir="$(dirname "${e7}")" LBUFFER="${LBUFFER}\"${dir}\""; }; zle -N _scmkey_shift_esc7 _scmkey_shift_esc7; bindkey "^[/" _scmkey_shift_esc7
 _scmkey_shift_esc8() { local dir; dir="$(dirname "${e8}")" LBUFFER="${LBUFFER}\"${dir}\""; }; zle -N _scmkey_shift_esc8 _scmkey_shift_esc8; bindkey "^[(" _scmkey_shift_esc8
 _scmkey_shift_esc9() { local dir; dir="$(dirname "${e9}")" LBUFFER="${LBUFFER}\"${dir}\""; }; zle -N _scmkey_shift_esc9 _scmkey_shift_esc9; bindkey "^[)" _scmkey_shift_esc9
+
+# Print previous git branch name to the current line with <ESC ,>
+_git_prev_branch() {
+  local previous_branch;
+  previous_branch="$(git rev-parse --symbolic-full-name --abbrev-ref @{-1})"
+  LBUFFER="${LBUFFER}${previous_branch}";
+}
+zle -N _git_prev_branch _git_prev_branch
+bindkey "^[," _git_prev_branch
 
 # https://github.com/junegunn/fzf
 # ^T - select from list, use shift to select multiple

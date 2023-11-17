@@ -148,6 +148,29 @@ alias mkdir='mkdir -pv'
 alias openssl-random-hex-64='openssl rand -hex 64'
 alias openssl-read-certfile='openssl x509 -text -noout -in ' # filename
 
+function openssl-show-cert() {
+  local host=$1;
+  openssl s_client -servername \
+    "${host}" \
+    -showcerts \
+    -connect ${host}:443
+}
+
+# Retrieve top level certificate of given host,
+# print its fingerprint without colons (:)
+# print grant and expiry dates.
+function openssl-show-fingerprint() {
+  local host=$1
+  echo | openssl s_client \
+    -servername "$host" \
+    -showcerts \
+    -connect "$host":443 2>/dev/null \
+  | awk '/-----BEGIN CERTIFICATE-----/{cert=""} {cert=cert $0 "\n"} /-----END CERTIFICATE-----/{last_cert=cert} END{printf "%s", last_cert}' \
+  | openssl x509 -fingerprint -noout -dates \
+  | sed 's/://g' \
+  | awk -F= '{print tolower($2)}'
+}
+
 alias less='bat' # brew install bat
 
 # -R raw control characters
@@ -236,6 +259,10 @@ find-files-larger-than() {
   command find . -type f -size "+${size}"
 }
 
+k8s-list-images() {
+  kubectl get pods -A --output=custom-columns="NAME:.metadata.name,IMAGE:.spec.containers[*].image"
+}
+
 # Print k8s secret value as plain text
 #
 # kubectl get secret sekritname -o json | k8s-secretplain
@@ -296,9 +323,17 @@ alias kkl='kk logs -f'
 alias kl='kk logs -f'
 
 alias kg-nonrun='k get pod -A | grep -v Running'
+alias kg-nonrun-wide='k get pod -A -o wide | grep -v Running'
+alias k-drain='k drain --ignore-daemonsets --delete-emptydir-data'
 
 alias pf-alertmanager='kubectl port-forward  -n prometheus service/alertmanager-operated 8443:9093'
 alias pf-prometheus='kubectl port-forward -n prometheus service/prometheus-operated 8444:9090'
+
+alias kl-argo-appset='kl -n argocd -l app.kubernetes.io/name=argocd-applicationset-controller'
+alias kl-argo-app='kl -n argocd -l app.kubernetes.io/name=argocd-application-controller'
+alias kl-argo-server='kl -n argocd -l app.kubernetes.io/name=argocd-server'
+alias kl-argo-repo='kl -n argocd -l app.kubernetes.io/name=argocd-repo-server'
+
 
 alias -g NSA='--all-namespaces'
 alias -g NSS='-n kube-system'

@@ -101,10 +101,10 @@
     #
     # Log
     #
-    l  = log --pretty=oneline --abbrev-commit --decorate
-    ls = log --pretty=format:'%C(yellow)%h %C(cyan)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
-    ll = log --all --graph --decorate --oneline --simplify-by-decoration
-    my-commits = log --branches --author petrus.repo@iki.fi
+    l  = log --all --pretty=oneline --abbrev-commit --decorate
+    ll = log --all --graph --decorate --abbrev-commit --simplify-by-decoration --date=short --pretty=format:'%C(yellow)%h %C(cyan)%ad%C(red)%d %C(reset)%s%C(green) [%cn]'
+    ls = log --all --graph --decorate --abbrev-commit --date=iso --oneline --simplify-by-decoration
+    my-commits = log --branches --author petrus.repo@sap.com
     log-since = !git log $1 HEAD --pretty=format:%s
     log-feat-since = !git log $1 HEAD --pretty=format:%s --grep ^feat
     log-feat-since-long = !git log $1 HEAD --grep ^feat

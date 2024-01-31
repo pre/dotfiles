@@ -221,8 +221,6 @@ alias pg-stop='pg_ctl -D /opt/homebrew/var/postgres stop -s -m fast'
 alias redis-start='redis-server /opt/homebrew/etc/redis.conf'
 alias mongo-start='mongod --config /opt/homebrew/etc/mongod.conf'
 
-alias bund='gem install bundler'
-
 alias web-server='echo http://localhost:8888 ; python -m SimpleHTTPServer 8888'
 alias web-server-cors='http-server -p 8888 --cors' # npm install -g http-server
 

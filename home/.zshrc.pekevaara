@@ -362,8 +362,12 @@ kconf() {
   echo "KUBECONFIG=${KUBECONFIG}"
 }
 
-cloop() {
+loopc() {
   while sleep 1; do clear; eval "$@"; done
+}
+
+loopn() {
+  while sleep 1; do eval "$@" ; >&2 echo "" ; done
 }
 
 loop() {

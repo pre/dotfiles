@@ -370,6 +370,10 @@ loopn() {
   while sleep 1; do eval "$@" ; >&2 echo "" ; done
 }
 
+loopd() {
+  while sleep 1; do eval "$@" ; >&2 date ; done
+}
+
 loop() {
   while sleep 1; do eval "$@"; done
 }

@@ -326,7 +326,7 @@ alias kl-argo-appset='kl -n argocd -l app.kubernetes.io/name=argocd-applications
 alias kl-argo-app='kl -n argocd -l app.kubernetes.io/name=argocd-application-controller'
 alias kl-argo-server='kl -n argocd -l app.kubernetes.io/name=argocd-server'
 alias kl-argo-repo='kl -n argocd -l app.kubernetes.io/name=argocd-repo-server'
-
+alias kl-eso='kl -n external-secrets-operator -l app.kubernetes.io/instance=external-secrets --max-log-requests 6'
 
 alias -g NSA='--all-namespaces'
 alias -g NSS='-n kube-system'

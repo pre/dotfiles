@@ -263,7 +263,7 @@ k8s-secret2plain() {
   jq '.data | map_values(@base64d)'
 }
 
-kkg-secret2plain() {
+kg-secret2plain() {
   local args; args=("${@}")
 
   if [[ -z "${args[*]}" ]]; then echo "Usage: $0 resource params"; return; fi

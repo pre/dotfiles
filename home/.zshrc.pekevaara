@@ -347,13 +347,21 @@ klog() {
 }
 
 kconf() {
-  local file='kubeconfig'
+  local env="${1:-}"
+  local cluster="${2:-}"
 
-  if [ "$1" != "" ]; then file="$1"; fi
+  if [[ -z "${env}" ]]; then
+    >&2 echo "Usage: $0 env cluster"
+    return 1
+  fi
 
-  local kubeconfig; kubeconfig="$(pwd)/${file}"
+  if [[ -z "${cluster}" ]]; then
+    cluster="dt"
+  fi
 
-  if [ ! -f "${kubeconfig}" ]; then
+  local kubeconfig="${HOME}/.kube/kubeconfig--ag-${env}--${cluster}.yaml"
+
+  if [[ ! -f "${kubeconfig}" ]]; then
     echo "File does not exist: ${kubeconfig}";
     return 1
   fi

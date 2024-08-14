@@ -216,7 +216,7 @@ alias pg-stop='pg_ctl -D /opt/homebrew/var/postgres stop -s -m fast'
 alias redis-start='redis-server /opt/homebrew/etc/redis.conf'
 alias mongo-start='mongod --config /opt/homebrew/etc/mongod.conf'
 
-alias web-server='echo http://localhost:8888 ; python -m SimpleHTTPServer 8888'
+alias web-server='echo http://127.0.0.1:8888 ; python3 -m http.server -b 127.0.0.1 8888'
 alias web-server-cors='http-server -p 8888 --cors' # npm install -g http-server
 
 alias diff-inline='wdiff -w "$(tput bold;tput setaf 1)" -x "$(tput sgr0)" -y "$(tput bold;tput setaf 2)" -z "$(tput sgr0)"'

@@ -253,7 +253,7 @@ find-files-larger-than() {
 }
 
 k8s-list-images() {
-  kubectl get pods -A --output=custom-columns="NAME:.metadata.name,IMAGE:.spec.containers[*].image"
+  k get pods -A --output=custom-columns="NAME:.metadata.name,IMAGE:.spec.containers[*].image"
 }
 
 # Print k8s secret value as plain text
@@ -294,33 +294,29 @@ alias dnsflush="dscacheutil -flushcache"
 
 alias lsof-ports='sudo lsof -i -P | grep LISTEN'
 
-alias debug-efs-provisioner='kkl -n  aws-efs-csi-driver -l "app=efs-csi-controller" -c efs-plugin -c csi-provisioner'
-alias debug-efs-driver='kkl -n  aws-efs-csi-driver -l "app=efs-csi-node" -c efs-plugin -c  csi-driver-registrar'
+alias debug-efs-provisioner='kl -n  aws-efs-csi-driver -l "app=efs-csi-controller" -c efs-plugin -c csi-provisioner'
+alias debug-efs-driver='kl -n  aws-efs-csi-driver -l "app=efs-csi-node" -c efs-plugin -c  csi-driver-registrar'
 
 alias kt='kustomize --load-restrictor LoadRestrictionsNone'
 
-alias kk='kubectl'
-alias k='kubectl'
-alias kkd='kubectl describe'
-alias kd='kubectl describe'
-alias kkg='kubectl get'
-alias kg='kubectl get'
-alias kkgy='kubectl get -o yaml'
-alias kgy='kubectl get -o yaml'
-alias kkgj='kubectl get -o json'
-alias kgj='kubectl get -o json'
+compdef kubecolor=kubectl
+alias k='kubecolor'
 
-alias kke='kk exec -it'
-alias ke='kk exec -it'
-alias kkl='kk logs -f'
-alias kl='kk logs -f'
+alias kd='k describe'
+alias kg='k get'
+alias kgy='k get -o yaml'
+alias kgj='k get -o json'
+
+alias kke='k exec -it'
+alias ke='k exec -it'
+alias kl='k logs -f'
 
 alias kg-nonrun='k get pod -A | grep -v Running'
 alias kg-nonrun-wide='k get pod -A -o wide | grep -v Running'
 alias k-drain='k drain --ignore-daemonsets --delete-emptydir-data'
 
-alias pf-alertmanager='kubectl port-forward  -n prometheus service/alertmanager-operated 8443:9093'
-alias pf-prometheus='kubectl port-forward -n prometheus service/prometheus-operated 8444:9090'
+alias pf-alertmanager='k port-forward  -n prometheus service/alertmanager-operated 8443:9093'
+alias pf-prometheus='k port-forward -n prometheus service/prometheus-operated 8444:9090'
 
 alias kl-argo-appset='kl -n argocd -l app.kubernetes.io/name=argocd-applicationset-controller'
 alias kl-argo-app='kl -n argocd -l app.kubernetes.io/name=argocd-application-controller'
@@ -340,9 +336,9 @@ klog() {
   if [ "$1" = "" ]; then echo "Usage: $0 pod container"; return; fi
 
   if [ "$2" = "" ]; then
-    kubectl logs -f "$1"
+    k logs -f "$1"
   else
-    kubectl logs -f "$1" -c "$2"
+    k logs -f "$1" -c "$2"
   fi
 }
 

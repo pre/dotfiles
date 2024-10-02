@@ -362,6 +362,18 @@ kconf() {
     return 1
   fi
 
+  case "${env}" in
+    dev|int|qa?)
+      iterm2_set_bgcolor "darkblue"
+      ;;
+    local)
+      iterm2_set_bgcolor "black"
+      ;;
+    *)
+      iterm2_set_bgcolor "darkred"
+      ;;
+  esac
+
   export KUBECONFIG=${kubeconfig}
   echo "KUBECONFIG=${KUBECONFIG}"
 }
@@ -460,8 +472,31 @@ bindkey "^[," _git_prev_branch
 # cd ** - directory list
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
+#
 # iTerm2 shell integration
+#
+
+# https://gist.github.com/st3v/5008165
+function iterm2_set_bgcolor(){
+  local r=$1
+  local g=$2
+  local b=$3
+  [ -z "$1" ] && { >&2 echo "Usage: $0 R G B"; return; }
+  [ "$1" = "darkblue" ] && { r=0 g=0 b=50; }
+  [ "$1" = "darkred" ] && { r=65 g=0 b=0; }
+  [ "$1" = "black" ] && { r=0 g=0 b=0; }
+
+  /usr/bin/osascript <<EOF
+tell application "iTerm"
+  tell the current window
+    tell the current session
+      set background color to {$(($r*65535/255)), $(($g*65535/255)), $(($b*65535/255))}
+    end tell
+  end tell
+end tell
+EOF
+}
+
 function iterm2_print_user_vars() {
   iterm2_set_user_var k8s_context "$(kubectl config current-context 2>/dev/null)"
   iterm2_set_user_var k8s_namespace "$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)"

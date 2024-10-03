@@ -343,14 +343,9 @@ klog() {
 }
 
 kconf() {
-  local env="${1:-}"
+  local env="${1:-agl}"
   local cluster="${2:-}"
   local kubeconfig
-
-  if [[ -z "${env}" ]]; then
-    >&2 echo "Usage: $0 env cluster"
-    return 1
-  fi
 
   if [[ -z "${cluster}" ]]; then
     cluster="dt"

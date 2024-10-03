@@ -345,6 +345,7 @@ klog() {
 kconf() {
   local env="${1:-}"
   local cluster="${2:-}"
+  local kubeconfig
 
   if [[ -z "${env}" ]]; then
     >&2 echo "Usage: $0 env cluster"
@@ -355,7 +356,14 @@ kconf() {
     cluster="dt"
   fi
 
-  local kubeconfig="${HOME}/.kube/kubeconfig--ag-${env}--${cluster}.yaml"
+  case "${env}" in
+    agl)
+      kubeconfig="${HOME}/.kube/appgyver-local-minikube.yaml"
+      ;;
+    *)
+      kubeconfig="${HOME}/.kube/kubeconfig--ag-${env}--${cluster}.yaml"
+      ;;
+  esac
 
   if [[ ! -f "${kubeconfig}" ]]; then
     echo "File does not exist: ${kubeconfig}";
@@ -363,10 +371,10 @@ kconf() {
   fi
 
   case "${env}" in
-    dev|int|qa?)
+    local|dev|int|qa?|*box*)
       iterm2_set_bgcolor "darkblue"
       ;;
-    local)
+    agl)
       iterm2_set_bgcolor "black"
       ;;
     *)

@@ -263,13 +263,20 @@ k8s-secret2plain() {
   jq '.data | map_values(@base64d)'
 }
 
+# Get a k8s Secret and print it as plain text
 kg-secret2plain() {
   local args; args=("${@}")
 
-  if [[ -z "${args[*]}" ]]; then echo "Usage: $0 resource params"; return; fi
+  if [[ -z "${args[*]}" ]]; then echo "Usage: $0 secret_name [kubectl_params]"; return; fi
 
-  kubectl get -o json secret ${args[@]}  | k8s-secret2plain
+  kubectl get -o json secret ${args[@]} | k8s-secret2plain
 }
+
+# Enable kubectl completions for kg-secret2plain
+__kg_secret2plain_kubectl() {
+  compadd $(kubectl get secret --no-headers -o custom-columns=":metadata.name")
+}
+compdef __kg_secret2plain_kubectl kg-secret2plain
 
 k8s-gardenerdomain() {
   command kubectl get configmap -n kube-system shoot-info -o=jsonpath={.data.domain}

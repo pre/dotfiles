@@ -143,12 +143,13 @@ alias mkdir='mkdir -pv'
 alias openssl-random-hex-64='openssl rand -hex 64'
 alias openssl-read-certfile='openssl x509 -text -noout -in ' # filename
 
-function openssl-show-cert() {
+# Print server certificate of the given host.
+openssl-show-cert() {
   local host=$1;
   openssl s_client -servername \
     "${host}" \
     -showcerts \
-    -connect ${host}:443
+    -connect "${host}:443"
 }
 
 # Retrieve top level certificate of given host,
@@ -157,9 +158,9 @@ function openssl-show-cert() {
 function openssl-show-fingerprint() {
   local host=$1
   echo | openssl s_client \
-    -servername "$host" \
+    -servername "${host}" \
     -showcerts \
-    -connect "$host":443 2>/dev/null \
+    -connect "${host}":443 2>/dev/null \
   | awk '/-----BEGIN CERTIFICATE-----/{cert=""} {cert=cert $0 "\n"} /-----END CERTIFICATE-----/{last_cert=cert} END{printf "%s", last_cert}' \
   | openssl x509 -fingerprint -noout -dates \
   | sed 's/://g' \

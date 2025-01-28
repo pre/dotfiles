@@ -319,8 +319,8 @@ alias kke='k exec -it'
 alias ke='k exec -it'
 alias kl='k logs -f'
 
-alias kg-nonrun='k get pod -A | grep -v Running'
-alias kg-nonrun-wide='k get pod -A -o wide | grep -v Running'
+alias kg-nonrun='k get pod -A | grep -v Running ; echo '
+alias kg-nonrun-wide='k get pod -A -o wide | grep -v Running ; echo'
 alias k-drain='k drain --ignore-daemonsets --delete-emptydir-data'
 
 alias pf-alertmanager='k port-forward  -n prometheus service/alertmanager-operated 8443:9093'

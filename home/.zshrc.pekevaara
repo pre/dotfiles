@@ -477,35 +477,56 @@ _git_prev_branch() {
 zle -N _git_prev_branch _git_prev_branch
 bindkey "^[," _git_prev_branch
 
-# https://github.com/junegunn/fzf
-# ^T - select from list, use shift to select multiple
-# ^R - fuzzy history
-# cd ** - directory list
+# https://github.com/junegunn/fzf?tab=readme-ov-file#key-bindings-for-command-line
+# ^T      select from list, use shift to select multiple
+# ^R      fuzzy history
+# cd **   directory list
+#
+# Results window:
+# ^Y      copy result to clipboard
+# ^-      toggle preview window
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#
-# iTerm2 shell integration
-#
+export FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-y:execute-silent(echo {} | pbcopy)+abort'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
-# https://gist.github.com/st3v/5008165
-function iterm2_set_bgcolor(){
-  local r=$1
-  local g=$2
-  local b=$3
-  [ -z "$1" ] && { >&2 echo "Usage: $0 R G B"; return; }
-  [ "$1" = "darkblue" ] && { r=0 g=0 b=50; }
-  [ "$1" = "darkred" ] && { r=65 g=0 b=0; }
-  [ "$1" = "black" ] && { r=0 g=0 b=0; }
+# ^R output looks like "1234 command and arguments". Remove the number before pbcopy.
+export FZF_CTRL_R_OPTS="
+  --bind \"ctrl-y:execute-silent(echo {} | cut -d' ' -f2- | pbcopy)+abort\"
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
-  /usr/bin/osascript <<EOF
-tell application "iTerm"
-  tell the current window
-    tell the current session
-      set background color to {$(($r*65535/255)), $(($g*65535/255)), $(($b*65535/255))}
-    end tell
-  end tell
-end tell
-EOF
+# fzf context situational previews
+# - bat: Show a preview of files in fzf dialogs
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)
+      fzf \
+        --bind 'ctrl-/:change-preview-window(down|hidden|)' \
+        --bind 'ctrl-y:execute-silent(echo {} | pbcopy)+abort' \
+        --preview 'tree -C {} | head -200' \
+        "$@"
+      ;;
+    export|unset)
+      fzf \
+        --bind 'ctrl-/:change-preview-window(down|hidden|)' \
+        --bind 'ctrl-y:execute-silent(echo {} | pbcopy)+abort' \
+        --preview "eval 'echo \$'{}" \
+        "$@"
+      ;;
+    *)
+      fzf \
+        --bind 'ctrl-/:change-preview-window(down|hidden|)' \
+        --bind 'ctrl-y:execute-silent(echo {} | pbcopy)+abort' \
+        --preview 'bat --style=numbers --color=always --line-range :500 {}' \
+        "$@"
+      ;;
+  esac
 }
 
 function iterm2_print_user_vars() {

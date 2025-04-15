@@ -416,6 +416,36 @@ luup() {
   while sleep 1; do eval "$@" && return; done
 }
 
+# Sleep for a given amount of seconds and print the remaining time.
+function timer() {
+  local total=${1:-}
+  local remaining=${total:-}
+
+  if [[ -z "${total}" || ! "${total}" =~ ^[0-9]+$ ]]; then
+    >&2 cat <<EOF
+Usage: $0 <seconds>
+
+Tip: Use "timer 60; say 'Time is up'" to have an audible alarm
+
+EOF
+    return 1
+  fi
+
+  while (( remaining > 0 )); do
+    if (( remaining >= 60 )); then
+      local min=$((remaining / 60))
+      local sec=$((remaining % 60))
+      echo -ne "Time remaining: ${min} minutes, ${sec} seconds\r"
+    else
+      echo -ne "Time remaining: ${remaining} seconds                \r"
+    fi
+    sleep 1
+    ((remaining--))
+  done
+
+  echo -ne "Time is up! Waited for ${total} seconds.               \r\n"
+}
+
 netmon() {
   loop "( ping -t 1 192.168.1.254 >/dev/null || ( echo -n 'Network down: ' ; date  ; say 'Network down' ))"
 }

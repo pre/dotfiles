@@ -135,13 +135,16 @@ alias ee='code .'
 alias o='open'
 alias oo='open .'
 alias t='traceroute -d 195.74.0.47' # is network down?
-alias p='ping www.sci.fi'
+alias p='ping www.elisa.fi'
 alias dug="du -sch * | grep '^[\ 0-9,\.]*G'" # show only giga files
 alias dus='du -sh * | gsort -h' # sort files by size
 alias mkdir='mkdir -pv'
 
+alias openssl-random-base64-48='openssl rand -base64 48'
 alias openssl-random-hex-64='openssl rand -hex 64'
 alias openssl-read-certfile='openssl x509 -text -noout -in ' # filename
+
+alias openssl-connect='openssl s_client -connect' # host:port
 
 # Print server certificate of the given host.
 openssl-show-cert() {
@@ -300,7 +303,7 @@ alias tf='terraform'
 # sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
 alias dnsflush="dscacheutil -flushcache"
 
-alias lsof-ports='sudo lsof -i -P | grep LISTEN'
+alias lsof-ports='sudo lsof -i -P -n | grep LISTEN'
 
 alias debug-efs-provisioner='kl -n  aws-efs-csi-driver -l "app=efs-csi-controller" -c efs-plugin -c csi-provisioner'
 alias debug-efs-driver='kl -n  aws-efs-csi-driver -l "app=efs-csi-node" -c efs-plugin -c  csi-driver-registrar'
@@ -309,6 +312,10 @@ alias kt='kustomize --load-restrictor LoadRestrictionsNone'
 
 compdef kubecolor=kubectl
 alias k='kubecolor'
+
+kkns() {
+  kubectl config set-context --current --namespace="$1"
+}
 
 alias kd='k describe'
 alias kg='k get'

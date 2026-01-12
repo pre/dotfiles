@@ -100,7 +100,8 @@ alias rakedb='rake db:migrate && rake db:test:prepare'
 alias gblw='git blame -w'  # ignores white space
 alias gbl='git blame -M'   # ignores moving text
 alias gbb='git blame -C'   # ignores moving text into other files
-alias gg='git grep --break --heading --line-number'
+#alias gg='git grep --break --heading --line-number'
+gg() { rg --json $* | delta }
 alias gd='git diff'
 alias gs='git diff --cached'
 alias cop='git checkout -p'

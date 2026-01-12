@@ -35,7 +35,7 @@
   autocrlf = input
   whitespace = fix,space-before-tab,tab-in-indent,trailing-space
   ignorecase = false
-  pager = delta
+  # pager = delta # use instad alias gg='rg --json hello | delta'
 [user]
   name = Petrus Repo
   email = petrus.repo@iki.fi
@@ -169,6 +169,7 @@
   navigate = true  # use n and N to move between diff sections
   line-numbers = false
   side-by-side = false
+  hyperlinks = true
 
 [diff]
   # Shifts the hunk boundary in an attempt to make the resulting
@@ -182,23 +183,18 @@
   prune = true
 
 [merge]
-  tool = lolmerge # This will be the default merge tool invoked by git mergetool.
+  tool = code
   conflictstyle = diff3
-
 [mergetool]
    keepBackup = false
    keepTemporaries = false
-[mergetool "lolmerge"]
-  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \
-    "$PWD/$BASE" \
-    "$PWD/$REMOTE" \
-    "$PWD/$LOCAL" \
-    "$PWD/$MERGED"
-   keepBackup = false
-   trustExitCode = false
-[mergetool "sourcetree"]
-  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+[mergetool "code"]
+  cmd = code --wait --merge "$MERGED" "$LOCAL" "$REMOTE" "$BASE"
   trustExitCode = true
+  keepBackup = false
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [filter "lfs"]
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f

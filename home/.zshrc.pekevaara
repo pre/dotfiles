@@ -233,8 +233,8 @@ alias -g G='|grep'
 
 alias my-start='mysql.server start'
 alias my-stop='mysql.server stop'
-alias pg-start='pg_ctl -D /opt/homebrew/var/postgres -l /usr/local/var/postgres/server.log start'
-alias pg-stop='pg_ctl -D /opt/homebrew/var/postgres stop -s -m fast'
+alias pg-start='brew services start postgresql@17'
+alias pg-stop='brew services stop postgresql@17'
 alias redis-start='redis-server /opt/homebrew/etc/redis.conf'
 alias mongo-start='mongod --config /opt/homebrew/etc/mongod.conf'
 
@@ -319,7 +319,7 @@ local-fwd() {
 alias tf='terraform'
 # sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
 # sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
-alias dnsflush="dscacheutil -flushcache"
+alias dnsflush="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
 alias lsof-ports='sudo lsof -i -P -n | grep LISTEN'
 
@@ -344,8 +344,8 @@ alias kke='k exec -it'
 alias ke='k exec -it'
 alias kl='k logs -f'
 
-alias kg-nonrun='k get pod -A | grep -v Running ; echo '
-alias kg-nonrun-wide='k get pod -A -o wide | grep -v Running ; echo'
+alias kg-nonrun='k get pod -A | grep -v Running | grep -v Completed ; echo '
+alias kg-nonrun-wide='k get pod -A -o wide | grep -v Running | grep -v Completed ; echo'
 alias k-drain='k drain --ignore-daemonsets --delete-emptydir-data'
 
 alias pf-alertmanager='k port-forward  -n prometheus service/alertmanager-operated 8443:9093'

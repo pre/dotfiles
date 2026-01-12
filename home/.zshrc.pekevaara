@@ -23,7 +23,19 @@ precmd() {
     cmd_execution_time
   fi
 }
-###
+# /command execution time
+
+# Set iTerm2 window title to current folder and command
+precmd() {
+  print -Pn "\e]0;%~\a"
+}
+preexec() {
+  print -Pn "\e]0;$1\a"
+}
+# /iTerm2 window title
+
+# Treat the following characters as word separators. Used by ^W backward-kill-word.
+WORDCHARS='*?_[]~=&;!#$%^(){}<>'
 
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export GPG_TTY=$(tty)
@@ -31,8 +43,10 @@ export GPG_TTY=$(tty)
 export PATH="$PATH:${HOME}/.krew/bin"
 
 # HISTORY SETTINGS
+setopt EXTENDED_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
 setopt PUSHD_IGNORE_DUPS
 setopt inc_append_history # save every command before it is executed
 setopt share_history # retrieve the history file everytime history is called upon
@@ -189,7 +203,7 @@ lsd() {
 }
 
 # List hidden filenames which start with a dot in current or given directory
-unalias lsa
+# unalias lsa
 lsa() {
   local dest; dest="${1:-}"
 
@@ -207,6 +221,9 @@ alias .....='cd ../../../../'
 alias ......='cd ../../../../../'
 
 alias locate='mdfind'
+
+alias ll='ls -l'
+alias l='ll'
 
 alias -g L='|less'
 alias -g H='|head'
@@ -478,10 +495,6 @@ bindkey "^[[1;2D" set-mark-command
 bindkey "^[[1;2C" set-mark-command
 bindkey "^[l" down-case-word
 
-# SCM Breeze
-# https://github.com/ndbroadbent/scm_breeze
-[ -s "/Users/pre/.scm_breeze/scm_breeze.sh" ] && source "/Users/pre/.scm_breeze/scm_breeze.sh"
-
 # esc-N outputs the path of corresponding SCM Breeze file in the current line
 # eg. esc-1 outputs "$e1" which corresponds to the last file marked as [1] by SCM Breeze
 _scmkey_esc1() { LBUFFER="${LBUFFER}\"${e1}\""; }; zle -N _scmkey_esc1 _scmkey_esc1; bindkey "^[1" _scmkey_esc1
@@ -567,9 +580,14 @@ _fzf_comprun() {
 }
 
 #
+# fzf-tab
+# https://github.com/Aloxaf/fzf-tab
+#
+source ~/dev/shell/fzf-tab.plugin.zsh
+
+#
 # iTerm2 shell integration
 #
-
 # https://gist.github.com/st3v/5008165
 function iterm2_set_bgcolor(){
   local r=$1

@@ -580,12 +580,56 @@ _fzf_comprun() {
   esac
 }
 
+# Default completion before fzf-tab
+zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors ''
+
+# Make Zsh match case-insensitively but preserve the real casing in completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+# Allow matching if the typed text is *anywhere* in the word, not just at the start
+zstyle ':completion:*' matcher-list 'r:|=*' 'l:|=* r:|=*'
+
 #
 # fzf-tab
 # https://github.com/Aloxaf/fzf-tab
 #
-source ~/dev/shell/fzf-tab.plugin.zsh
+# ctrl+space  multiple selections
+# /           continuous completion (deep path)
+source "${HOME}/dev/shell/fzf-tab/fzf-tab.plugin.zsh"
 
+# Prevent fzf-tab from auto-selecting a match when there's none explicitly selected
+zstyle ':fzf-tab:*' fzf-options --no-select-1 --no-exact
+
+#
+# fzf-forgit
+# https://github.com/wfxr/forgit
+# brew install forgit
+[ -f /opt/homebrew/share/forgit/forgit.plugin.zsh ] && source /opt/homebrew/share/forgit/forgit.plugin.zsh
+
+
+# Custom fallback to always open fzf even with no matches
+# fzf_tab_fallback() {
+#   local input
+#   input=$(FZF_TAB_QUERY='' fzf --print-query --no-select-1 --no-exact --bind "enter:accept" --prompt="Manual Input> ")
+#   if [[ -n $input ]]; then
+#     LBUFFER+="$input"
+#     zle reset-prompt
+#   fi
+# }
+# zle -N fzf_tab_fallback
+
+# zstyle ':fzf-tab:*' fzf-bindings 'ctrl-j:execute(fzf_tab_fallback)'
+# zstyle ':fzf-tab:*' fzf-bindings 'ctrl-j:execute(fzf_tab_fallback),esc:abort'
+
+# zstyle ':fzf-tab:*' fzf-bindings 'ctrl-j:execute(fzf_tab_insert_query)'
+# zstyle ':fzf-tab:*' fzf-bindings 'ctrl-j:execute(fzf_tab_insert_query),esc:abort'
+
+
+# Pass the query string as-is to the command line if no match is selected (ie. no match found)
+# zstyle ':fzf-tab:*' accept-line enter
+# zstyle ':fzf-tab:*' fzf-bindings 'enter:accept'
+# zstyle ':fzf-tab:*' query-string-fallback accept
 #
 # iTerm2 shell integration
 #

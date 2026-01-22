@@ -97,6 +97,7 @@
     ch = cherry -v
     wdiff = diff --color-words
     tag-date = !git tag `date \"+%Y-%m-%d\"`  # create a new tag from HEAD with the current timestamp
+    rev = !git-forgit revert_commit
 
     #
     # Log

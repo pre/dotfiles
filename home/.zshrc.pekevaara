@@ -42,6 +42,10 @@ export GPG_TTY=$(tty)
 
 export PATH="$PATH:${HOME}/.krew/bin"
 
+# Batch rename
+#   zmv '(*).txt' 'lol-$1.txt'
+autoload -Uz zmv
+
 # HISTORY SETTINGS
 setopt EXTENDED_HISTORY
 setopt HIST_IGNORE_ALL_DUPS

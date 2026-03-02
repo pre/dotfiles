@@ -239,8 +239,8 @@ alias my-start='mysql.server start'
 alias my-stop='mysql.server stop'
 alias pg-start='brew services start postgresql@17'
 alias pg-stop='brew services stop postgresql@17'
-alias redis-start='redis-server /opt/homebrew/etc/redis.conf'
-alias mongo-start='mongod --config /opt/homebrew/etc/mongod.conf'
+alias redis-start="redis-server ${BREW_PREFIX}/etc/redis.conf"
+alias mongo-start="mongod --config ${BREW_PREFIX}/etc/mongod.conf"
 
 alias web-server='echo http://127.0.0.1:8888 ; python3 -m http.server -b 127.0.0.1 8888'
 alias web-server-cors='http-server -p 8888 --cors' # npm install -g http-server
@@ -479,7 +479,7 @@ unsetopt auto_name_dirs
 
 # Link Rubies to Homebrew's OpenSSL 1.1 (which is upgraded)
 # brew --prefix openssl@1.1 => /usr/local/opt/openssl@1.1
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=${BREW_PREFIX}/opt/openssl@1.1"
 
 # Custom bindings
 # http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html
@@ -595,12 +595,13 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' matcher-list 'r:|=*' 'l:|=* r:|=*'
 
 #
-# fzf-tab
+# fzf-tab - replace zsh default completion selection with fzf
 # https://github.com/Aloxaf/fzf-tab
+# brew install fzf-tab
 #
 # ctrl+space  multiple selections
 # /           continuous completion (deep path)
-source "${HOME}/dev/shell/fzf-tab/fzf-tab.plugin.zsh"
+source "${BREW_PREFIX}/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh"
 
 # Prevent fzf-tab from auto-selecting a match when there's none explicitly selected
 zstyle ':fzf-tab:*' fzf-options --no-select-1 --no-exact
@@ -609,7 +610,7 @@ zstyle ':fzf-tab:*' fzf-options --no-select-1 --no-exact
 # fzf-forgit
 # https://github.com/wfxr/forgit
 # brew install forgit
-[ -f /opt/homebrew/share/forgit/forgit.plugin.zsh ] && source /opt/homebrew/share/forgit/forgit.plugin.zsh
+[ -f "${BREW_PREFIX}/share/forgit/forgit.plugin.zsh" ] && source "${BREW_PREFIX}/share/forgit/forgit.plugin.zsh"
 
 
 # Custom fallback to always open fzf even with no matches
@@ -670,16 +671,12 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 
-# nodenv
+# brew install nodenv
 init-nodenv() { eval "$(nodenv init -)" }
 #eval "$(nodenv init -)"
 
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # PATH for the Google Cloud SDK.
-if [ -f '/Users/pre/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pre/google-cloud-sdk/path.zsh.inc'; fi
-
+# if [ -f '/Users/pre/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pre/google-cloud-sdk/path.zsh.inc'; fi
+#
 # shell command completion for gcloud.
-if [ -f '/Users/pre/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pre/google-cloud-sdk/completion.zsh.inc'; fi
+# if [ -f '/Users/pre/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pre/google-cloud-sdk/completion.zsh.inc'; fi

@@ -13,12 +13,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+export BREW_PREFIX=$(brew --prefix)
+export PATH="${BREW_PREFIX}/bin:/usr/local/bin:$PATH"
 
 # Brew completion
 # https://docs.brew.sh/Shell-Completion
 # This must be done before oh-my-zsh loads
-FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
+FPATH="${BREW_PREFIX}/share/zsh/site-functions:$FPATH"
 
 export LANG=en_US.UTF-8
 
@@ -29,7 +30,8 @@ compinit
 source ${HOME}/.zshrc.pekevaara
 source ${HOME}/.zshrc.private
 
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+# brew install powerlevel10k
+source "${BREW_PREFIX}/share/powerlevel10k/powerlevel10k.zsh-theme"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -39,7 +41,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 export PATH="$PATH:$HOME/.rvm/bin"
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
+complete -o nospace -C "${BREW_PREFIX}/bin/terraform" terraform
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -50,14 +52,10 @@ fpath=(${HOME}/.docker/completions $fpath)
 [ -s "${HOME}/.scm_breeze/scm_breeze.sh" ] && source "${HOME}/.scm_breeze/scm_breeze.sh"
 
 # brew install zsh-syntax-highlighting
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "${BREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # brew install autojump
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+[ -f "${BREW_PREFIX}/etc/profile.d/autojump.sh" ] && . "${BREW_PREFIX}/etc/profile.d/autojump.sh"
 
 # brew install direnv
 # eval "$(direnv hook zsh)" >/dev/null

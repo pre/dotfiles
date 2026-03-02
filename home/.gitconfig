@@ -43,7 +43,7 @@
   #   gpg2 --list-secret-keys
   #   gpg2 -K --keyid-format SHORT
   # signingkey = last 8 characters of the key name
-  signingkey = 23A323C5
+  signingkey = 680211EC
 # Use gpg2 to sign commits (use gpg2 instead of gpg)
 #   brew install gpg2
 #   gpg --version # >= 2.3

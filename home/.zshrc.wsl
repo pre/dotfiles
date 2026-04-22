@@ -1,0 +1,27 @@
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export PATH="$PATH:$HOME/.local/bin"
+
+# Windows Terminal => Split pane: Reuse previous session's directory
+autoload -Uz add-zsh-hook
+_wt_osc99() { printf '\e]9;9;%s\a' "$(wslpath -w "$PWD")" }
+add-zsh-hook precmd _wt_osc99
+
+# WSL pbcopy
+alias -g CB='| clip.exe'
+
+# Claude LLM Gateway
+[ -f "$HOME/.config/claude-code/llm-gw.sh" ] && . "$HOME/.config/claude-code/llm-gw.sh"
+
+claude-pub() {
+  ( source "$HOME/.config/claude-code/public.sh" && command claude "$@" )
+}
+
+stree() {
+  "/mnt/c/Users/prepo/AppData/Local/SourceTree/SourceTree.exe" "$(wslpath -w "$PWD")"
+}
+
+# Powershell
+#
+# Disable Click to Do (Hold WIN, WIN+Mouse)
+#   Settings > Privacy & Security > Click to Do 
+#   Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ClickToDoEnabled" -Value 0 -Type DWord

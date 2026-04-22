@@ -13,6 +13,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
+fi
+
 export BREW_PREFIX=$(brew --prefix)
 export PATH="${BREW_PREFIX}/bin:/usr/local/bin:$PATH"
 
@@ -28,6 +32,7 @@ autoload -Uz compinit
 compinit
 
 source ${HOME}/.zshrc.pekevaara
+source ${HOME}/.zshrc.wsl
 source ${HOME}/.zshrc.private
 
 # brew install powerlevel10k

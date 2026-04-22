@@ -25,14 +25,20 @@ precmd() {
 }
 # /command execution time
 
-# Set iTerm2 window title to current folder and command
-precmd() {
-  print -Pn "\e]0;%~\a"
-}
-preexec() {
+# Set terminal window title to current folder and command
+# Windows Terminal: "suppressApplicationTitle": false
+function set-win-title() {
   print -Pn "\e]0;$1\a"
 }
-# /iTerm2 window title
+
+function preexec() {
+  set-win-title "$1"
+}
+
+function precmd() {
+  set-win-title "%~"
+}
+# /terminal window title
 
 # Treat the following characters as word separators. Used by ^W backward-kill-word.
 WORDCHARS='*?_[]~=&;!#$%^(){}<>'
@@ -54,6 +60,7 @@ setopt HIST_REDUCE_BLANKS
 setopt PUSHD_IGNORE_DUPS
 setopt inc_append_history # save every command before it is executed
 setopt share_history # retrieve the history file everytime history is called upon
+HISTFILE="${HOME}/.zhistory"
 HISTSIZE=1000000
 SAVEHIST=1000000
 

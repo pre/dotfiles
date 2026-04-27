@@ -386,6 +386,25 @@ klog() {
   fi
 }
 
+ek() {
+  if [ -n "$1" ]; then
+    CONFIG=$(rg --max-depth 3 -l '^kind: Config$' $HOME/.kube/ 2>/dev/null \
+      | grep $1)
+  else
+    CONFIG=$(rg --max-depth 3 -l '^kind: Config$' $HOME/.kube/ $PWD 2>/dev/null \
+      | fzf --multi \
+      | tr '\n' ':')
+  fi
+
+  for file in $(echo ${CONFIG%:*} | tr ':' '\n')
+  do
+    chmod 600 "$file"
+  done
+
+  echo ${CONFIG%:*}
+  export KUBECONFIG=${CONFIG%:*}
+}
+
 kconf() {
   local env="${1:-agl}"
   local cluster="${2:-}"

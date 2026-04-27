@@ -1,3 +1,9 @@
+# Launch Homebrew gpg-agent on shell start (system agent is masked via systemctl --user mask)
+export GPG_TTY=$(tty)
+if ! /home/linuxbrew/.linuxbrew/bin/gpgconf --list-dirs agent-socket | xargs test -S 2>/dev/null; then
+  /home/linuxbrew/.linuxbrew/bin/gpgconf --launch gpg-agent
+fi
+
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export PATH="$PATH:$HOME/.local/bin"
 

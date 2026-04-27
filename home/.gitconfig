@@ -31,11 +31,11 @@
 ##
 [core]
   excludesfile = /Users/pre/.gitignore
-  editor = code --wait --new-window
+  editor = vim
   autocrlf = input
   whitespace = fix,space-before-tab,tab-in-indent,trailing-space
   ignorecase = false
-  # pager = delta # use instad alias gg='rg --json hello | delta'
+  pager = delta # use instad alias gg='rg --json hello | delta'
 [user]
   name = Petrus Repo
   email = petrus.repo@iki.fi
@@ -69,12 +69,15 @@
 # Commits should appear as "Verified" in Github and locally with
 #   git log --show-signature
 [gpg]
-  program = gpg2
+  program = gpg
+
 [commit]
   gpgsign = true
-  template = /Users/pre/.stCommitMsg
+  # template = /Users/pre/.stCommitMsg
+
 [tag]
   forceSignAnnotated = true
+  gpgsign = true
 [alias]
     st = status -sb
     ci = commit

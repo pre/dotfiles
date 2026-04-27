@@ -638,11 +638,13 @@ zstyle ':fzf-tab:*' fzf-options --no-select-1 --no-exact
 # brew install forgit
 [ -f "${BREW_PREFIX}/share/forgit/forgit.plugin.zsh" ] && source "${BREW_PREFIX}/share/forgit/forgit.plugin.zsh"
 
-export FORGIT_LOG_FZF_OPTS='--preview-window=down:75%'
-export FORGIT_DIFF_FZF_OPTS='--preview-window=down:75%'
-export FORGIT_SHOW_FZF_OPTS='--preview-window=down:75%'
-export FORGIT_FZF_DEFAULT_OPTS='--height=100% --bind "ctrl-down:preview-half-page-down,ctrl-up:preview-half-page-up,shift-right:change-preview-window(wrap|nowrap)"'
-
+export FORGIT_LOG_FZF_OPTS='--preview-window=down:85%'
+export FORGIT_DIFF_FZF_OPTS='--preview-window=down:85%'
+export FORGIT_SHOW_FZF_OPTS='--preview-window=down:85%'
+export FORGIT_FZF_DEFAULT_OPTS='
+  --height=100%
+  --layout=reverse
+  --bind "space:preview-half-page-down,ctrl-down:preview-half-page-down,ctrl-up:preview-half-page-up,shift-right:change-preview-window(wrap|nowrap)"'
 
 # Custom fallback to always open fzf even with no matches
 # fzf_tab_fallback() {

@@ -406,41 +406,7 @@ ek() {
 }
 
 kconf() {
-  local env="${1:-agl}"
-  local cluster="${2:-}"
-  local kubeconfig
-
-  if [[ -z "${cluster}" ]]; then
-    cluster="dt"
-  fi
-
-  case "${env}" in
-    agl)
-      kubeconfig="${HOME}/.kube/appgyver-local-minikube.yaml"
-      ;;
-    *)
-      kubeconfig="${HOME}/.kube/kubeconfig--ag-${env}--${cluster}.yaml"
-      ;;
-  esac
-
-  if [[ ! -f "${kubeconfig}" ]]; then
-    echo "File does not exist: ${kubeconfig}";
-    return 1
-  fi
-
-  case "${env}" in
-    local|dev|int|qa?|*box*)
-      iterm2_set_bgcolor "darkblue"
-      ;;
-    agl)
-      iterm2_set_bgcolor "black"
-      ;;
-    *)
-      iterm2_set_bgcolor "darkred"
-      ;;
-  esac
-
-  export KUBECONFIG=${kubeconfig}
+  export KUBECONFIG="${HOME}/.kube/config"
   echo "KUBECONFIG=${KUBECONFIG}"
 }
 

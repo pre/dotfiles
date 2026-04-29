@@ -118,9 +118,8 @@ alias gs='git diff --cached'
 alias cop='git checkout -p'
 alias rull='git pull --rebase'
 alias cim='git ci -m'
-alias gl='git log'
-alias glp='git log -p'
-alias glp1='git log -p -1'
+alias gl='git log --stat'
+alias glp='forgit::log'
 alias g1='git log -p -1'
 alias gld='git log --left-right --graph --cherry-mark --oneline' # "gld master.." list commits not in master
 alias gll='git log --stat --graph --decorate' # --max-count=100
@@ -604,13 +603,15 @@ zstyle ':fzf-tab:*' fzf-options --no-select-1 --no-exact
 # brew install forgit
 [ -f "${BREW_PREFIX}/share/forgit/forgit.plugin.zsh" ] && source "${BREW_PREFIX}/share/forgit/forgit.plugin.zsh"
 
+export FORGIT_DIFF_PAGER='delta --width=${FZF_PREVIEW_COLUMNS:-$COLUMNS}'
+export FORGIT_SHOW_PAGER='delta --width=${FZF_PREVIEW_COLUMNS:-$COLUMNS}'
 export FORGIT_LOG_FZF_OPTS='--preview-window=down:85%'
 export FORGIT_DIFF_FZF_OPTS='--preview-window=down:85%'
 export FORGIT_SHOW_FZF_OPTS='--preview-window=down:85%'
 export FORGIT_FZF_DEFAULT_OPTS='
   --height=100%
   --layout=reverse
-  --bind "space:preview-half-page-down,ctrl-down:preview-half-page-down,ctrl-up:preview-half-page-up,shift-right:change-preview-window(wrap|nowrap)"'
+  --bind "space:preview-half-page-down,ctrl-down:preview-half-page-down,ctrl-up:preview-half-page-up,shift-right:change-preview-window(wrap|nowrap),up:preview-up,down:preview-down,shift-up:up,shift-down:down"'
 
 # Custom fallback to always open fzf even with no matches
 # fzf_tab_fallback() {

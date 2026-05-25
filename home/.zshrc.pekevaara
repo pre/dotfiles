@@ -378,6 +378,8 @@ alias -g J='-o json'
 alias -g AC='--all-containers'
 alias -g MLR='--max-log-requests'
 
+alias k9s='k9s --logoless --all-namespaces'
+
 klog() {
   if [ "$1" = "" ]; then echo "Usage: $0 pod container"; return; fi
 

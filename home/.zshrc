@@ -17,17 +17,20 @@ if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 fi
 
+export LANG=en_US.UTF-8
+
 export BREW_PREFIX=$(brew --prefix)
 export PATH="${BREW_PREFIX}/bin:/usr/local/bin:$PATH"
 
-# Brew completion
-# https://docs.brew.sh/Shell-Completion
-# This must be done before oh-my-zsh loads
-FPATH="${BREW_PREFIX}/share/zsh/site-functions:$FPATH"
+# zsh completions from both Homebrew and zsh-completions 
+#   https://docs.brew.sh/Shell-Completion
+# brew install zsh-completions
+#   https://github.com/zsh-users/zsh-completions
+#
+# FPATH must be set before p10k
+FPATH="${BREW_PREFIX}/share/zsh/site-functions:${BREW_PREFIX}/share/zsh-completions:$FPATH"
 
-export LANG=en_US.UTF-8
-
-# Load compinit before p10k
+# compinit must load after FPATH but before p10k
 autoload -Uz compinit
 compinit
 

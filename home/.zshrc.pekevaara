@@ -529,9 +529,17 @@ zle -N _git_prev_branch _git_prev_branch
 bindkey "^[," _git_prev_branch
 
 # https://github.com/junegunn/fzf?tab=readme-ov-file#key-bindings-for-command-line
-# ^T      select from list, use shift to select multiple
-# ^R      fuzzy history
-# cd **   directory list
+# ^T          select from list, use shift to select multiple
+# ^R          fuzzy history
+#   ^P / ^N   previous / next match
+#   ^R        toggle sort order (best match / history order)
+#   : ^str    prefix
+#   : str$    suffix
+#   : !str    inverse substring
+#   : !^str   inverse prefix
+#   : !str$   inverse suffix
+#   : rb$ | py$  rb OR py
+# cd **       directory list
 #
 # Results window:
 # ^Y      copy result to clipboard

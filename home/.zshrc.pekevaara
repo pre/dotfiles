@@ -536,7 +536,15 @@ bindkey "^[," _git_prev_branch
 # Results window:
 # ^Y      copy result to clipboard
 # ^-      toggle preview window
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="$PATH:${BREW_PREFIX}/opt/fzf/bin"
+
+# fzf autocompletion
+[[ $- == *i* ]] && source "${BREW_PREFIX}/opt/fzf/shell/completion.zsh" 2>/dev/null
+
+# fzf key bindings
+source "${BREW_PREFIX}/opt/fzf/shell/key-bindings.zsh"
+
+export FZF_DEFAULT_OPTS="--height=15"
 
 export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target

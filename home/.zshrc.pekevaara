@@ -113,13 +113,16 @@ alias gbl='git blame -M'   # ignores moving text
 alias gbb='git blame -C'   # ignores moving text into other files
 #alias gg='git grep --break --heading --line-number'
 gg() { rg --json $* | delta }
-alias gd='git diff'
-alias gs='git diff --cached'
+#alias gd='git diff'
+#alias gs='git diff --cached'
+alias gd="forgit::diff"
+alias gs="forgit::diff --cached"
 alias cop='git checkout -p'
 alias rull='git pull --rebase'
 alias cim='git ci -m'
 alias gl='git log --stat'
 alias glp='forgit::log'
+alias gshow='forgit::show'
 alias g1='git log -p -1'
 alias gld='git log --left-right --graph --cherry-mark --oneline' # "gld master.." list commits not in master
 alias gll='git log --stat --graph --decorate' # --max-count=100

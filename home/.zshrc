@@ -35,7 +35,7 @@ autoload -Uz compinit
 compinit
 
 source ${HOME}/.zshrc.pekevaara
-source ${HOME}/.zshrc.wsl
+[[ -f ${HOME}/.zshrc.wsl ]] && source ${HOME}/.zshrc.wsl
 source ${HOME}/.zshrc.private
 
 # brew install powerlevel10k

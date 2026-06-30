@@ -40,8 +40,43 @@ stree() {
   "/mnt/c/Users/prepo/AppData/Local/SourceTree/SourceTree.exe" "$(wslpath -w "$PWD")"
 }
 
+# LLM GW usage stats (default: of the current month)
+# paramters: last|current week|month
+llm-stats() {
+  local start end today
+
+  today=$(date +%Y-%m-%d)
+
+  if [[ $# -eq 0 ]]; then
+    start=$(date +%Y-%m-01)
+    end=$(date -d "$(date +%Y-%m-01) +1 month -1 day" +%Y-%m-%d)
+  elif [[ "$1" == "current" && "$2" == "week" ]]; then
+    start=$(date -d "last monday" +%Y-%m-%d)
+    end=$today
+  elif [[ "$1" == "last" && "$2" == "week" ]]; then
+    start=$(date -d "last monday -7 days" +%Y-%m-%d)
+    end=$(date -d "last monday -1 day" +%Y-%m-%d)
+  elif [[ "$1" == "current" && "$2" == "month" ]]; then
+    start=$(date +%Y-%m-01)
+    end=$today
+  elif [[ "$1" == "last" && "$2" == "month" ]]; then
+    start=$(date -d "$(date +%Y-%m-01) -1 month" +%Y-%m-%d)
+    end=$(date -d "$(date +%Y-%m-01) -1 day" +%Y-%m-%d)
+  else
+    start="$1"
+    end="$2"
+  fi
+
+  echo "Usage stats $start → $end"
+  curl -s -G 'https://llm-api.amd.com/api/UsageStats' \
+    -H "Ocp-Apim-Subscription-Key: $LLM_TOKEN" \
+    --data-urlencode "start=$start" \
+    --data-urlencode "end=$end" \
+  | jq
+}
+
 # Powershell
 #
 # Disable Click to Do (Hold WIN, WIN+Mouse)
-#   Settings > Privacy & Security > Click to Do 
+#   Settings > Privacy & Security > Click to Do
 #   Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ClickToDoEnabled" -Value 0 -Type DWord

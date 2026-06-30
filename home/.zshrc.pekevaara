@@ -71,6 +71,11 @@ setopt COMPLETE_IN_WORD # not just at the end
 setopt auto_cd
 cdpath=($HOME/dev $HOME/Documents)
 
+alias claude='claude --allow-dangerously-skip-permissions'
+alias claude-wild='claude --dangerously-skip-permissions'
+alias cla='claude agents --allow-dangerously-skip-permissions'
+alias clad='claude agents --dangerously-skip-permissions'
+
 # RAILS
 alias rc='rails c'
 alias hrc='heroku run rails c'
@@ -141,15 +146,17 @@ alias gra='git rebase --abort'
 alias grs='git rebase --skip'
 alias st='git st'
 alias gc='git clone'
-alias gb='git branch'
 alias gp='git push'
 alias gpf='git pf'
 alias gpu='git push -u origin HEAD'
+alias gw='forgit::worktree'
 ## from SCM Breeze
 #alias g='git'
 #alias gap='git add -p'
 #alias co='git co'
 #alias ci='git ci'
+
+alias gbr='git branch'
 
 # brew install forgit
 alias gb="git-forgit checkout_branch"

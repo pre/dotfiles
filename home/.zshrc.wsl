@@ -21,6 +21,14 @@ add-zsh-hook precmd _wt_osc99
 # WSL pbcopy
 alias -g CB='| clip.exe'
 
+open() {
+  if [ -e "$1" ]; then
+    cmd.exe /c start "" "$(wslpath -w "$1")"
+  else
+    cmd.exe /c start "" "$1"
+  fi
+}
+
 # Claude LLM Gateway
 [ -f "$HOME/.config/claude-code/llm-gw.sh" ] && . "$HOME/.config/claude-code/llm-gw.sh"
 

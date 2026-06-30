@@ -4,6 +4,12 @@ if ! /home/linuxbrew/.linuxbrew/bin/gpgconf --list-dirs agent-socket | xargs tes
   /home/linuxbrew/.linuxbrew/bin/gpgconf --launch gpg-agent
 fi
 
+# Homebrew installed software should also use the system provided certificates
+export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+export SSL_CERT_DIR=/etc/ssl/certs
+
+export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
+
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export PATH="$PATH:$HOME/.local/bin"
 

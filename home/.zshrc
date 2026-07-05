@@ -20,7 +20,7 @@ fi
 export LANG=en_US.UTF-8
 
 export BREW_PREFIX=$(brew --prefix)
-export PATH="${BREW_PREFIX}/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/.local/bin:${BREW_PREFIX}/bin:/usr/local/bin:$PATH"
 
 # zsh completions from both Homebrew and zsh-completions 
 #   https://docs.brew.sh/Shell-Completion

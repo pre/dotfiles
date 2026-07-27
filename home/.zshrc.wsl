@@ -4,11 +4,31 @@ if ! /home/linuxbrew/.linuxbrew/bin/gpgconf --list-dirs agent-socket | xargs tes
   /home/linuxbrew/.linuxbrew/bin/gpgconf --launch gpg-agent
 fi
 
+# ZSCALER WORKAROUND
+
 # Homebrew & other software should also use the system provided certificates
 export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 export SSL_CERT_DIR=/etc/ssl/certs
 export GIT_SSL_CAINFO=/etc/ssl/certs/ca-certificates.crt
 export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
+export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+
+docker() {
+  if [[ "$1" == "run" ]]; then
+    shift
+    command docker run \
+      -e SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt \
+      -e REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt \
+      -e CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt \
+      -e NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt \
+      -v /etc/ssl/certs:/etc/ssl/certs:ro \
+      "$@"
+  else
+    command docker "$@"
+  fi
+}
+
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 

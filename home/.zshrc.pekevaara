@@ -713,3 +713,7 @@ export NVM_DIR="$HOME/.nvm"
 # shell command completion for gcloud.
 # if [ -f '/Users/pre/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pre/google-cloud-sdk/completion.zsh.inc'; fi
 
+
+# Open .md and .txt files with glow
+alias -s md=glow
+alias -s txt=glow

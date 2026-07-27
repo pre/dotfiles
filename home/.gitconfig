@@ -214,3 +214,6 @@
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
+
+[includeIf "gitdir:/home/prepo/dev/oma/"]
+  path = ~/dev/oma/.gitconfig-oma

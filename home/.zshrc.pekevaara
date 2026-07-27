@@ -715,5 +715,5 @@ export NVM_DIR="$HOME/.nvm"
 
 
 # Open .md and .txt files with glow
-alias -s md=glow
-alias -s txt=glow
+alias -s md="glow -p"
+alias -s txt="glow -p"

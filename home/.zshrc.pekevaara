@@ -636,7 +636,9 @@ export FORGIT_SHOW_PAGER='delta --width=${FZF_PREVIEW_COLUMNS:-$COLUMNS}'
 export FORGIT_LOG_FZF_OPTS='--preview-window=down:85%'
 export FORGIT_DIFF_FZF_OPTS='--preview-window=down:85%'
 export FORGIT_SHOW_FZF_OPTS='--preview-window=down:85%'
+export FORGIT_WORKTREE_FZF_OPTS='--preview-window=down:85%'
 export FORGIT_FZF_DEFAULT_OPTS='
+  --preview-window=down:85%
   --height=100%
   --layout=reverse
   --bind "space:preview-half-page-down,ctrl-down:preview-half-page-down,ctrl-up:preview-half-page-up,shift-right:change-preview-window(wrap|nowrap),up:preview-up,down:preview-down,shift-up:up,shift-down:down"'

@@ -48,11 +48,10 @@ open() {
   fi
 }
 
-# Claude LLM Gateway
-[ -f "$HOME/.config/claude-code/llm-gw.sh" ] && . "$HOME/.config/claude-code/llm-gw.sh"
-
-claude-pub() {
-  ( source "$HOME/.config/claude-code/public.sh" && command claude "$@" )
+# Claude profiles: klaude-switch <llm-gw|public>, no argument for an fzf picker
+[ -f "$HOME/dev/oma/klaude-switch/shell/klaude-switch.zsh" ] && {
+  . "$HOME/dev/oma/klaude-switch/shell/klaude-switch.zsh"
+  klaude-switch --quiet llm-gw
 }
 
 stree() {

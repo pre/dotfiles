@@ -217,3 +217,5 @@
 
 [includeIf "gitdir:/home/prepo/dev/oma/"]
   path = ~/dev/oma/.gitconfig-oma
+[includeIf "gitdir:/home/prepo/dev/rnd/"]
+  path = ~/dev/oma/.gitconfig-oma

@@ -120,6 +120,14 @@
     log-feat-since-long = !git log $1 HEAD --grep ^feat
     count   = !git shortlog -sn
 
+    ; commits included eg in main...HEAD
+    ; see also:
+    ;   branch --merged main
+    ;   branch --contains <sha>
+    ;   cherry -v main <branch>
+    ld = log --oneline --cherry-mark --left-right
+    ldm = log --oneline --cherry-mark --left-right main...HEAD
+
     ; Same as l, but don't show merges
     lm  = log --pretty=oneline --abbrev-commit --decorate --no-merges
 

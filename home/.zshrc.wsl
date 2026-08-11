@@ -60,8 +60,10 @@ stree() {
   "/mnt/c/Users/prepo/AppData/Local/SourceTree/SourceTree.exe" "$(wslpath -w "$PWD")"
 }
 
-# LLM GW usage stats (default: of the this month)
-# paramters: last|this week|month
+# LLM GW usage stats (default: this month)
+# paramters:
+#   last|this week|month
+#   yesterday|today
 llm-stats() {
   local start end today monday
 

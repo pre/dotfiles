@@ -40,6 +40,8 @@ add-zsh-hook precmd _wt_osc99
 # WSL pbcopy
 alias -g CB='| clip.exe'
 
+alias atl='python3 ~/.claude/skills/slai-atlassian/scripts/atlassian.py'
+
 open() {
   if [ -e "$1" ]; then
     cmd.exe /c start "" "$(wslpath -w "$1")"

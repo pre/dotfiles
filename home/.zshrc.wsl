@@ -61,19 +61,27 @@ stree() {
 # LLM GW usage stats (default: of the this month)
 # paramters: last|this week|month
 llm-stats() {
-  local start end today
+  local start end today monday
 
   today=$(date +%Y-%m-%d)
+  # Monday of the current week; "last monday" would skip back a week on Mondays
+  monday=$(date -d "-$(( $(date +%u) - 1 )) days" +%Y-%m-%d)
 
   if [[ $# -eq 0 ]]; then
     start=$(date +%Y-%m-01)
     end=$(date -d "$(date +%Y-%m-01) +1 month -1 day" +%Y-%m-%d)
-  elif [[ "$1" == "this" && "$2" == "week" ]]; then
-    start=$(date -d "last monday" +%Y-%m-%d)
+  elif [[ "$1" == "today" ]]; then
+    start=$today
     end=$today
+  elif [[ "$1" == "yesterday" ]]; then
+    start=$(date -d "yesterday" +%Y-%m-%d)
+    end=$start
+  elif [[ "$1" == "this" && "$2" == "week" ]]; then
+    start=$monday
+    end=$(date -d "$monday +6 days" +%Y-%m-%d)
   elif [[ "$1" == "last" && "$2" == "week" ]]; then
-    start=$(date -d "last monday -7 days" +%Y-%m-%d)
-    end=$(date -d "last monday -1 day" +%Y-%m-%d)
+    start=$(date -d "$monday -7 days" +%Y-%m-%d)
+    end=$(date -d "$monday -1 day" +%Y-%m-%d)
   elif [[ "$1" == "this" && "$2" == "month" ]]; then
     start=$(date +%Y-%m-01)
     end=$today
@@ -84,6 +92,9 @@ llm-stats() {
     start="$1"
     end="$2"
   fi
+
+  # API treats a bare date as 00:00:00, so an inclusive end needs the full day
+  [[ "$end" == *T* ]] || end="${end}T23:59:59"
 
   echo "Usage stats $start → $end"
   curl -s -G 'https://llm-api.amd.com/api/UsageStats' \

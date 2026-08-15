@@ -20,7 +20,7 @@ fi
 export LANG=en_US.UTF-8
 
 export BREW_PREFIX=$(brew --prefix)
-export PATH="$HOME/.local/bin:${BREW_PREFIX}/bin:${BREW_PREFIX}/opt/rustup/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/.local/bin:${BREW_PREFIX}/bin:${BREW_PREFIX}/opt/rustup/bin:$HOME/.cargo/bin:/usr/local/bin:$PATH"
 
 # zsh completions from both Homebrew and zsh-completions 
 #   https://docs.brew.sh/Shell-Completion

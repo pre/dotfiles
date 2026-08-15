@@ -39,16 +39,16 @@
 [user]
   name = Petrus Repo
   # email = petrus@petafox.com
-  email = petrus.repo@amd.com
+  email = petrus@petafox.com
   # Run the following command and get value of "sec" for signing key
   #   gpg2 --list-secret-keys
   #   gpg2 -K --keyid-format SHORT
   # signingkey = last 8 characters of the key name
   ## petafox:
-  # signingkey = F987624F
+  signingkey = F987624F
   ## old:
   # signingkey = 680211EC
-	signingkey = D0D17CD24905AFC9
+  #signingkey = D0D17CD24905AFC9
 # Use gpg2 to sign commits (use gpg2 instead of gpg)
 #   brew install gpg2
 #   gpg --version # >= 2.3
@@ -74,7 +74,8 @@
 # Commits should appear as "Verified" in Github and locally with
 #   git log --show-signature
 [gpg]
-  program = gpg
+  program = gpg   # terminal
+  program = gpg2  # gpg suite
 
 [commit]
   gpgsign = true

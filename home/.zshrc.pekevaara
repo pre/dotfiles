@@ -54,11 +54,11 @@ autoload -Uz zmv
 
 # HISTORY SETTINGS
 setopt EXTENDED_HISTORY
+setopt HIST_FCNTL_LOCK      # multiple writers in .zhistory 
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt PUSHD_IGNORE_DUPS
-setopt inc_append_history # save every command before it is executed
 setopt share_history # retrieve the history file everytime history is called upon
 HISTFILE="${HOME}/.zhistory"
 HISTSIZE=1000000
@@ -75,6 +75,11 @@ alias claude='claude --allow-dangerously-skip-permissions --remote-control'
 alias claude-wild='claude --dangerously-skip-permissions --remote-control'
 alias cla='claude agents --allow-dangerously-skip-permissions --remote-control'
 alias clad='claude agents --dangerously-skip-permissions --remote-control'
+
+alias klaude-mute='~/.claude/hooks/sound.sh off'
+alias klaude-unmute='~/.claude/hooks/sound.sh on'
+alias klaude-sound='~/.claude/hooks/sound.sh'
+alias klaude-volume="klaude-sound vol"
 
 # RAILS
 alias rc='rails c'

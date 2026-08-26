@@ -50,6 +50,22 @@ open() {
   fi
 }
 
+winrun() {
+  >/dev/null pushd /mnt/c \
+    && "$@" \
+    && >/dev/null popd
+}
+
+code() {
+  local p="$(realpath "${1:-.}")"
+  # Percent-encode the path before it becomes a URI. A space is not the only
+  # risk: "#" starts the URI fragment and silently cuts the path short, and a
+  # raw "%" can make an accidental escape sequence. Encode "%" first, or the
+  # step encodes the "%" of its own "%20" again. The nested ${${${...}}} is
+  # zsh expansion, so this needs no subprocess.
+  winrun command code --folder-uri "vscode-remote://wsl+$WSL_DISTRO_NAME${${${p//\%/%25}// /%20}//\#/%23}"
+}
+
 # Claude profiles: klaude-switch <llm-gw|public>, no argument for an fzf picker
 [ -f "$HOME/dev/oma/klaude-switch/shell/klaude-switch.zsh" ] && {
   . "$HOME/dev/oma/klaude-switch/shell/klaude-switch.zsh"

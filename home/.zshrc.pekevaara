@@ -71,15 +71,13 @@ setopt COMPLETE_IN_WORD # not just at the end
 setopt auto_cd
 cdpath=($HOME/dev $HOME/Documents)
 
-alias claude='claude --allow-dangerously-skip-permissions --remote-control'
-alias claude-wild='claude --dangerously-skip-permissions --remote-control'
-alias cla='claude agents --allow-dangerously-skip-permissions --remote-control'
-alias clad='claude agents --dangerously-skip-permissions --remote-control'
+alias claude='claude --allow-dangerously-skip-permissions'
 
 alias klaude-mute='~/.claude/hooks/sound.sh off'
 alias klaude-unmute='~/.claude/hooks/sound.sh on'
 alias klaude-sound='~/.claude/hooks/sound.sh'
 alias klaude-volume="klaude-sound vol"
+alias ks='klaude-switch'
 
 # RAILS
 alias rc='rails c'

@@ -1,0 +1,72 @@
+onboarding = false
+
+[ui]
+status_indicators = "dots"
+
+[ui.toast]
+delivery = "herdr"
+
+[keys]
+prefix = "ctrl+f"
+navigate_workspace_up = "k"
+navigate_workspace_down = "j"
+## Does not work with Finnish layout
+# switch_workspace = "prefix+shift+1..9"
+
+[theme]
+name = "one-dark"
+auto_switch = false
+
+[[keys.command]]
+key = 'prefix+!'
+type = "shell"
+description = 'switch to workspace 1'
+command = 'herdr workspace focus $(herdr workspace list | jq -r ".result.workspaces[]|select(.number==1)|.workspace_id")'
+
+[[keys.command]]
+key = 'prefix+"'
+type = "shell"
+description = 'switch to workspace 2'
+command = 'herdr workspace focus $(herdr workspace list | jq -r ".result.workspaces[]|select(.number==2)|.workspace_id")'
+
+[[keys.command]]
+key = 'prefix+#'
+type = "shell"
+description = 'switch to workspace 3'
+command = 'herdr workspace focus $(herdr workspace list | jq -r ".result.workspaces[]|select(.number==3)|.workspace_id")'
+
+[[keys.command]]
+key = 'prefix+¤'
+type = "shell"
+description = 'switch to workspace 4'
+command = 'herdr workspace focus $(herdr workspace list | jq -r ".result.workspaces[]|select(.number==4)|.workspace_id")'
+
+[[keys.command]]
+key = 'prefix+%'
+type = "shell"
+description = 'switch to workspace 5'
+command = 'herdr workspace focus $(herdr workspace list | jq -r ".result.workspaces[]|select(.number==5)|.workspace_id")'
+
+[[keys.command]]
+key = 'prefix+&'
+type = "shell"
+description = 'switch to workspace 6'
+command = 'herdr workspace focus $(herdr workspace list | jq -r ".result.workspaces[]|select(.number==6)|.workspace_id")'
+
+[[keys.command]]
+key = 'prefix+/'
+type = "shell"
+description = 'switch to workspace 7'
+command = 'herdr workspace focus $(herdr workspace list | jq -r ".result.workspaces[]|select(.number==7)|.workspace_id")'
+
+[[keys.command]]
+key = 'prefix+('
+type = "shell"
+description = 'switch to workspace 8'
+command = 'herdr workspace focus $(herdr workspace list | jq -r ".result.workspaces[]|select(.number==8)|.workspace_id")'
+
+[[keys.command]]
+key = 'prefix+)'
+type = "shell"
+description = 'switch to workspace 9'
+command = 'herdr workspace focus $(herdr workspace list | jq -r ".result.workspaces[]|select(.number==9)|.workspace_id")'

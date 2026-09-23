@@ -10,9 +10,9 @@ delivery = "herdr"
 [keys]
 prefix = "ctrl+f"
 previous_tab = "prefix+f"
-last_pane = "prefix+space"
-#next_workspace = "prefix+space"
-#previous_workspace = "prefix+shift+space"
+last_pane = ["prefix+space", "alt+space"]
+next_workspace = ["ctrl+alt+space", "ctrl+alt+n"]
+previous_workspace = "ctrl+alt+p"
 next_agent = "prefix+a"
 previous_agent = "prefix+shift+a"
 navigate_workspace_up = "k"

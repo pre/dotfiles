@@ -1,21 +1,33 @@
 onboarding = false
 
 [ui]
-status_indicators = "dots"
+status_indicators = "symbols"
+prompt_new_tab_name = false
 
 [ui.toast]
 delivery = "herdr"
 
 [keys]
 prefix = "ctrl+f"
+previous_tab = "prefix+f"
+last_pane = "prefix+space"
+#next_workspace = "prefix+space"
+#previous_workspace = "prefix+shift+space"
+next_agent = "prefix+a"
+previous_agent = "prefix+shift+a"
 navigate_workspace_up = "k"
 navigate_workspace_down = "j"
+navigate_pane_up = "shift+k"
+navigate_pane_down = "shift+j"
 ## Does not work with Finnish layout
 # switch_workspace = "prefix+shift+1..9"
 
 [theme]
-name = "one-dark"
+name = "terminal"
 auto_switch = false
+
+[theme.custom]
+selection_bg = "#463f5d"
 
 [[keys.command]]
 key = 'prefix+!'

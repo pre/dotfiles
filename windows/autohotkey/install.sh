@@ -31,3 +31,7 @@ $s.WorkingDirectory = Split-Path $env:AHK_TARGET
 $s.Save()
 Write-Output "$lnk -> $($s.TargetPath) $($s.Arguments)"
 '
+
+# #SingleInstance Force in the script makes this replace the running instance
+setsid "$ahk" "$(wslpath -w "$target_dir/win11-petrus.ahk")" >/dev/null 2>&1 &
+echo "restarted win11-petrus.ahk"

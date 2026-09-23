@@ -19,8 +19,11 @@ lastMinimized := 0
     }
 }
 
-; WIN-W sends ALT-F4 to close current window
-#w::Send "!{F4}"
+; WIN-W sends CTRL-W to close current tab
+#w::Send "^w"
+
+; WIN-Q sends ALT-F4 to close current window
+#q::Send "!{F4}"
 
 ; WIN-C copy, WIN-V paste
 #c::Send "^c"

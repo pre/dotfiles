@@ -22,6 +22,10 @@ lastMinimized := 0
 ; WIN-W sends ALT-F4 to close current window
 #w::Send "!{F4}"
 
+; WIN-C copy, WIN-V paste
+#c::Send "^c"
+#v::Send "^v"
+
 ; CTRL-ALT-ARROWLEFT/RIGHT - Move between Firefox tabs
 #HotIf WinActive("ahk_exe firefox.exe")
 ^!Left::Send "^{PgUp}"

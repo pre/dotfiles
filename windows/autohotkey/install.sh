@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Creates a Windows Startup shortcut that runs win11-petrus.ahk straight from
-# this WSL directory, so edits in the repo take effect without copying.
+# Copies win11-petrus.ahk to the Windows Documents\AutoHotkey directory and
+# creates a Startup shortcut that runs it from there. WSL is not running at
+# Windows startup, so the script must live on the Windows filesystem.
 set -euo pipefail
 
 dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
@@ -11,8 +12,12 @@ script="$dir/win11-petrus.ahk"
 ahk=${AHK_EXE:-/mnt/c/Program Files/AutoHotkey/v2/AutoHotkey64.exe}
 [ -x "$ahk" ] || { echo "AutoHotkey v2 not found: $ahk (set AHK_EXE)" >&2; exit 1; }
 
+target_dir=${AHK_DEST_DIR:-"/mnt/c/Users/prepo/Documents/autohotkey"}
+mkdir -p "$target_dir"
+cp "$script" "$target_dir/"
+
 export AHK_TARGET="$(wslpath -w "$ahk")"
-export AHK_ARGS="\"\\\\wsl.localhost\\${WSL_DISTRO_NAME}${script//\//\\}\""
+export AHK_ARGS="\"$(wslpath -w "$target_dir/win11-petrus.ahk")\""
 export LNK_NAME="win11-petrus.lnk"
 export WSLENV="AHK_TARGET:AHK_ARGS:LNK_NAME:${WSLENV:-}"
 

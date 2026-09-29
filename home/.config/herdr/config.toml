@@ -9,12 +9,13 @@ delivery = "herdr"
 
 [keys]
 prefix = "ctrl+f"
-previous_tab = "prefix+f"
-last_pane = ["prefix+space", "alt+space"]
-next_workspace = ["ctrl+alt+space", "ctrl+alt+n"]
-previous_workspace = "ctrl+alt+p"
-next_agent = "prefix+a"
-previous_agent = "prefix+shift+a"
+next_tab = "alt+right"
+previous_tab = "alt+left"
+last_pane = ["prefix+d", "prefix+ctrl+d", "alt+space", "prefix+space"]
+next_workspace = ["ctrl+alt+space", "alt+down"]
+previous_workspace = "alt+up"
+next_agent = ["prefix+a", "alt+shift+down"]
+previous_agent = ["prefix+shift+a", "alt+shift+up"]
 navigate_workspace_up = "k"
 navigate_workspace_down = "j"
 navigate_pane_up = "shift+k"

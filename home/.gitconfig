@@ -174,7 +174,8 @@
 # on the remote. To limit this behavior to just the current branch and
 # to prevent accidental pushes to branches which you’re not ready to push yet:
 [push]
-  default = tracking
+  default = simple
+  autoSetupRemote = true
 [rebase]
   stat = true
 [interactive]
@@ -228,3 +229,5 @@
   path = ~/dev/oma/.gitconfig-oma
 [includeIf "gitdir:/home/prepo/dev/rnd/"]
   path = ~/dev/oma/.gitconfig-oma
+[branch]
+  autoSetupMerge = simple

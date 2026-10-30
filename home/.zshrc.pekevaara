@@ -569,7 +569,7 @@ export PATH="$PATH:${BREW_PREFIX}/opt/fzf/bin"
 # fzf key bindings
 source "${BREW_PREFIX}/opt/fzf/shell/key-bindings.zsh"
 
-export FZF_DEFAULT_OPTS="--height=15"
+export FZF_DEFAULT_OPTS="--height=15 --no-mouse"
 
 export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target

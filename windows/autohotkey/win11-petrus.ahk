@@ -29,10 +29,13 @@ lastMinimized := 0
 #c::Send "^c"
 #v::Send "^v"
 
-; CTRL-ALT-ARROWLEFT/RIGHT - Move between Firefox tabs
+; Firefox: CTRL-ALT-ARROWLEFT/RIGHT moves between tabs,
+; ALT-ARROWLEFT/RIGHT jumps a word instead of history back/forward
 #HotIf WinActive("ahk_exe firefox.exe")
 ^!Left::Send "^{PgUp}"
 ^!Right::Send "^{PgDn}"
+!Left::Send "^{Left}"
+!Right::Send "^{Right}"
 #HotIf
 
 ; Ignore WIN key-down key-up (opens Start menu by default)

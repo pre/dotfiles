@@ -1,0 +1,80 @@
+# ZSCALER WORKAROUND
+
+# Homebrew & other software should also use the system provided certificates
+export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+export SSL_CERT_DIR=/etc/ssl/certs
+export GIT_SSL_CAINFO=/etc/ssl/certs/ca-certificates.crt
+export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
+export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+
+docker() {
+  if [[ "$1" == "run" ]]; then
+    shift
+    command docker run \
+      -e SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt \
+      -e REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt \
+      -e CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt \
+      -e NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt \
+      -v /etc/ssl/certs:/etc/ssl/certs:ro \
+      "$@"
+  else
+    command docker "$@"
+  fi
+}
+
+alias atl='python3 ~/.claude/skills/slai-atlassian/scripts/atlassian.py'
+
+# Claude profile
+[ -f "$HOME/dev/oma/klaude-switch/shell/klaude-switch.zsh" ] && {
+  . "$HOME/dev/oma/klaude-switch/shell/klaude-switch.zsh"
+  klaude-switch --quiet llm-gw
+}
+
+# LLM GW usage stats (default: this month)
+# paramters:
+#   last|this week|month
+#   yesterday|today
+llm-stats() {
+  local start end today monday
+
+  today=$(date +%Y-%m-%d)
+  # Monday of the current week; "last monday" would skip back a week on Mondays
+  monday=$(date -d "-$(( $(date +%u) - 1 )) days" +%Y-%m-%d)
+
+  if [[ $# -eq 0 ]]; then
+    start=$(date +%Y-%m-01)
+    end=$(date -d "$(date +%Y-%m-01) +1 month -1 day" +%Y-%m-%d)
+  elif [[ "$1" == "today" ]]; then
+    start=$today
+    end=$today
+  elif [[ "$1" == "yesterday" ]]; then
+    start=$(date -d "yesterday" +%Y-%m-%d)
+    end=$start
+  elif [[ "$1" == "this" && "$2" == "week" ]]; then
+    start=$monday
+    end=$(date -d "$monday +6 days" +%Y-%m-%d)
+  elif [[ "$1" == "last" && "$2" == "week" ]]; then
+    start=$(date -d "$monday -7 days" +%Y-%m-%d)
+    end=$(date -d "$monday -1 day" +%Y-%m-%d)
+  elif [[ "$1" == "this" && "$2" == "month" ]]; then
+    start=$(date +%Y-%m-01)
+    end=$today
+  elif [[ "$1" == "last" && "$2" == "month" ]]; then
+    start=$(date -d "$(date +%Y-%m-01) -1 month" +%Y-%m-%d)
+    end=$(date -d "$(date +%Y-%m-01) -1 day" +%Y-%m-%d)
+  else
+    start="$1"
+    end="$2"
+  fi
+
+  # API treats a bare date as 00:00:00, so an inclusive end needs the full day
+  [[ "$end" == *T* ]] || end="${end}T23:59:59"
+
+  echo "Usage stats $start → $end"
+  curl -s -G 'https://llm-api.amd.com/api/UsageStats' \
+    -H "Ocp-Apim-Subscription-Key: $LLM_TOKEN" \
+    --data-urlencode "start=$start" \
+    --data-urlencode "end=$end" \
+  | jq
+}

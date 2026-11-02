@@ -1,0 +1,13 @@
+# Launch Homebrew gpg-agent on shell start
+export GPG_TTY=$(tty)
+if ! "${BREW_PREFIX}/bin/gpgconf" --list-dirs agent-socket | xargs test -S 2>/dev/null; then
+  "${BREW_PREFIX}/bin/gpgconf" --launch gpg-agent
+fi
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# pbcopy
+alias -g CB='| wl-copy'
+
+alias open=xdg-open
+

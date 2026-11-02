@@ -13,9 +13,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
-fi
+for brew in ${HOME}/.linuxbrew/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
+  [[ -x $brew ]] && eval "$($brew shellenv zsh)" && break
+done
 
 export LANG=en_US.UTF-8
 
@@ -35,8 +35,10 @@ autoload -Uz compinit
 compinit
 
 source ${HOME}/.zshrc.pekevaara
+[[ -f ${HOME}/.zshrc.amd ]] && source ${HOME}/.zshrc.amd
 [[ -f ${HOME}/.zshrc.wsl ]] && source ${HOME}/.zshrc.wsl
-source ${HOME}/.zshrc.private
+[[ -f ${HOME}/.zshrc.lnx ]] && source ${HOME}/.zshrc.lnx
+[[ -f ${HOME}/.zshrc.private ]] && source ${HOME}/.zshrc.private
 
 # brew install powerlevel10k
 source "${BREW_PREFIX}/share/powerlevel10k/powerlevel10k.zsh-theme"

@@ -1,6 +1,15 @@
 # $SHELL does not change if zsh was exec'd from another shell
 export SHELL=$(command -v zsh)
 
+# Unbind ^V to avoid garbage characters when muscle memory pastes without shift
+bindkey -r '^V'
+
+# Bind ctrl arrow-left / arrow-right on shell level because Gnome terminal doesn't support it.
+# iTerm2 & Windows Terminal set this on the terminal level so jumping between words work also
+# inside containers & ssh connections.
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
 # ZSCALER WORKAROUNDS
 #
 # Homebrew & other software should also use the system provided certificates
@@ -11,7 +20,11 @@ export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
 export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
-alias zsrestart='sudo systemctl restart zstunnel zsaservice && sudo resolvectl flush-caches'
+alias zrestart='sudo systemctl restart zstunnel zsaservice && sudo resolvectl flush-caches'
+alias zstatus='systemctl status zstunnel zsaservice --no-pager ; ip -br link show zcctun0'
+
+alias restart-mic="systemctl --user restart wireplumber"
+alias restart-zscaler=zrestart
 
 export TMPDIR="$HOME/tmp"
 

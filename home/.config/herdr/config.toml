@@ -84,3 +84,6 @@ key = 'prefix+)'
 type = "shell"
 description = 'switch to workspace 9'
 command = 'herdr workspace focus $(herdr workspace list | jq -r ".result.workspaces[]|select(.number==9)|.workspace_id")'
+
+[terminal]
+default_shell = "/home/prepo/.linuxbrew/bin/zsh"

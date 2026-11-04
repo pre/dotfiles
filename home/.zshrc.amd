@@ -1,5 +1,8 @@
-# ZSCALER WORKAROUND
+# $SHELL does not change if zsh was exec'd from another shell
+export SHELL=$(command -v zsh)
 
+# ZSCALER WORKAROUNDS
+#
 # Homebrew & other software should also use the system provided certificates
 export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 export SSL_CERT_DIR=/etc/ssl/certs
@@ -7,6 +10,10 @@ export GIT_SSL_CAINFO=/etc/ssl/certs/ca-certificates.crt
 export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
 export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+
+alias zsrestart='sudo systemctl restart zstunnel zsaservice && sudo resolvectl flush-caches'
+
+export TMPDIR="$HOME/tmp"
 
 docker() {
   if [[ "$1" == "run" ]]; then

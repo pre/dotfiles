@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+# Apply the setting now, so that a reboot is not necessary.
+if [ "$1" = configure ] && [ -w /sys/module/hid_apple/parameters/iso_layout ]; then
+    echo 1 > /sys/module/hid_apple/parameters/iso_layout
+fi

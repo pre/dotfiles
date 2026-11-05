@@ -10,6 +10,12 @@ bindkey -r '^V'
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 
+# Homebrew installs gsettings as a dependency but it's newer than the one used by the system.
+# Can't update / remove the system command either, so workaround with an alias.
+alias gsettings=/usr/bin/gsettings
+alias gdbus=/usr/bin/gdbus
+alias gio=/usr/bin/gio
+
 # ZSCALER WORKAROUNDS
 #
 # Homebrew & other software should also use the system provided certificates

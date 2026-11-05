@@ -711,13 +711,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 
-# brew install nodenv
-init-nodenv() { eval "$(nodenv init -)" }
-#eval "$(nodenv init -)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "${BREW_PREFIX}/opt/nvm/nvm.sh" ] && \. "${BREW_PREFIX}/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "${BREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm" ] && \. "${BREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# .node-version
+#   brew install fnm
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 # PATH for the Google Cloud SDK.
 # if [ -f '/Users/pre/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pre/google-cloud-sdk/path.zsh.inc'; fi

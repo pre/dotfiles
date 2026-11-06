@@ -17,8 +17,8 @@ next_workspace = ["ctrl+alt+space", "alt+down"]
 previous_workspace = "alt+up"
 next_agent = ["prefix+a", "alt+shift+down"]
 previous_agent = ["prefix+shift+a", "alt+shift+up"]
-navigate_workspace_up = "k"
-navigate_workspace_down = "j"
+navigate_workspace_up = ["up", "k"]
+navigate_workspace_down = ["down", "j"]
 navigate_pane_up = "shift+k"
 navigate_pane_down = "shift+j"
 ## Does not work with Finnish layout

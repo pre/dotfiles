@@ -231,3 +231,5 @@
   path = ~/dev/oma/.gitconfig-oma
 [branch]
   autoSetupMerge = simple
+[includeIf "hasconfig:remote.*.url:git@github.com:AMD-*/**"]
+  path = ~/.gitconfig-amdeng

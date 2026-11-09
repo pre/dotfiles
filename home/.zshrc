@@ -18,6 +18,7 @@ for brew in ${HOME}/.linuxbrew/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
 done
 
 export LANG=en_US.UTF-8
+export LC_TIME=en_GB.UTF-8
 
 export BREW_PREFIX=$(brew --prefix)
 export PATH="$HOME/.local/bin:${BREW_PREFIX}/bin:${BREW_PREFIX}/opt/rustup/bin:$HOME/.cargo/bin:/usr/local/bin:$PATH"

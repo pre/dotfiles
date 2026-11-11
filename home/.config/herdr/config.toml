@@ -4,6 +4,7 @@ onboarding = false
 status_indicators = "symbols"
 prompt_new_tab_name = false
 confirm_close = false
+window_title = "{workspace}:  {terminal_title}"
 
 [ui.toast]
 delivery = "herdr"

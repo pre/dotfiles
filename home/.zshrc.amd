@@ -32,7 +32,26 @@ alias zstatus='systemctl status zstunnel zsaservice --no-pager ; ip -br link sho
 alias restart-mic="systemctl --user restart wireplumber"
 alias restart-zscaler=zrestart
 
+alias pup='sudo puppet agent -t'
+
 export TMPDIR="$HOME/tmp"
+
+free-ram() {
+  local gtt_file=(/sys/class/drm/card*/device/mem_info_gtt_used)
+  local report='
+    /MemTotal:/     { total_kib = $2 }
+    /MemAvailable:/ { avail_kib = $2 }
+    /SwapTotal:/    { swap_total_kib = $2 }
+    /SwapFree:/     { swap_free_kib = $2 }
+    END {
+      gib = 2^30
+      used = (total_kib - avail_kib) * 1024
+      swap_used = (swap_total_kib - swap_free_kib) * 1024
+      printf "RAM usage %.1f GiB, w/o GTT %.1f GiB; GTT %.1f GiB, available %.1f GiB. Swap %.1f GiB.\n",
+        used / gib, (used - gtt) / gib, gtt / gib, avail_kib * 1024 / gib, swap_used / gib
+    }'
+  watch -t -n1 "awk -v gtt=\$(cat $gtt_file[1]) '$report' /proc/meminfo"
+}
 
 docker() {
   if [[ "$1" == "run" ]]; then

@@ -48,6 +48,8 @@ export GPG_TTY=$(tty)
 
 export PATH="$PATH:${HOME}/.krew/bin"
 
+export EDITOR="code -nw"
+
 # Batch rename
 #   zmv '(*).txt' 'lol-$1.txt'
 autoload -Uz zmv

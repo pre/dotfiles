@@ -138,6 +138,15 @@ alias kg="kubectl get"
 [ -f ~/.local/share/bash-completion/completions/kubectl ] && source ~/.local/share/bash-completion/completions/kubectl
 complete -o default -F __start_kubectl k
 
+# ZSCALER WORKAROUNDS
+#
+# Homebrew & other software should also use the system provided certificates
+export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+export SSL_CERT_DIR=/etc/ssl/certs
+export GIT_SSL_CAINFO=/etc/ssl/certs/ca-certificates.crt
+export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
+export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
 # BEGIN SLAI.Codex (tarball)
 # AMD-approved SLAI.Codex (managed by AMD.ADE / SLAI-Suite)
@@ -152,3 +161,4 @@ export AZURE_OPENAI_API_KEY="dummy"
 export OPENAI_API_KEY="dummy"
 export AZURE_OPENAI_ENDPOINT="https://llm-api.amd.com/openai/gpt-5-codex"
 # END SLAI.Codex env vars
+#
